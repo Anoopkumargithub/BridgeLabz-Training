@@ -79,6 +79,26 @@ To strengthen problem-solving abilities, build a strong programming foundation, 
 
 ---
 
+### 🗓️ **Date: 19-12-2025**
+### 🎯 Task of the Day
+- Implement a comprehensive C# operators demo in [core-csharp-practice/gcr-codebase/programming-elements/Operators.cs](core-csharp-practice/gcr-codebase/programming-elements/Operators.cs)
+- Create a C# data types and type conversion demo in [core-csharp-practice/gcr-codebase/programming-elements/DataType.cs](core-csharp-practice/gcr-codebase/programming-elements/DataType.cs)
+
+### 📘 What I Learned
+- Refreshed all major C# operators: arithmetic, relational, logical, assignment, unary, ternary, and `is`
+- Practiced interpolated strings for clearer console output
+- Observed pre/post increment and decrement behavior in console traces
+- Explored C# data types: `int`, `long`, `float`, `double`, `char`, `bool`
+- Understood implicit vs explicit type conversions (casting)
+- Learned type checking using the `is` operator
+
+### ⏭️ What’s Next
+- Add more C# practice programs (loops, arrays, methods)
+- Start applying operators inside small problem-solving exercises
+- Prepare to introduce basic OOP constructs in C#
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
