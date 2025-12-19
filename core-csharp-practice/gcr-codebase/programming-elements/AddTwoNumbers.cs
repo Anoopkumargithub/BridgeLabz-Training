@@ -2,8 +2,9 @@ using System;
 
 class AddTwoNumber
 {
-    static void Main()
+    static void Main(string[] args)
     {
+        Console.WriteLine(args[0]);
         Console.Write("Enter first number: ");
         int n = int.Parse(Console.ReadLine());
 
@@ -12,6 +13,6 @@ class AddTwoNumber
 
         int sum = n + m;
 
-        Console.WriteLine($"Sum: {sum}");
+        Console.WriteLine("Sum: " + sum);
     }
 }
