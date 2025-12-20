@@ -83,6 +83,7 @@ To strengthen problem-solving abilities, build a strong programming foundation, 
 ### 🎯 Task of the Day
 - Implement a comprehensive C# operators demo in [core-csharp-practice/gcr-codebase/programming-elements/Operators.cs](core-csharp-practice/gcr-codebase/programming-elements/Operators.cs)
 - Create a C# data types and type conversion demo in [core-csharp-practice/gcr-codebase/programming-elements/DataType.cs](core-csharp-practice/gcr-codebase/programming-elements/DataType.cs)
+- Study C# access modifiers, memory model basics, and the `static` keyword
 
 ### 📘 What I Learned
 - Refreshed all major C# operators: arithmetic, relational, logical, assignment, unary, ternary, and `is`
@@ -91,11 +92,49 @@ To strengthen problem-solving abilities, build a strong programming foundation, 
 - Explored C# data types: `int`, `long`, `float`, `double`, `char`, `bool`
 - Understood implicit vs explicit type conversions (casting)
 - Learned type checking using the `is` operator
-
+- Reviewed the five C# access modifiers (`public`, `private`, `protected`, `internal`, `protected internal`) and when to use each for encapsulation
+- Mapped how value types live on the stack, reference types on the heap, and how the garbage collector reclaims managed memory
+- Clarified how `static` members belong to the type, common use cases (utility methods, shared counters), and lifecycle implications
+### 🧮 Programs Implemented (Level 1)
+- [CalculateProfitLoss.cs](core-csharp-practice/gcr-codebase/csharp-programming-elements/level1/CalculateProfitLoss.cs) - Calculate profit or loss from cost and selling price
+- [DiscountOnUniversityFees.cs](core-csharp-practice/gcr-codebase/csharp-programming-elements/level1/DiscountOnUniversityFees.cs) & [DiscountOnUniversityFees2.cs](core-csharp-practice/gcr-codebase/csharp-programming-elements/level1/DiscountOnUniversityFees2.cs) - Apply discount calculations to university fees
+- [DividedPensAmingStudents.cs](core-csharp-practice/gcr-codebase/csharp-programming-elements/level1/DividedPensAmingStudents.cs) - Divide items among students
+- [HarryAge.cs](core-csharp-practice/gcr-codebase/csharp-programming-elements/level1/HarryAge.cs) - Age calculation program
+- [KiloMetersToMiles.cs](core-csharp-practice/gcr-codebase/csharp-programming-elements/level1/KiloMetersToMiles.cs) & [KiloMetersToMiles2.cs](core-csharp-practice/gcr-codebase/csharp-programming-elements/level1/KiloMetersToMiles2.cs) - Unit conversion implementations
+- [SamMarks.cs](core-csharp-practice/gcr-codebase/csharp-programming-elements/level1/SamMarks.cs) - Calculate average marks
+- [VolumeOfEarth.cs](core-csharp-practice/gcr-codebase/csharp-programming-elements/level1/VolumeOfEarth.cs) - Volume calculation using mathematical formulas
 ### ⏭️ What’s Next
 - Add more C# practice programs (loops, arrays, methods)
 - Start applying operators inside small problem-solving exercises
 - Prepare to introduce basic OOP constructs in C#
+- Move to Level 2 programming challenges
+
+---
+
+### 🗓️ **Date: 20-12-2025**
+### 🎯 Task of the Day
+- Solve **geometry and arithmetic operation problems using C#**
+- Continue building core C# programming fundamentals
+
+### 🧮 Problems Covered
+- [AreaOfTriangle.cs](core-csharp-practice/gcr-codebase/csharp-programming-elements/level1/AreaOfTriangle.cs) - Calculate the area of a triangle using base and height
+- [FindDistance.cs](core-csharp-practice/gcr-codebase/csharp-programming-elements/level1/FindDistance.cs) - Distance conversion and calculations
+- [Calculator.cs](core-csharp-practice/gcr-codebase/csharp-programming-elements/level1/Calculator.cs) - Basic arithmetic operations (addition, subtraction, multiplication, division)
+- [HeightToFeet.cs](core-csharp-practice/gcr-codebase/csharp-programming-elements/level1/HeightToFeet.cs) - Unit conversion for height measurements
+- [SideOfSquare.cs](core-csharp-practice/gcr-codebase/csharp-programming-elements/level1/SideOfSquare.cs) - Calculate properties of squares
+- [NumberOfHandShakes.cs](core-csharp-practice/gcr-codebase/csharp-programming-elements/level1/NumberOfHandShakes.cs) - Combinatorial calculation
+
+### 📘 What I Learned
+- Translating geometric formulas into C# code
+- Working with mathematical operations and precision handling
+- Unit conversions and practical problem-solving
+- Improved understanding of input/output formatting in C#
+- Enhanced mathematical problem-solving skills
+
+### ⏭️ What's Next
+- Explore Level 2 programming challenges with more complex logic
+- Begin learning control flow structures (if-else, loops)
+- Practice array operations and data structures
 
 ---
 
