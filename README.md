@@ -138,6 +138,52 @@ To strengthen problem-solving abilities, build a strong programming foundation, 
 
 ---
 
+### 🗓️ **Date: 22-12-2025**
+### 🎯 Task of the Day
+- Learn and implement **Control Flow structures (if-else, loops)** using C#
+- Solve control flow-based programming problems
+
+### 📘 What I Learned
+- **Conditional Statements (if-else):**
+  - Single if statements for simple conditions
+  - if-else for binary decisions
+  - Nested if-else for complex logic flow
+  - Ternary operators for concise conditional expressions
+- **Looping Constructs:**
+  - `while` loops for condition-based iteration
+  - `for` loops for counted iteration
+  - Loop control with `break` and `continue` statements
+- Application of control flow in real-world scenarios
+- Pattern recognition and logical problem decomposition
+
+### 🧮 Programs Implemented (Level 1 - Control Flow)
+- [CountDown.cs](core-csharp-practice/gcr-codebase/control-flow/level1/CountDown.cs) - Countdown using if-else
+- [CountDownUsingLoop.cs](core-csharp-practice/gcr-codebase/control-flow/level1/CountDownUsingLoop.cs) - Countdown using while/for loops
+- [Factorial.cs](core-csharp-practice/gcr-codebase/control-flow/level1/Factorial.cs) - Calculate factorial using if-else logic
+- [FactorialByForloop.cs](core-csharp-practice/gcr-codebase/control-flow/level1/FactorialByForloop.cs) - Calculate factorial using for loop
+- [OddAndEven.cs](core-csharp-practice/gcr-codebase/control-flow/level1/OddAndEven.cs) - Check if numbers are odd or even
+- [FindBonus.cs](core-csharp-practice/gcr-codebase/control-flow/level1/FindBonus.cs) - Calculate bonus salary based on conditions
+- [LargestNumber.cs](core-csharp-practice/gcr-codebase/control-flow/level1/LargestNumber.cs) - Find the largest among multiple numbers
+- [SmallestNumber.cs](core-csharp-practice/gcr-codebase/control-flow/level1/SmallestNumber.cs) - Find the smallest among multiple numbers
+- [PersonCanVote.cs](core-csharp-practice/gcr-codebase/control-flow/level1/PersonCanVote.cs) - Verify voting eligibility
+- [PolarityCheck.cs](core-csharp-practice/gcr-codebase/control-flow/level1/PolarityCheck.cs) - Check if number is positive or negative
+- [SpringSeason.cs](core-csharp-practice/gcr-codebase/control-flow/level1/SpringSeason.cs) - Determine season based on month
+- [DIvisibleBy5.cs](core-csharp-practice/gcr-codebase/control-flow/level1/DIvisibleBy5.cs) - Check divisibility by 5
+- [NaturalNumber.cs](core-csharp-practice/gcr-codebase/control-flow/level1/NaturalNumber.cs) - Work with natural numbers
+- [MultiplicationTable.cs](core-csharp-practice/gcr-codebase/control-flow/level1/MultiplicationTable.cs) - Generate multiplication tables using loops
+- [SumOfNaturalNumberByWhileLoop.cs](core-csharp-practice/gcr-codebase/control-flow/level1/SumOfNaturalNumberByWhileLoop.cs) - Sum natural numbers using while loop
+- [SumOfNaturalNumberByForLoop.cs](core-csharp-practice/gcr-codebase/control-flow/level1/SumOfNaturalNumberByForLoop.cs) - Sum natural numbers using for loop
+- [SumOfNumbers.cs](core-csharp-practice/gcr-codebase/control-flow/level1/SumOfNumbers.cs) - Sum of numbers with conditions
+- [SumOfNumberPart2.cs](core-csharp-practice/gcr-codebase/control-flow/level1/SumOfNumberPart2.cs) - Advanced sum calculations
+
+### ⏭️ What's Next
+- Master Level 2 control flow challenges with nested loops and complex conditions
+- Learn about arrays and array manipulation
+- Explore methods/functions for code reusability
+- Begin Arrays in C#
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
