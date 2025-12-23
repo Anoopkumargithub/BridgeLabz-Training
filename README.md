@@ -176,6 +176,19 @@ To strengthen problem-solving abilities, build a strong programming foundation, 
 - [SumOfNumbers.cs](core-csharp-practice/gcr-codebase/control-flow/level1/SumOfNumbers.cs) - Sum of numbers with conditions
 - [SumOfNumberPart2.cs](core-csharp-practice/gcr-codebase/control-flow/level1/SumOfNumberPart2.cs) - Advanced sum calculations
 
+### 🧮 Programs Implemented (Level 2 - Control Flow)
+- [BMI.cs](core-csharp-practice/gcr-codebase/control-flow/level2/BMI.cs) - Calculate Body Mass Index and classify results
+- [CalculateGrade.cs](core-csharp-practice/gcr-codebase/control-flow/level2/CalculateGrade.cs) - Derive letter grades from score thresholds
+- [Factor.cs](core-csharp-practice/gcr-codebase/control-flow/level2/Factor.cs) - Determine factors of a number
+- [FizzBuzz.cs](core-csharp-practice/gcr-codebase/control-flow/level2/FizzBuzz.cs) - Classic divisibility-based output using loops
+- [FizzBuzzByWhileLoop.cs](core-csharp-practice/gcr-codebase/control-flow/level2/FizzBuzzByWhileLoop.cs) - FizzBuzz implemented with while loop control
+- [GreatestFactor.cs](core-csharp-practice/gcr-codebase/control-flow/level2/GreatestFactor.cs) - Find the greatest factor for a given integer
+- [LeapYear.cs](core-csharp-practice/gcr-codebase/control-flow/level2/LeapYear.cs) - Check leap year conditions with nested logic
+- [PerfectDivisible.cs](core-csharp-practice/gcr-codebase/control-flow/level2/PerfectDivisible.cs) - Validate clean divisibility between two numbers
+- [Power.cs](core-csharp-practice/gcr-codebase/control-flow/level2/Power.cs) - Compute powers via iterative multiplication
+- [PrimeNumbe.cs](core-csharp-practice/gcr-codebase/control-flow/level2/PrimeNumbe.cs) - Test numbers for primality using loop checks
+- [YoungestFriend.cs](core-csharp-practice/gcr-codebase/control-flow/level2/YoungestFriend.cs) - Determine the youngest among friends based on age inputs
+
 ### ⏭️ What's Next
 - Master Level 2 control flow challenges with nested loops and complex conditions
 - Learn about arrays and array manipulation
