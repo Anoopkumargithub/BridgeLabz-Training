@@ -13,13 +13,13 @@ class Calculator{
 		
 		switch(Operation){
 			case '+':
-				Console.WriteLine($"Resule Is {FirstNumber + SecondNumber}");
+				Console.WriteLine($"Resule Is {FirstNumber + SecondNumber}"); break;
 			case '-':
-				Console.WriteLine($"Resule Is {FirstNumber + SecondNumber}");
+				Console.WriteLine($"Resule Is {FirstNumber - SecondNumber}"); break;
 			case '*':
-				Console.WriteLine($"Resule Is {FirstNumber + SecondNumber}");
+				Console.WriteLine($"Resule Is {FirstNumber * SecondNumber}"); break;
 			case '/':
-				Console.WriteLine($"Resule Is {FirstNumber + SecondNumber}");
+				Console.WriteLine($"Resule Is {FirstNumber / SecondNumber}"); break;
 			default:
 				Console.WriteLine("Invalid Operation");
 		}
