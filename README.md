@@ -189,6 +189,14 @@ To strengthen problem-solving abilities, build a strong programming foundation, 
 - [PrimeNumbe.cs](core-csharp-practice/gcr-codebase/control-flow/level2/PrimeNumbe.cs) - Test numbers for primality using loop checks
 - [YoungestFriend.cs](core-csharp-practice/gcr-codebase/control-flow/level2/YoungestFriend.cs) - Determine the youngest among friends based on age inputs
 
+### 🧮 Programs Implemented (Level 3 - Control Flow)
+- [ArmstrongNumber.cs](core-csharp-practice/gcr-codebase/control-flow/level3/ArmstrongNumber.cs) - Check if a number is armstrong 
+- [AbundantNumber.cs](core-csharp-practice/gcr-codebase/control-flow/level3/AbundantNumber.cs) - Check if a number is abundant (sum of divisors > number)
+- [Calculator.cs](core-csharp-practice/gcr-codebase/control-flow/level3/Calculator.cs) - Advanced calculator with multiple operations and control flow
+- [CountDigits.cs](core-csharp-practice/gcr-codebase/control-flow/level3/CountDigits.cs) - Count the number of digits in a given number
+- [DayOfWeek.cs](core-csharp-practice/gcr-codebase/control-flow/level3/DayOfWeek.cs) - Determine the day of the week using conditional logic
+- [HarshadNumber.cs](core-csharp-practice/gcr-codebase/control-flow/level3/HarshadNumber.cs) - Verify if a number is divisible by the sum of its digits
+
 ### ⏭️ What's Next
 - Master Level 2 control flow challenges with nested loops and complex conditions
 - Learn about arrays and array manipulation
