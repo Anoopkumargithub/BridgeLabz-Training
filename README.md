@@ -205,6 +205,44 @@ To strengthen problem-solving abilities, build a strong programming foundation, 
 
 ---
 
+### 🗓️ **Date: 23-12-2025**
+### 🎯 Task of the Day
+- Learn and implement **Array operations and manipulations** using C#
+- Solve array-based programming problems and explore multi-dimensional arrays
+
+### 📘 What I Learned
+- **Array Fundamentals:**
+  - Single-dimensional arrays for storing homogeneous data
+  - Array initialization and indexing
+  - Iterating through arrays using loops
+  - Common array operations (searching, sorting, filtering)
+- **Multi-Dimensional Arrays:**
+  - 2D arrays for matrix operations
+  - Accessing and modifying elements in multi-dimensional arrays
+  - Practical applications of multi-dimensional arrays
+- Problem-solving with arrays and collections
+- Improved efficiency in data manipulation and processing
+
+### 🧮 Programs Implemented (Level 1 - Arrays)
+- [Factors.cs](core-csharp-practice/gcr-codebase/arrays/level1/Factors.cs) - Find all factors of a given number
+- [FizzBuzz.cs](core-csharp-practice/gcr-codebase/arrays/level1/FizzBuzz.cs) - FizzBuzz pattern using array-based approach
+- [MeanOfFootballTeam.cs](core-csharp-practice/gcr-codebase/arrays/level1/MeanOfFootballTeam.cs) - Calculate average (mean) scores of football team members
+- [MultiDimensionalArray.cs](core-csharp-practice/gcr-codebase/arrays/level1/MultiDimensionalArray.cs) - Work with 2D arrays for matrix operations
+- [Multiplication.cs](core-csharp-practice/gcr-codebase/arrays/level1/Multiplication.cs) - Multiplication using array structures
+- [MultiplicationTableFrom6To9.cs](core-csharp-practice/gcr-codebase/arrays/level1/MultiplicationTableFrom6To9.cs) - Generate multiplication tables (6-9) using arrays
+- [OddEvenArray.cs](core-csharp-practice/gcr-codebase/arrays/level1/OddEvenArray.cs) - Separate odd and even numbers into different arrays
+- [PolarityOfNumber.cs](core-csharp-practice/gcr-codebase/arrays/level1/PolarityOfNumber.cs) - Check polarity (positive/negative) of array elements
+- [StudentCanVote.cs](core-csharp-practice/gcr-codebase/arrays/level1/StudentCanVote.cs) - Check voting eligibility for array of students
+- [SumOfNumber.cs](core-csharp-practice/gcr-codebase/arrays/level1/SumOfNumber.cs) - Calculate sum of array elements
+
+### ⏭️ What's Next
+- Explore Level 2 array challenges with more complex operations
+- Learn about string manipulation and character arrays
+- Practice method/function creation for code reusability
+- Begin working with collections (List, Dictionary, etc.)
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
