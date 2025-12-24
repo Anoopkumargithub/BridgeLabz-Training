@@ -235,9 +235,14 @@ To strengthen problem-solving abilities, build a strong programming foundation, 
 - [StudentCanVote.cs](core-csharp-practice/gcr-codebase/arrays/level1/StudentCanVote.cs) - Check voting eligibility for array of students
 - [SumOfNumber.cs](core-csharp-practice/gcr-codebase/arrays/level1/SumOfNumber.cs) - Calculate sum of array elements
 
+### 🧮 Programs Implemented (Level 2 - Arrays)
+- [BMI.cs](core-csharp-practice/gcr-codebase/arrays/level2/BMI.cs) - Compute BMI and categorize results
+- [Frequency.cs](core-csharp-practice/gcr-codebase/arrays/level2/Frequency.cs) - Calculate frequency of digits/elements
+- [Grades.cs](core-csharp-practice/gcr-codebase/arrays/level2/Grades.cs) - Determine student grades based on scores
+- [SalaryAndBonus.cs](core-csharp-practice/gcr-codebase/arrays/level2/SalaryAndBonus.cs) - Manage employee salary and bonus calculation
+
 ### ⏭️ What's Next
-- Explore Level 2 array challenges with more complex operations
-- Learn about string manipulation and character arrays
+- Tomorrow: Learn and implement C# Methods
 - Practice method/function creation for code reusability
 - Begin working with collections (List, Dictionary, etc.)
 
