@@ -9,7 +9,7 @@ class SumOfNaturalNumberByForLoop{
 		
 		int Sum = 0;
 		
-		while(int i = 0;i<number; i ++){
+		for (int i = 0;i<Number; i ++){
 			Sum += i;
 		}
 		
@@ -22,5 +22,6 @@ class SumOfNaturalNumberByForLoop{
 		}
 		else{
 			Console.WriteLine($"The number {Number} is not a natural number");
+		}
 	}
 }
