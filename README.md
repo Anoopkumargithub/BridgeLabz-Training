@@ -248,6 +248,44 @@ To strengthen problem-solving abilities, build a strong programming foundation, 
 
 ---
 
+### 🗓️ **Date: 24-12-2024**
+### 🎯 Task of the Day
+- Learn and implement **C# Methods and function creation**
+- Solve method-based programming problems with various utility functions
+- Understand different types of methods and their applications
+
+### 📘 What I Learned
+- **Method Fundamentals:**
+  - Method declaration, parameters, and return types
+  - Method invocation and passing arguments
+  - Overloading methods for different parameter sets
+  - Methods with no parameters, with parameters, and return values
+- **Types of Methods:**
+  - Static methods (utility functions)
+  - Instance methods (object-specific behavior)
+  - Methods with return types vs. void methods
+  - Parameter passing (pass by value, pass by reference)
+- Best practices for method design and code reusability
+- Improved code organization through method abstraction
+
+### 🧮 Programs Implemented (Methods - Level 1)
+- [NoOfRounds.cs](core-csharp-practice/gcr-codebase/csharp-method/level1/NoOfRounds.cs) - Calculate number of rounds in a tournament using method
+- [NumberOfHandShakes.cs](core-csharp-practice/gcr-codebase/csharp-method/level1/NumberOfHandShakes.cs) - Calculate handshakes using combinatorial method
+- [PolarityCheck.cs](core-csharp-practice/gcr-codebase/csharp-method/level1/PolarityCheck.cs) - Check number polarity using dedicated method
+- [QuotientAndRemainder.cs](core-csharp-practice/gcr-codebase/csharp-method/level1/QuotientAndRemainder.cs) - Calculate quotient and remainder using methods
+- [SimpleIntrest.cs](core-csharp-practice/gcr-codebase/csharp-method/level1/SimpleIntrest.cs) - Compute simple interest using dedicated method
+- [SmallestLargestNumber.cs](core-csharp-practice/gcr-codebase/csharp-method/level1/SmallestLargestNumber.cs) - Find smallest and largest numbers using reusable methods
+- Wind Chill Calculation - Calculate wind chill factor using meteorological formula
+- Trigonometric Functions - Implement sine, cosine, and tangent calculations using methods
+
+### ⏭️ What's Next
+- Master advanced method concepts (recursion, method chaining)
+- Explore Level 2 method-based challenges
+- Begin learning Object-Oriented Programming (OOP) principles in C#
+- Practice code organization and design patterns
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
