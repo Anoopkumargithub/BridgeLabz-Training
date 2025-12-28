@@ -286,6 +286,134 @@ To strengthen problem-solving abilities, build a strong programming foundation, 
 
 ---
 
+### 🗓️ **Date: 25-12-2024**
+### 🎯 Task of the Day
+- Implement various **unit conversion methods** (distance, temperature, etc.)
+- Create **factor operation methods** for mathematical calculations
+- Develop **FootBallTeam class** for height-related calculations
+
+### 📘 What I Learned
+- **Unit Conversion Methods:**
+  - Converting between different measurement units (meters to feet, Celsius to Fahrenheit, etc.)
+  - Precision handling in conversion calculations
+  - Creating reusable conversion utility methods
+- **Factor Operations:**
+  - Finding all factors of a number
+  - Calculating greatest common factors
+  - Implementing efficient factor-finding algorithms
+- **Object-Oriented Approach:**
+  - Creating classes to encapsulate related functionality
+  - Implementing methods for specific calculations within a class
+  - Better code organization through class-based design
+
+### 🧮 Programs Implemented
+- **Unit Conversion Methods:**
+  - Distance conversions (meters to feet, kilometers to miles)
+  - Temperature conversions (Celsius to Fahrenheit, Fahrenheit to Celsius)
+  - Height conversions using method-based approach
+- **Factor Operations:**
+  - Finding all factors of a given number
+  - Calculating greatest factors using optimized methods
+- **FootBallTeam Class:**
+  - Sum of all player heights
+  - Mean (average) height calculation
+  - Finding shortest player height
+  - Finding tallest player height
+  - Statistical analysis of team height data
+
+### ⏭️ What's Next
+- Continue with advanced OOP concepts (inheritance, polymorphism)
+- Implement more complex class-based solutions
+- Explore collections and LINQ for data manipulation
+- Practice design patterns and best coding practices
+
+---
+
+### 🗓️ **Date: 26-12-2024**
+### 🎯 Task of the Day
+- Learn and implement **String manipulation** in C#
+- Explore **Exception handling** fundamentals
+- Create programs for **character conversion and string operations**
+
+### 📘 What I Learned
+- **String Fundamentals:**
+  - String immutability and string methods
+  - String comparison and equality
+  - Converting between uppercase and lowercase
+  - Substring extraction and manipulation
+- **Exception Handling Basics:**
+  - Understanding try-catch blocks
+  - Common exception types (NullReferenceException, IndexOutOfRangeException, FormatException, ArgumentOutOfRangeException)
+  - Proper exception handling practices
+  - Defensive programming techniques
+- **Character Operations:**
+  - Accessing individual characters in strings
+  - Character-based string manipulation
+  - Working with character arrays
+
+### 🧮 Programs Implemented (String - Level 1)
+- [ArgumentOutOfRangeExceptionExample.cs](core-csharp-practice/gcr-codebase/csharp-string/level1/ArgumentOutOfRangeExceptionExample.cs) - Handle argument out of range exceptions
+- [CompareTwoString.cs](core-csharp-practice/gcr-codebase/csharp-string/level1/CompareTwoString.cs) - Compare two strings for equality
+- [ConvertToLowerCase.cs](core-csharp-practice/gcr-codebase/csharp-string/level1/ConvertToLowerCase.cs) - Convert strings to lowercase
+- [ConvertToUpperCase.cs](core-csharp-practice/gcr-codebase/csharp-string/level1/ConvertToUpperCase.cs) - Convert strings to uppercase
+- [CreateSubString.cs](core-csharp-practice/gcr-codebase/csharp-string/level1/CreateSubString.cs) - Extract substrings from strings
+- [DispalyWordLength.cs](core-csharp-practice/gcr-codebase/csharp-string/level1/DispalyWordLength.cs) - Display the length of a word or string
+
+### ⏭️ What's Next
+- Continue exploring advanced string manipulation techniques
+- Learn more exception handling patterns
+- Practice Level 2 string operations
+- Explore regular expressions for pattern matching
+
+---
+
+### 🗓️ **Date: 27-12-2024**
+### 🎯 Task of the Day
+- Continue with **advanced string manipulation** techniques
+- Implement **exception handling** in various scenarios
+- Create programs for **character analysis and string transformations**
+
+### 📘 What I Learned
+- **Advanced String Operations:**
+  - Finding specific characters at given positions
+  - String length calculations and validations
+  - Complex substring operations
+- **Exception Handling Patterns:**
+  - Handling FormatException for data conversion errors
+  - Managing IndexOutOfRangeException for array and string access
+  - Dealing with NullReferenceException for null object references
+  - Best practices for error messaging and recovery
+- **Character-Level Manipulation:**
+  - Returning specific characters from strings
+  - Character indexing and boundary checks
+  - Safe string access patterns
+
+### 🧮 Programs Implemented (String - Level 1 Continued)
+- [FormatExceptionExample.cs](core-csharp-practice/gcr-codebase/csharp-string/level1/FormatExceptionExample.cs) - Handle format conversion exceptions
+- [IndexOutOfRangeExceptionExample.cs](core-csharp-practice/gcr-codebase/csharp-string/level1/IndexOutOfRangeExceptionExample.cs) - Handle index out of range for strings
+- [IndexOutOfRangeExceptionforArraysExample.cs](core-csharp-practice/gcr-codebase/csharp-string/level1/IndexOutOfRangeExceptionforArraysExample.cs) - Handle index exceptions for arrays
+- [NullReferenceExceptionExample.cs](core-csharp-practice/gcr-codebase/csharp-string/level1/NullReferenceExceptionExample.cs) - Handle null reference exceptions
+- [ReturnCharacter.cs](core-csharp-practice/gcr-codebase/csharp-string/level1/ReturnCharacter.cs) - Return character at specific position
+
+### 🧮 Programs Implemented (String - Level 2)
+- [LexicographicalCompare.cs](core-csharp-practice/gcr-codebase/csharp-string/level2/LexicographicalCompare.cs) - Compare strings lexicographically
+- [LongestWordFinder.cs](core-csharp-practice/gcr-codebase/csharp-string/level2/LongestWordFinder.cs) - Find the longest word in a sentence
+- [MostFrequentCharacter.cs](core-csharp-practice/gcr-codebase/csharp-string/level2/MostFrequentCharacter.cs) - Identify most frequently occurring character
+- [PalindromeCheck.cs](core-csharp-practice/gcr-codebase/csharp-string/level2/PalindromeCheck.cs) - Check if a string is a palindrome
+- [RemoveDuplicateChars.cs](core-csharp-practice/gcr-codebase/csharp-string/level2/RemoveDuplicateChars.cs) - Remove duplicate characters from string
+- [ReverseStringExample.cs](core-csharp-practice/gcr-codebase/csharp-string/level2/ReverseStringExample.cs) - Reverse a string
+- [SubstringOccurrence.cs](core-csharp-practice/gcr-codebase/csharp-string/level2/SubstringOccurrence.cs) - Count substring occurrences in a string
+- [ToggleCaseExample.cs](core-csharp-practice/gcr-codebase/csharp-string/level2/ToggleCaseExample.cs) - Toggle case of characters in a string
+- [VowelConsonantCount.cs](core-csharp-practice/gcr-codebase/csharp-string/level2/VowelConsonantCount.cs) - Count vowels and consonants in a string
+
+### ⏭️ What's Next
+- Explore regular expressions for pattern matching
+- Learn advanced exception handling with custom exceptions
+- Practice LINQ operations on strings and collections
+- Begin Object-Oriented Programming principles in depth
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
