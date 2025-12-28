@@ -414,6 +414,31 @@ To strengthen problem-solving abilities, build a strong programming foundation, 
 
 ---
 
+### 🗓️ **Date: 28-12-2025**
+### 🎯 Task of the Day
+- Implement comprehensive **Date & Time** functionalities in C#
+- Cover **date arithmetic**, **formatting**, and **time zone** conversions
+
+### 📘 What I Learned
+- Core types: `DateTime`, `DateOnly`, `TimeOnly`, `TimeSpan`, `DateTimeOffset`
+- Parsing and formatting with `Parse`, `TryParse`, and `ToString` using standard and custom format strings
+- Culture-aware formatting with `CultureInfo` (e.g., `en-US`, `en-GB`, `hi-IN`)
+- Time zone conversion using `TimeZoneInfo` and `DateTimeOffset`, handling UTC, local time, and DST
+
+### 🧮 Programs Implemented (Date & Time)
+- [DateArithmetic.cs](core-csharp-practice/gcr-codebase/csharp-function/level1/DateArithmetic.cs) - Add/Subtract days, calculate differences via `TimeSpan`
+- [DateComparison.cs](core-csharp-practice/gcr-codebase/csharp-function/level1/DateComparison.cs) - Compare dates (earlier, later, equal)
+- Date Formatting Examples - Standard (`d`, `D`, `f`, `F`, `O`) and custom patterns (e.g., `dd-MM-yyyy`, `yyyy/MM/dd HH:mm`), ISO 8601 output
+- Time Zone Examples - Convert UTC ↔ Local ↔ IST/PDT using `TimeZoneInfo.ConvertTime` and `DateTimeOffset`
+
+### ⏭️ What's Next
+- Add dedicated samples: `DateFormatting.cs` and `TimeZoneExamples.cs`
+- Introduce `Stopwatch` for benchmarking and elapsed time measurement
+- Explore calendar calculations (week numbers, first/last day of month)
+- Parse human-friendly date strings robustly with `TryParseExact`
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
