@@ -439,6 +439,44 @@ To strengthen problem-solving abilities, build a strong programming foundation, 
 
 ---
 
+### 🗓️ **Date: 29-12-2025**
+### 🎯 Task of the Day
+- Implement **scenario-based programming challenges** in C#
+- Create interactive applications with real-world use cases
+- Practice combining control flow, methods, and user interaction
+
+### 📘 What I Learned
+- **Game Logic Implementation:**
+  - Designing game mechanics (dice rolling, player turns, board navigation)
+  - Managing game state and player progression
+  - Implementing rules and win conditions for Snake and Ladder game
+- **String Manipulation Utilities:**
+  - Creating reusable string formatting functions
+  - Text transformation (spacing, capitalization, case conversion)
+  - Building utility classes for common text operations
+- **Data Management:**
+  - Designing classes for data storage and retrieval
+  - Implementing score management systems
+  - Structuring student record management
+- **Interactive Console Applications:**
+  - Creating menu-driven applications
+  - Handling user input validation
+  - Implementing temperature data analysis and statistics
+
+### 🧮 Programs Implemented (Scenario-Based)
+- [SnakeAndLadder.cs](scenario-based/SnakeAndLadder.cs) - Implement Snake and Ladder game logic with player turns and dice rolling
+- [StringFormater.cs](scenario-based/StringFormater.cs) - Create StringFormatter class for text manipulation including spacing and capitalization
+- [StudentScoreManager.cs](scenario-based/StudentScoreManager.cs) - Implement StudentScoreManager class as a placeholder for student score management
+- [TemperatureAnalyser.cs](scenario-based/TemperatureAnalyser.cs) - Create TemperatureAnalyser class for temperature data input and analysis
+
+### ⏭️ What's Next
+- Enhance scenario-based programs with more features
+- Explore Object-Oriented Programming (OOP) principles in depth
+- Learn about inheritance, polymorphism, and encapsulation
+- Build more complex interactive applications
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
