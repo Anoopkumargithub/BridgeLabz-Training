@@ -477,6 +477,28 @@ To strengthen problem-solving abilities, build a strong programming foundation, 
 
 ---
 
+### 🗓️ **Date: 30-12-2025**
+### 🎯 Task of the Day
+- Implement **Library Management System** with role selection, book management, and search functionalities
+
+### 📘 What I Learned
+- Designing role-based flows (Admin vs Reader) and branching menus
+- Modeling books with structured data (title, author, genre, availability)
+- CRUD-style book management (add, update availability, list inventory)
+- Search strategies (by title/author substring matches) and safe input handling
+- Strengthening console UX with clear prompts and validation loops
+
+### 🧮 Programs Implemented (Scenario-Based)
+- [LibraryManagementSystem.cs](scenario-based/LibraryManagementSystem.cs) - Console-driven library app with role selection, inventory management, and book search
+
+### ⏭️ What's Next
+- Add persistence (file/JSON) to retain inventory between runs
+- Introduce user authentication and borrowing/return history
+- Expand search with filters (genre, availability) and sorting
+- Add tests for menu navigation and search edge cases
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
