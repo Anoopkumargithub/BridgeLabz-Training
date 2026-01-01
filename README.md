@@ -175,6 +175,75 @@ Completed **3 scenario-based OOP projects** demonstrating menu-driven applicatio
 
 ---
 
+### 🗓️ **Date: 01-01-2026**
+### 🎯 Task of the Day
+Completed **Cafeteria Ordering System** - A menu-driven application for food ordering and payment processing.
+
+**Project 4:** Cafeteria System - Interactive ordering with real-time billing
+
+---
+
+## 🍔 Project 4: Cafeteria System
+**File:** `oops-csharp-practice/scenario-based/CafeteriaSystem.cs`
+
+### 🍽️ Features
+- **Menu Display:** Shows 10 food items with indexed pricing
+  - Items include: Veg Sandwich, Cheese Burger, Pasta, Fried Rice, Paneer Roll, Cold Coffee, Tea, Samosa, Pizza Slice, Ice Cream
+  - Price range: ₹15 - ₹120
+
+- **Order Processing:**
+  - Interactive item selection by index
+  - Multiple item ordering in single transaction
+  - Real-time running total display after each item addition
+  - Input validation with recursive retry for invalid indices
+
+- **Payment System:**
+  - Total bill calculation and display
+  - Payment acceptance with validation
+  - Change calculation (return amount)
+  - Recursive payment retry for insufficient amounts
+
+- **Class Architecture:**
+  - `CafeteriaSystem` - Main orchestrator with static methods for workflow
+  - `Cafeteria` - Data holder with parallel arrays for MenuItems and Prices
+
+### 📚 Key Learnings
+- **Arrays for Data Management:**
+  - Parallel arrays (MenuItems[], Prices[]) for related data
+  - Array indexing for menu item lookup
+  - Array length validation for boundary checking
+
+- **Recursive Validation:**
+  - `GetItemByIndex()` - Recursive retry for invalid menu selections
+  - `MakePayment()` - Recursive retry for insufficient payment amounts
+
+- **User Experience Design:**
+  - Clear menu presentation with item numbering
+  - Running total feedback during order placement
+  - Friendly confirmation messages
+
+- **Code Organization:**
+  - Static utility methods for stateless operations
+  - Separation of display, business logic, and data
+  - Modular functions (DisplayMenu, TakeOrder, MakePayment)
+
+### 💡 OOP Principles Applied
+✅ **Encapsulation** - Data grouped in Cafeteria class  
+✅ **Abstraction** - Complex ordering flow hidden behind simple methods  
+✅ **Separation of Concerns** - Display, logic, and data separated  
+✅ **Code Reusability** - Modular static methods for different operations
+
+### 🚀 Future Enhancements
+- Item quantity support (order multiples of same item)
+- Order summary/receipt generation
+- Discount and offer system
+- Item availability management
+- Exception handling for non-numeric inputs
+- Order history tracking
+- Multiple payment methods support
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
