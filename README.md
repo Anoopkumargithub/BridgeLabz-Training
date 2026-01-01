@@ -86,6 +86,95 @@ oops-csharp-practice/
 
 ---
 
+### 🗓️ **Date: 31-12-2025**
+### 🎯 Tasks of the Day
+Completed **3 scenario-based OOP projects** demonstrating menu-driven applications and system design:
+
+**Project 1:** Mathematical Operations - Algorithm implementation  
+**Project 2:** Bank System - Role-based authentication and account management  
+**Project 3:** Invoice Generator - Text-based invoice parsing and total calculation
+
+---
+
+## 📋 Project 1: Mathematical Operations
+**File:** `oops-csharp-practice/scenario-based/MathematicalOperations.cs`
+
+### 🔢 Features
+- **Interactive Menu:** Recursive menu system for continuous operation selection
+- **Algorithms Implemented:**
+  - `Factorial()` - Calculates n! using iteration
+  - `PrimeNumber()` - Checks if number is prime (optimized √n approach)
+  - `GCD()` - Finds greatest common divisor of two numbers
+  - `Fibonacci()` - Generates nth Fibonacci number
+
+### 📚 Key Learnings
+- Static utility classes for grouping related operations
+- Menu-driven application design patterns
+- Iterative vs recursive approaches for algorithms
+- Data type selection (using `long` for large values)
+- Code organization with separation of concerns
+
+---
+
+## 🏦 Project 2: Bank System
+**File:** `oops-csharp-practice/scenario-based/BankSystem.cs`
+
+### 🔐 Features
+- **Authentication System:**
+  - Client login (Account No. + PIN verification)
+  - Manager login (Manager ID + Password verification)
+  - Recursive retry mechanism for failed authentication
+
+- **Class Architecture:**
+  - `BankSystem` - Entry point and role orchestrator
+  - `Bank` - Core data, user database (10 accounts), transaction limits (₹1,00,000 max, ₹2,000 min balance, 5 tx/day)
+  - `User` & `Manager` - Role representations
+
+- **Data Management:**
+  - 2D array for user credentials and balance
+  - Readonly fields for security-critical constants
+  - Role-based menu presentation
+
+### 📚 Key Learnings
+- Role-based access control design
+- 2D arrays for multi-attribute data management
+- Encapsulation with readonly modifiers
+- Abstraction of complex authentication logic
+- Clear separation of concerns across classes
+
+### 💡 Common OOP Principles Applied in Both Projects
+✅ **Encapsulation** - Data protection with access modifiers  
+✅ **Abstraction** - Hiding implementation details behind methods  
+✅ **Separation of Concerns** - Each class has specific responsibility  
+✅ **Code Reusability** - Static methods for shared functionality  
+✅ **Maintainability** - Clear structure and logical organization
+
+---
+
+## 🧾 Project 3: Invoice Generator
+**File:** `oops-charp-practice/scenario-based/InvoiceGenerator.cs`
+
+### 🧮 Features
+- **Menu-Driven Flow:** Recursive menu to generate invoices or exit.
+- **Invoice Parsing:** Accepts comma-separated task entries in the format "Task - amount INR" and splits each entry by `-` and spaces.
+- **Total Calculation:** Extracts numeric amounts, sums all tasks, and prints the total invoice value.
+- **Summary Output:** Echoes trimmed task lines back to the user before showing the aggregate amount.
+
+### 📚 Key Learnings
+- String splitting and trimming to normalize free-form invoice input.
+- Recursive menu handling for simple console loops.
+- Separating parsing logic (`ParseInvoice`) from computation (`GetTotalAmount`) for clarity.
+
+### 🚀 Future Enhancements
+- Complete transaction operations (Deposit, Withdrawal, Balance Check)
+- Input validation and error handling
+- Custom exception handling
+- Persistent data storage (File/Database)
+- Enhanced security (password hashing)
+- Account statement and transaction history
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
