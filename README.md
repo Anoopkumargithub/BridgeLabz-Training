@@ -244,6 +244,112 @@ Completed **Cafeteria Ordering System** - A menu-driven application for food ord
 
 ---
 
+### 🗓️ **Date: 02-01-2026**
+### 🎯 Task of the Day
+Completed **Class and Object fundamentals** - Three basic OOP programs demonstrating encapsulation and class design.
+
+**Practice 1:** Area of Circle - Calculate area and circumference  
+**Practice 2:** Employee Class - Store and display employee information  
+**Practice 3:** Handle Book Details - Manage book information
+
+---
+
+## 📝 Practice 1: Area of Circle
+**File:** `oops-charp-practice/gcr-code-base/csharp-class-object/AreaOfCircle.cs`
+
+### 🔢 Features
+- **Class Design:**
+  - Private field `radius` for encapsulation
+  - Constructor to initialize radius
+  - Private methods `CalculateArea()` and `CalculateCircumference()`
+  - Public `Display()` method for output
+
+- **Functionality:**
+  - Calculates area using formula: π × r²
+  - Calculates circumference using formula: 2 × π × r
+  - User input for radius value
+  - Formatted output display
+
+### 📚 Key Learnings
+- **Encapsulation:** Private fields with controlled access
+- **Constructor usage:** Initializing object state
+- **Math class:** Using `Math.PI` and `Math.Pow()` for calculations
+- **String interpolation:** Formatted output with `$` syntax
+- **Public vs Private:** Display is public, calculations are private
+
+---
+
+## 👤 Practice 2: Employee Class
+**File:** `oops-charp-practice/gcr-code-base/csharp-class-object/EmployeeClass.cs`
+
+### 💼 Features
+- **Class Design:**
+  - Three private fields: `name`, `id`, `salary`
+  - Parameterized constructor for initialization
+  - Public `DisplayDetails()` method
+
+- **Functionality:**
+  - Stores employee information (Name, ID, Salary)
+  - Displays formatted employee details
+  - Demonstrates object creation and method invocation
+
+### 📚 Key Learnings
+- **Multiple field management:** Handling different data types (string, int, double)
+- **Constructor parameters:** Passing multiple values during object creation
+- **this keyword:** Distinguishing between parameters and fields
+- **Object instantiation:** Creating objects with `new` keyword
+- **Method invocation:** Calling instance methods on objects
+
+---
+
+## 📚 Practice 3: Handle Book Details
+**File:** `oops-charp-practice/gcr-code-base/csharp-class-object/HandleBookDetails.cs`
+
+### 📖 Features
+- **Class Design:**
+  - Three private fields: `title`, `author`, `price`
+  - Parameterized constructor
+  - Public `Display()` method with formatted output
+
+- **Functionality:**
+  - Stores book information (Title, Author, Price)
+  - Displays book details in sentence format
+  - Simple object-oriented book management
+
+### 📚 Key Learnings
+- **Data modeling:** Representing real-world entities as classes
+- **Consistent naming:** Meaningful variable and method names
+- **Output formatting:** Creating readable, natural language output
+- **Encapsulation benefits:** Data protection with private fields
+
+---
+
+## 💡 Common OOP Principles Applied Across All Practices
+✅ **Encapsulation** - All data fields are private, accessed through public methods  
+✅ **Constructors** - Proper initialization of object state  
+✅ **this keyword** - Differentiating instance variables from parameters  
+✅ **Access Modifiers** - Understanding public vs private scope  
+✅ **Method Design** - Single Responsibility (each method has one purpose)  
+✅ **Object Instantiation** - Creating and using objects properly
+
+### 🎓 Technical Concepts Practiced
+- Private fields for data hiding
+- Parameterized constructors
+- Instance methods
+- String interpolation for output
+- Different data types (string, int, double)
+- Console input/output operations
+- Namespace organization
+
+### 🚀 Next Steps
+- Add property getters/setters instead of direct field access
+- Implement data validation in constructors
+- Practice method overloading
+- Explore static vs instance members
+- Build more complex class relationships
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
