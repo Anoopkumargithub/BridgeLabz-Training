@@ -252,6 +252,12 @@ Completed **Class and Object fundamentals** - Three basic OOP programs demonstra
 **Practice 2:** Employee Class - Store and display employee information  
 **Practice 3:** Handle Book Details - Manage book information
 
+✅ Added two scenario-based programs:
+- **Project 5:** Bus Route Distance Tracker - Track cumulative distance stop by stop until passenger exit
+- **Project 6:** Festival Lucky Draw - Validate lucky numbers and award gifts on 3 & 5 multiples
+
+Completed **constructor, access-modifier, and instance practice** with six mini-programs covering object initialization patterns and display routines.
+
 ---
 
 ## 📝 Practice 1: Area of Circle
@@ -304,23 +310,85 @@ Completed **Class and Object fundamentals** - Three basic OOP programs demonstra
 
 ## 📚 Practice 3: Handle Book Details
 **File:** `oops-charp-practice/gcr-code-base/csharp-class-object/HandleBookDetails.cs`
-
 ### 📖 Features
-- **Class Design:**
-  - Three private fields: `title`, `author`, `price`
-  - Parameterized constructor
-  - Public `Display()` method with formatted output
+- Three private fields: `title`, `author`, `price`
+- Parameterized constructor
+- Public `Display()` method with formatted output
 
-- **Functionality:**
-  - Stores book information (Title, Author, Price)
-  - Displays book details in sentence format
-  - Simple object-oriented book management
+### 🛠️ Functionality
+- Stores book information (Title, Author, Price)
+- Displays book details in sentence format
+- Simple object-oriented book management
 
 ### 📚 Key Learnings
-- **Data modeling:** Representing real-world entities as classes
-- **Consistent naming:** Meaningful variable and method names
-- **Output formatting:** Creating readable, natural language output
-- **Encapsulation benefits:** Data protection with private fields
+- Data modeling: Representing real-world entities as classes
+- Consistent naming: Meaningful variable and method names
+- Output formatting: Creating readable, natural language output
+- Encapsulation benefits: Data protection with private fields
+
+---
+
+## 🏗️ Constructor & Access Practice
+
+### 📕 Book (Constructor with fields)
+- **File:** [oops-charp-practice/gcr-code-base/csharp-constructors/BookClass.cs](oops-charp-practice/gcr-code-base/csharp-constructors/BookClass.cs)
+- Parameterized constructor sets title, author, price
+- `Display()` prints a one-line summary of the book
+
+### 🚗 Car Rental (Branching logic + constructor)
+- **File:** [oops-charp-practice/gcr-code-base/csharp-constructors/CarRental.cs](oops-charp-practice/gcr-code-base/csharp-constructors/CarRental.cs)
+- Constructor initializes customer name, model, rental days and triggers billing
+- Rate selection uses model-based conditional logic; `Display()` prints bill
+
+### ⚪ Circle (Constructor + private helpers)
+- **File:** [oops-charp-practice/gcr-code-base/csharp-constructors/CircleClass.cs](oops-charp-practice/gcr-code-base/csharp-constructors/CircleClass.cs)
+- Constructor stores radius; private methods compute area and circumference
+- `Display()` shows both values using calculated results
+
+### 🏨 Hotel Booking (Overloaded constructors + copy)
+- **File:** [oops-charp-practice/gcr-code-base/csharp-constructors/HotelBooking.cs](oops-charp-practice/gcr-code-base/csharp-constructors/HotelBooking.cs)
+- Demonstrates default, parameterized, and copy constructors
+- `Display()` outputs guest name, room type, and nights for each instance
+
+### 📚 Library (Availability check with state toggle)
+- **File:** [oops-charp-practice/gcr-code-base/csharp-constructors/LibiraryClass.cs](oops-charp-practice/gcr-code-base/csharp-constructors/LibiraryClass.cs)
+- Constructor sets book metadata and availability flag
+- `Availability()` flips state on borrow; `Display()` summarizes book details
+
+### 👤 Person (Copy constructor)
+- **File:** [oops-charp-practice/gcr-code-base/csharp-constructors/Person.cs](oops-charp-practice/gcr-code-base/csharp-constructors/Person.cs)
+- Parameterized constructor captures identity fields; copy constructor clones
+- `Display()` prints name, age, and city for original and copied instances
+
+---
+
+## 🚌 Project 5: Bus Route Distance Tracker
+**File:** oops-charp-practice/scenario-based/BusRouteDistanceTracker.cs
+
+### 🛣️ Features
+- Fixed per-stop distance accumulator with running total display
+- Stop counter increments until passenger chooses to exit
+- User-driven loop controlled by simple yes/no input
+
+### 📚 Key Learnings
+- While-loop control based on user choice
+- Incremental state tracking for cumulative totals
+- Console prompts for iterative workflows
+
+---
+
+## 🎁 Project 6: Festival Lucky Draw
+**File:** oops-charp-practice/scenario-based/FestivalLuckyDraw.cs
+
+### 🎟️ Features
+- Validates positive integer input for lucky number entries
+- Awards gift when number divisible by both 3 and 5; encourages retry otherwise
+- Continuous visitor handling until operator exits the loop
+
+### 📚 Key Learnings
+- Input validation with `int.TryParse`
+- Compound condition checks for business rules
+- Loop-driven user interaction for repeated processing
 
 ---
 
