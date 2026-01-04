@@ -418,6 +418,28 @@ Completed **constructor, access-modifier, and instance practice** with six mini-
 
 ---
 
+### 🗓️ **Date: 03-01-2026**
+### 🎯 Tasks of the Day
+- Reviewed `this`, static members, and the `is` operator; noted use-cases for the sealed keyword to block inheritance when needed.
+- Built small management systems with display routines for BankAccount, Employee, Patient, Book, Product, Student, and Vehicle classes.
+
+### 📘 What I Practiced
+- `this` to disambiguate constructor parameters from fields across all entity classes.
+- Static fields/methods for shared context: organization names, discounts/fees, and instance counters.
+- `is` operator before display calls to verify object type safety.
+- Readonly identifiers for immutable IDs (account numbers, roll numbers, ISBNs, product IDs, registrations).
+
+### 🧩 Mini Systems & Files
+- Bank accounts with shared bank name, per-account balance display, and total account count — [oops-charp-practice/gcr-code-base/csharp-this-sealed-static-keyword/BankSystem.cs](oops-charp-practice/gcr-code-base/csharp-this-sealed-static-keyword/BankSystem.cs)
+- Employee roster with company-wide static name and total employee tracker — [oops-charp-practice/gcr-code-base/csharp-this-sealed-static-keyword/EmployeeManagement.cs](oops-charp-practice/gcr-code-base/csharp-this-sealed-static-keyword/EmployeeManagement.cs)
+- Hospital intake showing patient details and aggregate admissions — [oops-charp-practice/gcr-code-base/csharp-this-sealed-static-keyword/HospitalManagement.cs](oops-charp-practice/gcr-code-base/csharp-this-sealed-static-keyword/HospitalManagement.cs)
+- Library catalog with static library name and per-book display — [oops-charp-practice/gcr-code-base/csharp-this-sealed-static-keyword/LibrarySystem.cs](oops-charp-practice/gcr-code-base/csharp-this-sealed-static-keyword/LibrarySystem.cs)
+- Shopping cart applying a shared discount to products before summarizing totals — [oops-charp-practice/gcr-code-base/csharp-this-sealed-static-keyword/ShoppingCart.cs](oops-charp-practice/gcr-code-base/csharp-this-sealed-static-keyword/ShoppingCart.cs)
+- University roster keeping static university name and student count — [oops-charp-practice/gcr-code-base/csharp-this-sealed-static-keyword/UniversityManagement.cs](oops-charp-practice/gcr-code-base/csharp-this-sealed-static-keyword/UniversityManagement.cs)
+- Vehicle registration with a static fee applied to each record — [oops-charp-practice/gcr-code-base/csharp-this-sealed-static-keyword/VehicleRegistrationSystem.cs](oops-charp-practice/gcr-code-base/csharp-this-sealed-static-keyword/VehicleRegistrationSystem.cs)
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
