@@ -244,6 +244,38 @@ Completed **Cafeteria Ordering System** - A menu-driven application for food ord
 
 ---
 
+## 📊 Class, Object, and Sequence Diagrams
+**Folder:** `oops-csharp-practice/gcr-code-base/class-object-sequence-diagram/`
+
+### 📋 Diagram Applications
+
+#### 1️⃣ School Results Application
+- **Class Diagram:** Defines the structure of Student, Subject, and Result classes
+- **Object Diagram:** Shows instances of students with their subjects and marks
+- **Sequence Diagram:** Illustrates the flow of result generation and grade calculation
+
+#### 2️⃣ Grocery Store Bill Generation
+- **Class Diagram:** Defines the structure of Product, Cart, and Bill classes
+- **Object Diagram:** Shows instances of products in a shopping cart
+- **Sequence Diagram:** Illustrates the flow of adding items and generating the final bill
+
+### 📚 Key Learnings
+- **UML Diagrams:**
+  - Understanding Class Diagrams for system structure design
+  - Object Diagrams for representing runtime instances
+  - Sequence Diagrams for modeling interactions and workflow
+  
+- **Design Thinking:**
+  - Breaking down real-world scenarios into classes and objects
+  - Identifying relationships between entities
+  - Mapping business logic flow through sequence diagrams
+
+### 💡 Applications Covered
+✅ **School Results System** - Student grade calculation and reporting  
+✅ **Grocery Store Billing** - Shopping cart management and bill generation
+
+---
+
 ### 🗓️ **Date: 02-01-2026**
 ### 🎯 Task of the Day
 Completed **Class and Object fundamentals** - Three basic OOP programs demonstrating encapsulation and class design.
