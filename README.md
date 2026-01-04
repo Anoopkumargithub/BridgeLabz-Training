@@ -440,6 +440,24 @@ Completed **constructor, access-modifier, and instance practice** with six mini-
 
 ---
 
+### 🗓️ **Date: 04-01-2026**
+### 🎯 Tasks of the Day
+- Practiced single and multilevel inheritance with focused display routines.
+- Added status-aware order flow and course pricing examples.
+
+### 📘 What I Practiced
+- Chaining constructors with `base` to reuse shared initialization.
+- Method overriding for status reporting; method hiding when reusing display labels.
+- Using protected members for derived-class access while keeping fields scoped.
+
+### 🧩 Mini Systems & Files
+- Multilevel course catalog: Course → OnlineCourse → PaidOnlineCourse with fee and discount display — [oops-charp-practice/gcr-code-base/csharp-inheritance/multilevel-inheritance/CourseManagement.cs](oops-charp-practice/gcr-code-base/csharp-inheritance/multilevel-inheritance/CourseManagement.cs)
+- Multilevel retail orders: Order → ShippedOrder → DeliveredOrder with status via `GetOrderStatus()` and tracking/delivery info — [oops-charp-practice/gcr-code-base/csharp-inheritance/multilevel-inheritance/OnlineRetailSystem.cs](oops-charp-practice/gcr-code-base/csharp-inheritance/multilevel-inheritance/OnlineRetailSystem.cs)
+- Single-inheritance library: Book → Author combining publication metadata with author bio — [oops-charp-practice/gcr-code-base/csharp-inheritance/single-inheritance/LibraryManagement.cs](oops-charp-practice/gcr-code-base/csharp-inheritance/single-inheritance/LibraryManagement.cs)
+- Single-inheritance smart home: Device → Thermostat with status plus temperature setting — [oops-charp-practice/gcr-code-base/csharp-inheritance/single-inheritance/SmartHomeSystem.cs](oops-charp-practice/gcr-code-base/csharp-inheritance/single-inheritance/SmartHomeSystem.cs)
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
