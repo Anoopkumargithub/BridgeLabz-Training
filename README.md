@@ -490,6 +490,14 @@ Completed **constructor, access-modifier, and instance practice** with six mini-
 
 ---
 
+### 🗓️ **Date: 05-01-2026**
+### 🎯 Task of the Day
+Implement **Hospital Patient Management System** with billing, doctor, and patient functionalities using OOPS
+
+**Project 7:** Hospital Patient Management System - Comprehensive medical facility management with multi-class architecture
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
