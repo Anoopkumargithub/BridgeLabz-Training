@@ -498,6 +498,66 @@ Implement **Hospital Patient Management System** with billing, doctor, and patie
 
 ---
 
+### 🗓️ **Date: 06-01-2026**
+### 🎯 Task of the Day
+Implement **Call Log Management System** with service interfaces and utility patterns using advanced OOP design.
+
+**Project 8:** Call Log Management System - Comprehensive telecommunications logging with architecture patterns
+
+---
+
+## 📞 Project 8: Call Log Management System
+**File:** `oops-charp-practice/scenario-based/TetecomSystem.cs`
+
+### 📱 Features
+- **Core Classes:**
+  - `CallLog` - Represents a single call record with duration, timestamp, and contact info
+  - `ICallLogService` - Interface defining contract for call log operations
+  - `CallLogUtility` - Implementation of call log service with CRUD operations
+  - `CallLogMenu` - Menu-driven interface for user interactions
+
+- **Functionality:**
+  - Record new calls with automatic timestamp generation
+  - Search calls by phone number with filtering
+  - Update call duration and notes
+  - Delete specific call records
+  - Display all call history with formatted output
+  - Calculate total call duration statistics
+
+- **Menu Operations:**
+  - Add Call - Create new call log entry
+  - View All Calls - Display complete call history
+  - Search Calls - Find calls by phone number
+  - Update Call - Modify existing call details
+  - Delete Call - Remove call records
+  - Exit - Graceful application termination
+
+### 📚 Key Learnings
+- **Interface Design:** Defining contracts with `ICallLogService` for extensibility
+- **Service Pattern:** Separating business logic (CallLogUtility) from presentation (CallLogMenu)
+- **List Operations:** Using `List<T>` for dynamic call storage with filtering and LINQ operations
+- **DateTime Management:** Recording call timestamps and calculating durations
+- **Menu-Driven Architecture:** Recursive menu handling with user input validation
+- **Code Organization:** Clear separation between data (CallLog), service (ICallLogService/CallLogUtility), and UI (CallLogMenu)
+
+### 💡 OOP Principles Applied
+✅ **Encapsulation** - Private fields with controlled access through properties  
+✅ **Abstraction** - Interface hides implementation details of call log operations  
+✅ **Separation of Concerns** - UI logic isolated from business logic  
+✅ **Single Responsibility** - Each class has a specific role (data, service, menu)  
+✅ **Dependency Injection** - Menu depends on interface, not concrete implementation  
+
+### 🚀 Future Enhancements
+- Call history persistence (File/Database storage)
+- Advanced filtering (date range, call duration filters)
+- Call categorization (incoming, outgoing, missed)
+- Contact list management
+- Call duration statistics and analytics
+- Custom exception handling for invalid operations
+- Bulk operations (delete multiple calls, export to file)
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
