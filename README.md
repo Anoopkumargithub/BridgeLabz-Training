@@ -558,6 +558,66 @@ Implement **Call Log Management System** with service interfaces and utility pat
 
 ---
 
+**Project 9:** Bird Sanctuary System - Wildlife management with interface-based behavior implementation
+
+---
+
+## 🦅 Project 9: Bird Sanctuary System
+**Folder:** `oops-charp-practice/scenario-based/bird-sanctuary-system/`
+
+### 🐦 Features
+- **Core Classes:**
+  - `Bird` - Abstract base class for all bird types with name property
+  - `Eagle` - Implements IFlyable for high-altitude flying behavior
+  - `Sparrow` - Implements IFlyable for short-distance flying behavior
+  - `Duck` - Implements ISwimmable for aquatic behavior
+  - `Parrot` - Implements IFlyable with repeat talking capability
+
+- **Interface Contracts:**
+  - `IFlyable` - Defines `Fly()` method for flying birds
+  - `ISwimmable` - Defines `Swim()` method for aquatic birds
+  - Enables polymorphic behavior independent of inheritance hierarchy
+
+- **Utility & Menu:**
+  - `BirdUtility` - Manages bird collection with add and display operations
+  - `BirdMenu` - Provides interactive menu for sanctuary operations
+  - Dynamic bird type detection using `is` operator
+  - Runtime polymorphism with interface method invocation
+
+### 📚 Key Learnings
+- **Interface-Based Design:** Decoupling behavior from inheritance hierarchy
+- **Multiple Implementation:** Single class can implement multiple interfaces
+- **Polymorphism:** Runtime type checking and method invocation via interfaces
+- **Type Casting:** Safe casting using `is` operator before calling interface methods
+- **Array Management:** Managing heterogeneous objects in a typed array
+- **Protected Members:** Using `protected` fields in base class for derived class access
+- **Separation of Concerns:** Utility handles data, Menu handles presentation
+
+### 💡 OOP Principles Applied
+✅ **Encapsulation** - Protected fields in base Bird class, private collection in BirdUtility  
+✅ **Inheritance** - All birds inherit from Bird base class  
+✅ **Polymorphism** - Different bird types implement same interfaces with unique behaviors  
+✅ **Abstraction** - Interfaces define what birds can do, classes define how  
+✅ **Interface Segregation** - IFlyable and ISwimmable focus on specific behaviors  
+✅ **Open/Closed Principle** - Easy to add new bird types without modifying existing code  
+
+### 🦆 Bird Types & Behaviors
+- **Eagle** - Flies high in the sky (IFlyable)
+- **Sparrow** - Flies short distances (IFlyable)
+- **Duck** - Swims in water (ISwimmable)
+- **Parrot** - Flies and repeats words (IFlyable)
+
+### 🚀 Future Enhancements
+- Persistence layer for sanctuary data (File/Database)
+- Search and filter operations by bird type or behavior
+- Bird health and feeding system
+- Habitat management for different bird species
+- Statistics and reporting (bird count by type, behavior distribution)
+- Conservation status tracking
+- Visitor interaction log
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
