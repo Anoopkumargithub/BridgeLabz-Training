@@ -498,6 +498,121 @@ Implement **Hospital Patient Management System** with billing, doctor, and patie
 
 ---
 
+## 🏥 Project 7: Hospital Patient Management System
+**Folder:** [oops-charp-practice/scenario-based/hospital-patient-management-system/](oops-charp-practice/scenario-based/hospital-patient-management-system/)
+
+### 🏗️ Core Classes & Architecture
+- **Patients** - Base class for all patient types with ID and name — [Patients.cs](oops-charp-practice/scenario-based/hospital-patient-management-system/Patients.cs)
+  - `InPatient` - Derived class for admitted patients with length of stay tracking
+  - `OutPatient` - Derived class for visiting patients with visit date tracking
+  - `IPatient` - Interface contract for patient operations
+
+- **Doctors** - Healthcare provider class managing assigned patients — [Doctors.cs](oops-charp-practice/scenario-based/hospital-patient-management-system/Doctors.cs)
+  - Maintains array of assigned patients
+  - Consultation fee management
+  - `IDoctor` - Interface contract for doctor operations
+
+- **Bills** - Billing computation with hospital charges — [Bills.cs](oops-charp-practice/scenario-based/hospital-patient-management-system/Bills.cs)
+  - Room charges calculation (₹1500 per day)
+  - Doctor fee aggregation
+  - `IPayable` - Interface contract for billing operations
+
+- **Menu** - User interface orchestration — [Menu.cs](oops-charp-practice/scenario-based/hospital-patient-management-system/Menu.cs)
+  - Menu display and option presentation
+  - 5 main operations: View Patients, View Doctors, Doctor's Patients, Generate Bill, Exit
+
+- **Utility** - Helper functions — [Utility.cs](oops-charp-practice/scenario-based/hospital-patient-management-system/Utility.cs)
+  - Formatting utilities for consistent output
+
+- **HospitalManagement** - Main entry point with workflow — [HospitalManagement.cs](oops-charp-practice/scenario-based/hospital-patient-management-system/HospitalManagement.cs)
+  - Sample data initialization
+  - Menu-driven control loop
+  - Operation delegation based on user choice
+
+### 🔧 Features
+
+**Patient Management:**
+- Two patient types supported: InPatient (admitted) and OutPatient (visiting)
+- Patient ID and name tracking
+- Polymorphic display with patient-specific details
+- Admission duration tracking for InPatients
+- Visit date tracking for OutPatients
+
+**Doctor Management:**
+- Doctor ID, name, and consultation fee
+- Patient assignment to doctors (one-to-many relationship)
+- Patient count property for doctor workload
+- Display of doctor details and assigned patients
+
+**Billing System:**
+- Automatic bill generation for InPatients
+- Room charge calculation: ₹1500 × number of days
+- Doctor consultation fee inclusion
+- Total bill amount calculation
+
+**Menu Operations:**
+1. **View Patients** - Display all patients with their details
+2. **View Doctors** - List all doctors in the system
+3. **View Doctor's Patients** - Select a doctor and view assigned patients
+4. **Generate Bill** - Create bill for selected InPatient under selected doctor
+5. **Exit** - Terminate application
+
+### 📊 Sample Data
+- **Patients:** John (5 days), Adam (8 days), Carter (8 days)
+- **Doctors:** Dr. Bhide (₹1000 fee, 2 patients), Dr. Haathi (₹5000 fee, 1 patient)
+
+### 📚 Key Learnings
+
+**Inheritance & Polymorphism:**
+- Base class `Patients` with derived `InPatient` and `OutPatient` classes
+- Virtual method `DisplayAccountInfo()` overridden in derived classes
+- `base` keyword to call parent constructor and methods
+- Runtime polymorphism with method overriding
+
+**Interface Design:**
+- `IPatient` contract for patient operations
+- `IDoctor` contract for doctor operations
+- `IPayable` contract for billing operations
+- Multiple interfaces for separation of concerns
+
+**Relationships:**
+- One-to-many relationship between Doctors and Patients
+- Composition: Doctors contain Patients array, Bills contain Patient and Doctor references
+- Type casting with `as` operator for safe conversions
+
+**Arrays & Collections:**
+- Parallel arrays for doctors and patients
+- Dynamic array indexing for menu selections
+- Array bounds checking for valid selections
+
+**Menu-Driven Architecture:**
+- Switch-case for operation dispatch
+- Input validation with boundary checks
+- Recursive menu loop for continuous operations
+- Clear separation between menu (UI), business logic, and data
+
+### 💡 OOP Principles Applied
+✅ **Encapsulation** - Private fields with public properties for controlled access  
+✅ **Inheritance** - InPatient and OutPatient inherit from Patients base class  
+✅ **Polymorphism** - Method overriding for patient-specific display logic  
+✅ **Abstraction** - Interfaces define contracts; classes implement behavior  
+✅ **Composition** - Doctors manage Patients; Bills aggregate Patient and Doctor data  
+✅ **Separation of Concerns** - Menu (UI), Classes (Logic), Utility (Helpers)  
+
+### 🚀 Future Enhancements
+- Persistent storage (database or file-based patient/doctor records)
+- Search and filter operations (find patient by ID, list doctors by specialty)
+- Appointment scheduling system
+- Medical history tracking per patient
+- Prescription management
+- Insurance claim processing
+- Emergency contact management
+- Hospital departments and specializations
+- Multiple payment methods and installment plans
+- Comprehensive reporting and analytics
+
+---
+
 ### 🗓️ **Date: 06-01-2026**
 ### 🎯 Task of the Day
 Implement **Call Log Management System** with service interfaces and utility patterns using advanced OOP design.
