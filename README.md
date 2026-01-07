@@ -618,6 +618,37 @@ Implement **Call Log Management System** with service interfaces and utility pat
 
 ---
 
+### 🗓️ **Date: 07-01-2026**
+### 🎯 Task of the Day
+Implement **Employee Wage Computation System** with interface-driven utilities and a menu workflow for wage scenarios.
+
+**Project 10:** Employee Wage Computation System - Randomized attendance and wage calculations across daily, part-time, monthly, and capped conditions.
+
+---
+
+## 💼 Project 10: Employee Wage Computation System
+**File:** [oops-charp-practice/scenario-based/employee-wage-computation-problem/EmployeeMain.cs](oops-charp-practice/scenario-based/employee-wage-computation-problem/EmployeeMain.cs)
+
+### 🧱 Core Classes
+- Orchestrator entrypoint with looped menu — [oops-charp-practice/scenario-based/employee-wage-computation-problem/EmployeeMenu.cs](oops-charp-practice/scenario-based/employee-wage-computation-problem/EmployeeMenu.cs)
+- Interface contract for wage operations — [oops-charp-practice/scenario-based/employee-wage-computation-problem/IEmployee.cs](oops-charp-practice/scenario-based/employee-wage-computation-problem/IEmployee.cs)
+- Utility implementation with business logic and randomness — [oops-charp-practice/scenario-based/employee-wage-computation-problem/EmployeeUtilityImpl.cs](oops-charp-practice/scenario-based/employee-wage-computation-problem/EmployeeUtilityImpl.cs)
+- Employee model encapsulating wage constants and state — [oops-charp-practice/scenario-based/employee-wage-computation-problem/Employee.cs](oops-charp-practice/scenario-based/employee-wage-computation-problem/Employee.cs)
+
+### 📱 Features
+- Menu options: add employee, attendance check, daily wage, part-time wage, switch-based wage, monthly wage, and capped wage till hours/days limit.
+- Randomized attendance/type selection drives wage paths (absent/full-time/part-time) with descriptive console output.
+- Constants centralize wage rate, full/part-time hours, max working days, and max hours for consistent calculations.
+- Capped wage loop aggregates total hours/days until either 100 hours or 20 days threshold, logging each day's hours and wage.
+
+### 📚 Key Learnings
+- Interface-first design to separate contract (`IEmployee`) from implementation (`EmployeeUtilityImpl`).
+- Menu-to-service orchestration using a sealed menu class and upcasting to the interface for flexibility.
+- Switch-case and loop control to model daily attendance variations and cumulative wage rules.
+- Encapsulation of wage parameters in the model to avoid magic numbers in calculations.
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
