@@ -26,5 +26,9 @@ namespace BridgeLabzTraining.senariobased.employee_wage_computation_problem
         // UC5 - Calculate Monthly Wage
         double CalculateMonthlyWage();
 
+        // UC6 - Calculate Wage Till Condition
+        double CalculateWageTillCondition();
+
+    
     }
 }

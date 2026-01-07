@@ -29,7 +29,8 @@ namespace BridgeLabzTraining.senariobased.employee_wage_computation_problem
                 Console.WriteLine("4. Calculate Part Time Wage");
                 Console.WriteLine("5. Calculate Wage Using Switch Case");
                 Console.WriteLine("6. Calculate Monthly Wage");
-                Console.WriteLine("7. Exit");
+                Console.WriteLine("7. Calculate Wage Till Condition");
+                Console.WriteLine("8. Exit");
                 Console.Write("Enter your choice: ");
 
                 int choice = int.Parse(Console.ReadLine());
@@ -54,8 +55,11 @@ namespace BridgeLabzTraining.senariobased.employee_wage_computation_problem
                         break;
                     case 6:
                         employeeUtility.CalculateMonthlyWage();
-                        break;   
+                        break;
                     case 7:
+                        employeeUtility.CalculateWageTillCondition();
+                        break;   
+                    case 8:
                         continueMenu = false;
                         Console.WriteLine("Exiting...");
                         break;
