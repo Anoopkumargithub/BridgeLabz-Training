@@ -764,6 +764,43 @@ Implement **Employee Wage Computation System** with interface-driven utilities a
 
 ---
 
+### 🗓️ **Date: 08-01-2026**
+### 🎯 Task of the Day
+Implement **Smart Home Automation System** with appliance management and control features.
+
+**Project 11:** Smart Home Automation System - Connect, manage, and control appliances through a menu-driven console hub.
+
+---
+
+## 🏠 Project 11: Smart Home Automation System
+**Folder:** [oops-charp-practice/scenario-based/smart-home-automation-system/](oops-charp-practice/scenario-based/smart-home-automation-system/)
+
+### 🏗️ Core Classes & Architecture
+- Entry point wires the utility and menu for the smart home hub — [SmartHome.cs](oops-charp-practice/scenario-based/smart-home-automation-system/SmartHome.cs)
+- Menu orchestrates add/list operations for appliances — [ApplianceMenu.cs](oops-charp-practice/scenario-based/smart-home-automation-system/ApplianceMenu.cs)
+- Utility stores connected devices and triggers control hooks — [ApplianceUtility.cs](oops-charp-practice/scenario-based/smart-home-automation-system/ApplianceUtility.cs)
+- Base appliance metadata captured once for all devices — [Appliance.cs](oops-charp-practice/scenario-based/smart-home-automation-system/Appliance.cs)
+- Control contract with concrete implementations per device: [IControllable.cs](oops-charp-practice/scenario-based/smart-home-automation-system/IControllable.cs), [Fan.cs](oops-charp-practice/scenario-based/smart-home-automation-system/Fan.cs), [AC.cs](oops-charp-practice/scenario-based/smart-home-automation-system/AC.cs), [LightBulb.cs](oops-charp-practice/scenario-based/smart-home-automation-system/LightBulb.cs)
+
+### 🔧 Features
+- Menu options to add Fan, AC, or LightBulb devices, view connected appliances, or exit the hub.
+- Fixed-capacity registry ensures appliances only connect while slots remain, with feedback when full.
+- Control trigger invokes `IControllable` implementations to simulate turning devices on when listing connections.
+- Console-driven workflow for quick setup and visibility into connected smart appliances.
+
+### 📚 Key Learnings
+- Interface-driven control flow enables polymorphic actions across appliance types.
+- Composition centralizes appliance registration while keeping device behaviors encapsulated.
+- Menu loops with switch-based branching simplify user-driven automation tasks.
+- Capacity checks guard against over-allocation when adding new devices.
+
+### 🚀 Future Enhancements
+- Instantiate specific device classes (Fan/AC/LightBulb) directly from the menu to use their control behaviors for every connection.
+- Add granular controls (on/off, speed, brightness, temperature) and per-device status tracking.
+- Persist connected devices and states between sessions for a continuous smart home experience.
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
