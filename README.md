@@ -801,6 +801,111 @@ Implement **Smart Home Automation System** with appliance management and control
 
 ---
 
+### 🗓️ **Date: 09-01-2026**
+### 🎯 Task of the Day
+Implement **Fitness Tracker System** with user management and exercise tracking features for comprehensive fitness monitoring.
+
+**Project 12:** Fitness Tracker System - Complete user profile management and workout logging with statistics and goal tracking.
+
+---
+
+## 💪 Project 12: Fitness Tracker System
+**Folder:** [oops-charp-practice/scenario-based/fitness-tracker/](oops-charp-practice/scenario-based/fitness-tracker/)
+
+### 🏗️ Core Classes & Architecture
+- Entry point orchestrates the fitness application workflow — [FitnessMain.cs](oops-charp-practice/scenario-based/fitness-tracker/FitnessMain.cs)
+- User interface with menu options for fitness operations — [FitnessMenu.cs](oops-charp-practice/scenario-based/fitness-tracker/FitnessMenu.cs)
+- Business logic implementation for fitness tracking — [FitnessUtilityImpl.cs](oops-charp-practice/scenario-based/fitness-tracker/FitnessUtilityImpl.cs)
+- Interface contract for trackable fitness operations — [ITrackable.cs](oops-charp-practice/scenario-based/fitness-tracker/ITrackable.cs)
+- User profile data model with personal and fitness metrics — [UserProfile.cs](oops-charp-practice/scenario-based/fitness-tracker/UserProfile.cs)
+- Workout data model for exercise logging — [WorkOut.cs](oops-charp-practice/scenario-based/fitness-tracker/WorkOut.cs)
+
+### 🔧 Features
+
+**User Management:**
+- Create new user profiles with personal information (name, age, gender, weight, height)
+- Store user data with unique user ID generation
+- Display user profile details with calculated metrics
+- Update user weight and fitness goals
+- BMI calculation based on height and weight
+
+**Workout Tracking:**
+- Log exercises with workout type, duration, calories burned, and date
+- Support multiple exercise types (Running, Cycling, Swimming, Gym, Yoga, etc.)
+- Track workout history per user
+- Calculate total workout duration and calories burned
+
+**Statistics & Analysis:**
+- View user-specific workout history
+- Calculate total workouts completed
+- Aggregate calories burned across workouts
+- Track workout frequency and consistency
+- Workout performance metrics per exercise type
+
+**Menu Operations:**
+1. **Create User Profile** - Add new user to the fitness system
+2. **Add Workout** - Log exercise session for a user
+3. **View User Profile** - Display user details and fitness metrics
+4. **View Workout History** - Show all workouts for selected user
+5. **Calculate Fitness Stats** - Display comprehensive fitness statistics
+6. **Exit** - Graceful application termination
+
+### 📚 Key Learnings
+
+**Interface Design:**
+- `ITrackable` interface defines contract for fitness operations (AddUser, AddWorkout, GetUserStats)
+- Separates interface definition from implementation for flexibility
+
+**Data Models:**
+- `UserProfile` encapsulates personal and fitness information
+- `WorkOut` represents individual exercise sessions
+- Proper encapsulation with private fields and public properties
+
+**Utility Pattern:**
+- `FitnessUtilityImpl` implements ITrackable with core business logic
+- Uses List<T> for dynamic user and workout storage
+- Filtering and aggregation operations on collections
+
+**Menu-Driven Architecture:**
+- `FitnessMenu` handles user interaction and input validation
+- Recursive menu pattern for continuous operations
+- Clear delegation from menu to utility
+
+**Collection Management:**
+- Using List<UserProfile> for flexible user storage
+- Nested List<WorkOut> within UserProfile for workout history
+- LINQ-style filtering for finding users and calculating statistics
+
+**Calculations & Metrics:**
+- BMI calculation: weight (kg) / (height (m))²
+- Calorie tracking and aggregation
+- Workout duration summation
+- Fitness progress monitoring
+
+### 💡 OOP Principles Applied
+✅ **Encapsulation** - Private fields with public properties for controlled access  
+✅ **Abstraction** - ITrackable interface hides implementation details  
+✅ **Single Responsibility** - Separate classes for user, workout, and menu concerns  
+✅ **Dependency Injection** - Menu depends on ITrackable interface, not concrete implementation  
+✅ **Composition** - UserProfile contains collection of WorkOut objects  
+✅ **Separation of Concerns** - UI (FitnessMenu), Logic (FitnessUtilityImpl), Data (Models)  
+
+### 🚀 Future Enhancements
+- Goal setting and progress tracking towards fitness objectives
+- Nutrition logging and dietary tracking
+- Integration with wearable devices for automatic tracking
+- Social features (challenges, friend connections, leaderboards)
+- Advanced analytics and trend analysis with charts
+- Personalized workout recommendations based on goals
+- Integration with calendar for scheduled workouts
+- Export workout history to reports (PDF/Excel)
+- Push notifications for workout reminders
+- Persistent storage (Database integration)
+- Mobile app version for on-the-go tracking
+- AI-powered fitness coach recommendations
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
