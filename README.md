@@ -29,3 +29,15 @@
 - Stock Span Problem
 - Pair With Sum (HashMap)
 - Zero Sum SubArrays (HashMap)
+
+### January 10, 2026 - Day 3
+**Topics Covered:**
+- **Sorting Algorithms**
+  - Various sorting techniques and implementations
+  
+**Practice Problems:**
+- Sort Book Prices
+- Sort Employee
+- Sort Exam Score
+- Sort Product Price
+- Sort Student
