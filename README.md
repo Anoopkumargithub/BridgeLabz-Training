@@ -41,3 +41,16 @@
 - Sort Exam Score
 - Sort Product Price
 - Sort Student
+
+### January 12, 2026 - Day 4
+**Topics Covered:**
+- **Dynamic Programming - Rod Cutting Problem**
+  - Strategy Pattern Implementation
+  - Optimization techniques for cutting problems
+  - Price maximization algorithms
+  
+**Scenario-Based Project:**
+- Metal Factory Pipe Cutting System
+  - Optimized and Non-Optimized implementations
+  - Price chart management
+  - Factory demonstration system
