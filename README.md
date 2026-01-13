@@ -71,8 +71,11 @@
   - Interface-based design patterns
   - Properties with backing fields
   - Method signatures and parameters
+  - Generic Collections (List<T>)
   
-#### 📚 Scenario-Based Project: BookBuddy System
+#### 📚 Scenario-Based Projects:
+
+##### 1. BookBuddy System
 - **Book Class**
   - Properties: Title, Author with backing fields
   - ToString() method for formatted output
@@ -93,12 +96,19 @@
   - Interactive console-based UI
   - Options: Add Book, Search by Author, Sort Books, Display All, Exit
   - Input validation and error handling
+
+##### 2. Cinema Time Project
+- **Movie Management System**
+  - Movie class with properties
+  - List-based movie collection
+  - Interactive menu system
+  - Search and display functionalities
   
 #### 🔧 Technical Highlights:
 - C# 2.0 compatibility (explicit property implementation)
 - Interface segregation and dependency injection
 - Search optimization using Dictionary
-- User-friendly menu-driven interface
+- User-friendly menu-driven interface4
 
 ---
 
