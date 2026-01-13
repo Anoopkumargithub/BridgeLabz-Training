@@ -52,11 +52,29 @@
 
 ### 📅 January 12, 2026 - Day 4
 #### 🎯 Topics Covered:
-- **Dynamic Programming - Rod Cutting Problem**
-  - Strategy Pattern Implementation
-  - Optimization techniques for cutting problems
-  - Price maximization algorithms
+- **Searching Algorithms**
+  - Linear Search implementations
+  - Finding elements in arrays and lists
   
+- **String Manipulation and StringBuilder**
+  - Efficient string concatenation
+  - Character stream operations
+  - File I/O with StreamReader
+  
+#### 💻 Practice Problems:
+- ✅ Find Missing Positive and Target
+- ✅ Find the Peak Element in an Array
+- ✅ Find the Rotation Point in a Rotated Sorted Array
+- ✅ Search First Negative Number
+- ✅ Search for a Specific Word in a List of Sentences
+- ✅ Compare StringBuilder Performance
+- ✅ Concatenate Strings Efficiently Using StringBuilder
+- ✅ Convert Byte Stream to Character Stream
+- ✅ Count Word Occurrence in File
+- ✅ Read File Line by Line Using StreamReader
+- ✅ Read User Input and Write to File
+- ✅ Remove Duplicate
+
 #### 🏭 Scenario-Based Project:
 - **Metal Factory Pipe Cutting System**
   - Optimized and Non-Optimized implementations
