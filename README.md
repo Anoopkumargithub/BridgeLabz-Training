@@ -65,7 +65,44 @@
 
 ---
 
+### 📅 January 13, 2026 - Day 5
+#### 🎯 Topics Covered:
+- **Object-Oriented Programming with Collections**
+  - Interface-based design patterns
+  - Properties with backing fields
+  - Method signatures and parameters
+  
+#### 📚 Scenario-Based Project: BookBuddy System
+- **Book Class**
+  - Properties: Title, Author with backing fields
+  - ToString() method for formatted output
+  
+- **IBook Interface**
+  - addBook(Book book)
+  - searchByAuthor(string author)
+  - sortBookByAlphabetically()
+  - Display()
+  
+- **IBookImpl Implementation**
+  - List<Book> for dynamic book storage
+  - Dictionary<string, List<int>> for author indexing
+  - swap(int i, int j, List<Book> books) helper method
+  - Bubble sort for alphabetical ordering
+  
+- **Menu Class**
+  - Interactive console-based UI
+  - Options: Add Book, Search by Author, Sort Books, Display All, Exit
+  - Input validation and error handling
+  
+#### 🔧 Technical Highlights:
+- C# 2.0 compatibility (explicit property implementation)
+- Interface segregation and dependency injection
+- Search optimization using Dictionary
+- User-friendly menu-driven interface
+
+---
+
 ## 📊 Summary
-- **Total Days:** 4
-- **Topics Covered:** LinkedList, Stack, Queue, HashMap, Sorting, Dynamic Programming
-- **Projects Completed:** 8+ Practice Problems + 1 Scenario-Based Project
+- **Total Days:** 5
+- **Topics Covered:** LinkedList, Stack, Queue, HashMap, Sorting, Dynamic Programming, OOP Design Patterns, Collections
+- **Projects Completed:** 8+ Practice Problems + 3 Scenario-Based Projects
