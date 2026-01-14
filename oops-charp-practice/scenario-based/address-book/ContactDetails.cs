@@ -14,10 +14,10 @@ namespace BridgeLabzTraining.senariobased.address_book
         private string City { get; set; }
         private string State { get; set; }
         private string ZIPCode { get; set; }
-        private int PhoneNumber { get; set; }
+        private string PhoneNumber { get; set; }
         private string Email { get; set; }
 
-        public ContactDetails(string firstName, string lastName, string address, string city, string state, string zIPCode, int phoneNumber, string email)
+        public ContactDetails(string firstName, string lastName, string address, string city, string state, string zIPCode, string phoneNumber, string email)
         {
             FirstName = firstName;
             LastName = lastName;

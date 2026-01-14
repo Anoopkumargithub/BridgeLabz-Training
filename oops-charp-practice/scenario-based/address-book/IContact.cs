@@ -9,5 +9,7 @@ namespace BridgeLabzTraining.senariobased.address_book
     internal interface IContact
     {
         void ShowContact(ContactDetails person);
+
+        void AddContact();
     }
 }

@@ -9,6 +9,24 @@ namespace BridgeLabzTraining.senariobased.address_book
     internal class AddressBookOperations
     {
         private IContact contactUtility = new ContactImpl();
+        bool AdminRole = false;
+
+        public bool CheckRole()
+        {
+            Console.Write("Enter your Email: ");
+            string email = Console.ReadLine();
+            if (email.Equals("ABC@gmail.com"))
+            {
+                AdminRole = true;
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Wrong Credentials, Try Again!!");
+                AdminRole = false;
+            }
+            return false;
+        }
         public void DisplayOperation()
         {
             Console.WriteLine("----Welcome To Address Book----");
@@ -17,7 +35,8 @@ namespace BridgeLabzTraining.senariobased.address_book
             {
                 Console.WriteLine();
                 Console.WriteLine("1.Show Contact");
-                Console.WriteLine("2. Exit");
+                Console.WriteLine("2. Add Contact");
+                Console.WriteLine("3. Exit");
 
                 Console.WriteLine("Enter your choice: ");
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -33,16 +52,22 @@ namespace BridgeLabzTraining.senariobased.address_book
                                                 "Bengaluru",
                                                 "Karnataka",
                                                 "560001",
-                                                987654321,
+                                                "987654321",
                                                 "anoop.kumar@email.com");
                         contactUtility.ShowContact(Person);
                         break;
                     case 2:
+                        if (CheckRole())
+                        {
+                            contactUtility.AddContact();
+                        }
+                        break;
+                    case 3:
                         Console.WriteLine("Thankyou, Visit Again!!");
                         break;
                 }
             }
-            while (choice != 2);
+            while (choice != 3);
         }
     }
 }
