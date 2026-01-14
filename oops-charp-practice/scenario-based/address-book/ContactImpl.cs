@@ -10,6 +10,32 @@ namespace BridgeLabzTraining.senariobased.address_book
     {
         ContactDetails [] contacts = new ContactDetails [10];
         int count = 0;
+
+        public void DeleteContact()
+        {
+            Console.Write("Enter First Name: ");
+            string firstName = Console.ReadLine();
+
+            for (int i = 0; i < count; i++)
+            {
+                if (contacts[i].GetFirstName() == firstName)
+                {
+                    for (int j = i; j < count - 1; j++)
+                    {
+                        contacts[j] = contacts[j + 1];
+                    }
+                    contacts[count - 1] = null;
+                    count--;
+                    Console.WriteLine($"Contact '{firstName}' deleted successfully.");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("No Contact Available with this Name");
+                    return;
+                }
+            }
+        }
         public void EditContact()
         {
             Console.Write("Enter First Name: ");
@@ -17,12 +43,7 @@ namespace BridgeLabzTraining.senariobased.address_book
 
             for(int i = 0;i< contacts.Length;i++)
             {
-                if(contacts[i].GetFirstName() != firstName)
-                {
-                    Console.WriteLine("No Contact Available with this Name");
-                    return;
-                }
-                else
+                if(contacts[i].GetFirstName() == firstName)
                 {
                     Console.WriteLine("Current Person detail: ");
                     Console.WriteLine(contacts[i].ToString());
@@ -31,7 +52,12 @@ namespace BridgeLabzTraining.senariobased.address_book
                     contacts[i] = person;
 
                     Console.WriteLine($"{contacts[i].GetFirstName()} detials updated");
-
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("No Contact Available with this Name");
+                    return;
                 }
             }
         }
@@ -92,5 +118,6 @@ namespace BridgeLabzTraining.senariobased.address_book
             return person;
 
         }
+
     }
 }

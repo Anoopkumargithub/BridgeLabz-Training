@@ -30,21 +30,22 @@ namespace BridgeLabzTraining.senariobased.address_book
         public void DisplayOperation()
         {
             Console.WriteLine("----Welcome To Address Book----");
-            int choice;
+            string choice;
             do
             {
                 Console.WriteLine();
                 Console.WriteLine("1.Show Contact");
                 Console.WriteLine("2. Add Contact");
                 Console.WriteLine("3. Edit Contact");
-                Console.WriteLine("4. Exit");
+                Console.WriteLine("4. Delete Contact");
+                Console.WriteLine("5. Exit");
 
                 Console.WriteLine("Enter your choice: ");
-                choice = Convert.ToInt32(Console.ReadLine());
+                choice = Console.ReadLine();
 
                 switch (choice)
                 {
-                    case 1:
+                    case "1":
                         Console.WriteLine("----Person Details----");
                         ContactDetails Person = new ContactDetails(
                                                 "Anoop",
@@ -57,7 +58,7 @@ namespace BridgeLabzTraining.senariobased.address_book
                                                 "anoop.kumar@email.com");
                         contactUtility.ShowContact(Person);
                         break;
-                    case 2:
+                    case "2":
                         if (AdminRole)
                         {
                             contactUtility.AddContact();
@@ -67,7 +68,7 @@ namespace BridgeLabzTraining.senariobased.address_book
                             contactUtility.AddContact();
                         }
                         break;
-                    case 3:
+                    case "3":
                         if (AdminRole)
                         {
                             contactUtility.EditContact();
@@ -77,12 +78,25 @@ namespace BridgeLabzTraining.senariobased.address_book
                             contactUtility.EditContact();
                         }
                             break;
-                    case 4:
+                    case "4":
+                        if (AdminRole)
+                        {
+                            contactUtility.DeleteContact();
+                        }
+                        else if (CheckRole())
+                        {
+                            contactUtility.DeleteContact();
+                        }
+                        break;
+                    case "5":
                         Console.WriteLine("Thankyou, Visit Again!!");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Choice!!");
                         break;
                 }
             }
-            while (choice != 4);
+            while (choice != "5");
         }
     }
 }

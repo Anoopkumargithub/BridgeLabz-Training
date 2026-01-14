@@ -13,5 +13,7 @@ namespace BridgeLabzTraining.senariobased.address_book
         void AddContact();
 
         void EditContact();
+
+        void DeleteContact();
     }
 }
