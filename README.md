@@ -995,7 +995,7 @@ ContactDetails
 - Property accessors for data encapsulation
 
 ### 🚀 Next Steps
-- Update contact information (edit name, phone, email, etc.)
+- ~~Update contact information (edit name, phone, email, etc.)~~ ✅ **Completed**
 - Delete contact from address book
 - Search contacts by name or phone number
 - Display all contacts in the address book
@@ -1004,6 +1004,85 @@ ContactDetails
 - Duplicate contact detection and prevention
 - Multiple address books support
 - Contact categorization (personal, business, family)
+
+---
+
+### 🔄 **Task 2: Edit Contact Functionality**
+
+#### 🎯 Implementation Details
+- **Search-Based Editing:** User enters first name to locate the contact for modification
+- **Field Selection Menu:** Interactive menu shows 8 editable fields with numbered options
+- **Field-by-Field Update:** Update only the selected field while preserving other contact information
+- **Validation & Confirmation:** Displays updated contact details after each modification
+- **Not Found Handling:** Graceful error message when contact doesn't exist
+
+#### 📋 Edit Contact Workflow
+
+**EditContact() Method:**
+1. Prompt user to enter first name of contact to edit
+2. Search through contacts collection to find matching contact
+3. If found:
+   - Display current contact details using `ShowContact()`
+   - Present numbered menu of editable fields (1-8)
+   - Accept field selection from user
+   - Prompt for new value based on selected field
+   - Update the specific field in ContactDetails object
+   - Display confirmation with updated contact information
+4. If not found:
+   - Display "Contact not found" message
+   - Return to main menu
+
+**Editable Fields Menu:**
+```
+1. First Name
+2. Last Name
+3. Address
+4. City
+5. State
+6. ZIP Code
+7. Phone Number
+8. Email
+```
+
+#### 📊 Updated Menu Structure
+**Main Menu Options:**
+1. **Add Contact** - Create new contact with full details
+2. **Edit Contact** - Update existing contact information
+3. **Show Contact** - Display specific contact by first name
+4. **Exit** - Close the address book application
+
+#### 💡 Design Patterns & Techniques Used
+- **Search Algorithm** - Linear search through contacts collection using FirstName property
+- **Switch-Case Selection** - Menu-driven field selection for targeted updates
+- **Property Setters** - Direct property assignment for individual field updates
+- **Error Handling** - Null checking for non-existent contacts
+- **User Feedback** - Immediate display of changes for confirmation
+
+#### 🎓 Technical Concepts Practiced
+- Collection searching with LINQ-style filtering or foreach iteration
+- Conditional logic for contact existence validation
+- Property mutation for updating object state
+- Menu-driven field selection with switch statements
+- User input validation for menu choices
+- Formatted console output for user guidance
+
+#### 🔧 Code Architecture
+- **ContactImpl.EditContact()** - Core edit logic with search, field selection, and update
+- **ContactDetails Properties** - Mutable properties allow field-by-field updates
+- **IContact Interface** - Contract extended to include EditContact() method
+- **AddressBookOperations** - Orchestrates menu flow and delegates to ContactImpl
+
+### 🚀 Next Steps
+- Delete contact from address book
+- Search contacts by name or phone number
+- Display all contacts in the address book
+- Persistent storage (File/Database) for contact data
+- Contact validation (email format, phone number format)
+- Duplicate contact detection and prevention
+- Multiple address books support
+- Contact categorization (personal, business, family)
+- Edit history/audit trail for contact modifications
+- Bulk edit operations for multiple contacts
 
 ---
 
