@@ -29,6 +29,12 @@ namespace BridgeLabzTraining.senariobased.address_book
             Email = email;
         }
 
+        // get FirstName
+        public string GetFirstName()
+        {
+            return FirstName;
+        }
+
         public override string? ToString()
         {
             return "Name: " + FirstName + " " + LastName + "\n" +

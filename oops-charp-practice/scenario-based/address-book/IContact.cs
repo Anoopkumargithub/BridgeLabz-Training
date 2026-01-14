@@ -11,5 +11,7 @@ namespace BridgeLabzTraining.senariobased.address_book
         void ShowContact(ContactDetails person);
 
         void AddContact();
+
+        void EditContact();
     }
 }

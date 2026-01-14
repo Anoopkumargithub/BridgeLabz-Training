@@ -36,7 +36,8 @@ namespace BridgeLabzTraining.senariobased.address_book
                 Console.WriteLine();
                 Console.WriteLine("1.Show Contact");
                 Console.WriteLine("2. Add Contact");
-                Console.WriteLine("3. Exit");
+                Console.WriteLine("3. Edit Contact");
+                Console.WriteLine("4. Exit");
 
                 Console.WriteLine("Enter your choice: ");
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -57,17 +58,31 @@ namespace BridgeLabzTraining.senariobased.address_book
                         contactUtility.ShowContact(Person);
                         break;
                     case 2:
-                        if (CheckRole())
+                        if (AdminRole)
+                        {
+                            contactUtility.AddContact();
+                        }
+                        else if (CheckRole())
                         {
                             contactUtility.AddContact();
                         }
                         break;
                     case 3:
+                        if (AdminRole)
+                        {
+                            contactUtility.EditContact();
+                        }
+                        else if (CheckRole())
+                        {
+                            contactUtility.EditContact();
+                        }
+                            break;
+                    case 4:
                         Console.WriteLine("Thankyou, Visit Again!!");
                         break;
                 }
             }
-            while (choice != 3);
+            while (choice != 4);
         }
     }
 }
