@@ -912,273 +912,175 @@ Started **Address Book** project and completed the first task: create contacts w
 
 **Project 13:** Address Book System - Add contacts with essential identity and communication fields.
 
-### 📌 Files
-- [oops-charp-practice/scenario-based/address-book/AddressBook.cs](oops-charp-practice/scenario-based/address-book/AddressBook.cs)
-- [oops-charp-practice/scenario-based/address-book/IContact.cs](oops-charp-practice/scenario-based/address-book/IContact.cs)
-- [oops-charp-practice/scenario-based/address-book/ContactDetails.cs](oops-charp-practice/scenario-based/address-book/ContactDetails.cs)
-- [oops-charp-practice/scenario-based/address-book/ContactImpl.cs](oops-charp-practice/scenario-based/address-book/ContactImpl.cs)
+---
 
-### 🔧 Features (Task 1)
-- Create a contact with first/last name, address, city, state, zip, phone number, and email.
-- Interface-driven contract for contact operations to keep UI/logic decoupled.
-- Basic validation for required fields and formatting before insertion.
-- In-memory storage to list contacts after creation for quick verification.
+## 📖 Welcome to Address Book Application
 
-### 📚 Key Learnings
-- Capturing identity and communication details in a single model for consistency.
-- Using interfaces to enforce a clean API for add/list operations.
-- Structuring console flows so creation and display remain separate concerns.
+```
+╔════════════════════════════════════════════════════════════════╗
+║                  WELCOME TO ADDRESS BOOK                       ║
+║         A Comprehensive Contact Management System               ║
+╚════════════════════════════════════════════════════════════════╝
+```
 
-### 💡 OOP Principles Applied
-✅ **Encapsulation** - Private properties for contact fields with controlled access  
-✅ **Abstraction** - IContact interface defines contract without exposing implementation  
-✅ **Single Responsibility** - ContactDetails handles data, ContactImpl handles operations  
-✅ **Separation of Concerns** - AddressBook (UI) delegates to AddressBookOperations for workflow
+### 📋 Project Overview
+The Address Book system is a menu-driven console application designed to manage personal and professional contacts efficiently. It demonstrates core OOP principles including encapsulation, abstraction, and interface-driven design patterns.
+
+### ✅ Completed Tasks & Features
+
+#### **Task 1: Create Contacts with Full Details** ✅ **COMPLETED**
+- **Objective:** Ability to create a Contact in Address Book with comprehensive information
+- **Fields Captured:** First Name, Last Name, Address, City, State, ZIP Code, Phone Number, Email
+- **Implementation:** ContactDetails model with parameterized constructor
+- **Status:** ✓ Fully functional contact creation with data validation
+
+#### **Task 2: Add New Contact to Address Book** ✅ **COMPLETED**
+- **Objective:** Ability to add a new Contact to the Address Book
+- **Features:** 
+  - User-driven input workflow for all contact fields
+  - Automatic contact creation and storage in List<ContactDetails>
+  - Confirmation message with formatted contact display
+  - Sequential field prompting for ease of use
+- **Status:** ✓ Fully functional single contact addition
+
+#### **Task 3: Edit Existing Contact** ✅ **COMPLETED**
+- **Objective:** Ability to edit existing contact person using their first name
+- **Features:**
+  - Search-based contact lookup by first name
+  - Field selection menu (1-8 fields to update)
+  - Individual field modification without affecting others
+  - Updated contact display for confirmation
+  - Error handling for non-existent contacts
+- **Status:** ✓ Fully functional contact editing with validation
+
+#### **Task 4: Delete Contact by Name** ✅ **COMPLETED**
+- **Objective:** Ability to delete a person from Address Book using person's first name
+- **Features:**
+  - Search-based contact location by first name
+  - Pre-deletion contact display for verification
+  - Explicit confirmation prompt ("yes/no") to prevent accidental deletion
+  - Safe removal using List<T>.Remove() method
+  - Success/cancellation feedback messages
+  - Error handling for non-existent contacts
+- **Status:** ✓ Fully functional safe contact deletion
+
+#### **Task 5: Add Multiple Persons to Address Book** ✅ **COMPLETED**
+- **Objective:** Ability to add multiple persons to Address Book in single session
+- **Features:**
+  - Continuous entry loop allowing sequential contact additions
+  - "Add another contact? (yes/no)" prompt after each entry
+  - Capacity management with configurable maximum limit (default 100 contacts)
+  - Capacity status display showing current/max contacts
+  - Full address book notification when capacity reached
+  - Session summary with total contacts added
+  - Dynamic List<ContactDetails> growth management
+- **Status:** ✓ Fully functional bulk contact addition with capacity control
+
+### 📊 Current Address Book Capabilities
+
+**Core Operations (CRUD):**
+| Operation | Status | Feature |
+|-----------|--------|---------|
+| **Create** | ✅ | Add single or multiple contacts |
+| **Read** | ✅ | Display specific contact by name |
+| **Update** | ✅ | Edit individual contact fields |
+| **Delete** | ✅ | Remove contacts with confirmation |
+
+**Menu Options:**
+1. ✅ **Add Contact(s)** - Create one or multiple contacts with capacity check
+2. ✅ **Edit Contact** - Modify existing contact information
+3. ✅ **Delete Contact** - Remove contact with confirmation
+4. ✅ **Show Contact** - Display specific contact details
+5. ⏳ **View All Contacts** - List all contacts (In Progress)
+6. ✅ **Exit** - Close application gracefully
+
+### 🏗️ Architecture Overview
+
+**Core Classes:**
+- `ContactDetails` - Data model encapsulating all contact information
+- `ContactImpl` - Business logic for contact operations (Add, Edit, Delete, Search)
+- `IContact` - Interface contract defining contact operations
+- `AddressBook` - Main UI entry point coordinating menu-driven workflow
+- `AddressBookOperations` - Orchestration layer managing user interactions
+
+**Data Storage:**
+- `ContactDetails[] contacts` - Fixed-size array for storing all contacts
+- Maximum capacity: 100 contacts (fixed array size: `new ContactDetails[100]`)
+- Manual capacity checking before each addition using array index
+- Contact count tracking with `int contactCount` variable
+- Direct array index manipulation for add/edit/delete operations
+
+**User Interaction:**
+- Menu-driven console application
+- Input validation for all user entries
+- Clear feedback messages for all operations
+- Graceful error handling for edge cases
+
+### 🎓 OOP Principles Demonstrated
+
+✅ **Encapsulation** - Private contact fields with public properties  
+✅ **Abstraction** - IContact interface hides implementation complexity  
+✅ **Single Responsibility** - Each class has focused, well-defined role  
+✅ **Separation of Concerns** - UI (AddressBook), Logic (ContactImpl), Models (ContactDetails)  
+✅ **Composition** - AddressBook composes ContactImpl for functionality  
+✅ **Defensive Programming** - Confirmation dialogs and capacity checks  
+
+### 📈 Development Progress
+
+| Phase | Task | Completion | Implementation |
+|-------|------|-----------|----------------|
+| Phase 1 | Create Contact Model | ✅ 100% | ContactDetails with 8 fields |
+| Phase 2 | Add Contact Operation | ✅ 100% | Single entry workflow |
+| Phase 3 | Edit Contact Operation | ✅ 100% | Field-by-field modification |
+| Phase 4 | Delete Contact Operation | ✅ 100% | Safe deletion with confirmation |
+| Phase 5 | Bulk Add Contacts | ✅ 100% | Multiple entry with capacity management |
+
+
+### 🚀 Next Enhancements (Roadmap)
+
+**Immediate (Phase 6+):**
+- [ ] View All Contacts - Display complete contact list
+- [ ] Search by Phone/Email - Advanced search capabilities
+- [ ] Contact Validation - Email format and phone number validation
+- [ ] Duplicate Detection - Prevent adding same contact twice
+
+**Short-term:**
+- [ ] Persistent Storage - File/Database integration (JSON, CSV, or SQL)
+- [ ] Contact Categories - Organize contacts by type (Personal, Business, Family)
+- [ ] Advanced Search - Filter by city, state, or other criteria
+- [ ] Batch Operations - Edit/delete multiple contacts at once
 
 ---
 
-### 🔄 **Task 1 Continued: Add New Contact to Address Book**
+## 📖 Project 13: Address Book System
+
+### 📌 Overview
+The Address Book is a menu-driven console application for managing contacts. Currently supports creating, editing, deleting, and bulk adding contacts with array-based storage.
+
+### ✅ Completed Tasks (Tasks 1-5)
+
+| Task | Feature | Status |
+|------|---------|--------|
+| Task 1 | Create Contact with 8 fields (First Name, Last Name, Address, City, State, ZIP, Phone, Email) | ✅ |
+| Task 2 | Add New Contact to Address Book | ✅ |
+| Task 3 | Edit Existing Contact by Name | ✅ |
+| Task 4 | Delete Contact by Name with Confirmation | ✅ |
+| Task 5 | Add Multiple Contacts in Single Session | ✅ |
+
+### 🎯 Task 6 (Upcoming)
+- **Objective:** Refactor to add multiple Address Books to the System
+- **Details:** Each Address Book has a unique Name
+- **Status:** ⏳ Not Started
+
+---
+
+## 🛠️ Technologies & Tools
 
 #### 🎯 Completion Details
 - **User Input Flow:** Console prompts for all 8 contact fields (First Name, Last Name, Address, City, State, ZIP, Phone, Email)
 - **Contact Creation:** Creates ContactDetails object with user-provided values
 - **Display & Confirmation:** Automatically displays formatted contact info and confirms addition success
-- **Method Structure:** AddContact() in ContactImpl handles the complete workflow
-- **Phone Number Formatting:** Accepts phone numbers without country code (+91) for Indian numbers
-
-#### 📋 Implementation Breakdown
-
-**AddContact() Method:**
-- Sequential console prompts for each field with descriptive labels
-- Captures input via `Console.ReadLine()` into string variables
-- Instantiates `ContactDetails` object with all parameters
-- Calls `ToString()` override to display formatted contact information
-- Prints success confirmation message
-
-**ContactDetails Model:**
-- Private auto-properties for all 8 contact fields
-- Parameterized constructor accepting all contact parameters
-- Overridden `ToString()` method for formatted display with sections:
-  - Personal info (Name, Address, City, State, ZIP)
-  - Divider line for clarity
-  - Contact Details (Phone, Email)
-
-**IContact Interface Contract:**
-- `AddContact()` - Method for creating new contact with user input
-- `ShowContact(ContactDetails person)` - Method for displaying existing contact
-
-#### 📊 Data Model Structure
-```
-ContactDetails
-├── FirstName (string)
-├── LastName (string)
-├── Address (string)
-├── City (string)
-├── State (string)
-├── ZIPCode (string)
-├── PhoneNumber (string)
-└── Email (string)
-```
-
-#### 💡 Design Patterns Used
-- **Interface Pattern** - IContact defines contract for all contact operations
-- **Implementation Pattern** - ContactImpl provides concrete behavior
-- **Model Pattern** - ContactDetails encapsulates contact data with display logic
-- **Entry Point Pattern** - AddressBook delegates to AddressBookOperations
-
-#### 🎓 Technical Concepts Practiced
-- Console I/O with `Console.WriteLine()` and `Console.ReadLine()`
-- Object instantiation with multiple constructor parameters
-- Method overriding for custom object string representation (`ToString()`)
-- Interface implementation and contract adherence
-- String concatenation for formatted output
-- Property accessors for data encapsulation
-
-### 🚀 Next Steps
-- ~~Update contact information (edit name, phone, email, etc.)~~ ✅ **Completed**
-- Delete contact from address book
-- Search contacts by name or phone number
-- Display all contacts in the address book
-- Persistent storage (File/Database) for contact data
-- Contact validation (email format, phone number format)
-- Duplicate contact detection and prevention
-- Multiple address books support
-- Contact categorization (personal, business, family)
-
----
-
-### 🔄 **Task 2: Edit Contact Functionality**
-
-#### 🎯 Implementation Details
-- **Search-Based Editing:** User enters first name to locate the contact for modification
-- **Field Selection Menu:** Interactive menu shows 8 editable fields with numbered options
-- **Field-by-Field Update:** Update only the selected field while preserving other contact information
-- **Validation & Confirmation:** Displays updated contact details after each modification
-- **Not Found Handling:** Graceful error message when contact doesn't exist
-
-#### 📋 Edit Contact Workflow
-
-**EditContact() Method:**
-1. Prompt user to enter first name of contact to edit
-2. Search through contacts collection to find matching contact
-3. If found:
-   - Display current contact details using `ShowContact()`
-   - Present numbered menu of editable fields (1-8)
-   - Accept field selection from user
-   - Prompt for new value based on selected field
-   - Update the specific field in ContactDetails object
-   - Display confirmation with updated contact information
-4. If not found:
-   - Display "Contact not found" message
-   - Return to main menu
-
-**Editable Fields Menu:**
-```
-1. First Name
-2. Last Name
-3. Address
-4. City
-5. State
-6. ZIP Code
-7. Phone Number
-8. Email
-```
-
-#### 📊 Updated Menu Structure
-**Main Menu Options:**
-1. **Add Contact** - Create new contact with full details
-2. **Edit Contact** - Update existing contact information
-3. **Show Contact** - Display specific contact by first name
-4. **Exit** - Close the address book application
-
-#### 💡 Design Patterns & Techniques Used
-- **Search Algorithm** - Linear search through contacts collection using FirstName property
-- **Switch-Case Selection** - Menu-driven field selection for targeted updates
-- **Property Setters** - Direct property assignment for individual field updates
-- **Error Handling** - Null checking for non-existent contacts
-- **User Feedback** - Immediate display of changes for confirmation
-
-#### 🎓 Technical Concepts Practiced
-- Collection searching with LINQ-style filtering or foreach iteration
-- Conditional logic for contact existence validation
-- Property mutation for updating object state
-- Menu-driven field selection with switch statements
-- User input validation for menu choices
-- Formatted console output for user guidance
-
-#### 🔧 Code Architecture
-- **ContactImpl.EditContact()** - Core edit logic with search, field selection, and update
-- **ContactDetails Properties** - Mutable properties allow field-by-field updates
-- **IContact Interface** - Contract extended to include EditContact() method
-- **AddressBookOperations** - Orchestrates menu flow and delegates to ContactImpl
-
-### 🚀 Next Steps
-- ~~Delete contact from address book~~ ✅ **Completed**
-- Search contacts by name or phone number
-- Display all contacts in the address book
-- Persistent storage (File/Database) for contact data
-- Contact validation (email format, phone number format)
-- Duplicate contact detection and prevention
-- Multiple address books support
-- Contact categorization (personal, business, family)
-- Edit history/audit trail for contact modifications
-- Bulk edit operations for multiple contacts
-
----
-
-### 🔄 **Task 3: Delete Contact Functionality**
-
-#### 🎯 Implementation Details
-- **Search-Based Deletion:** User enters first name to locate the contact for removal
-- **Confirmation Display:** Shows complete contact details before deletion
-- **Confirmation Prompt:** Asks user to confirm deletion to prevent accidental removal
-- **Collection Removal:** Removes contact from the list upon confirmation
-- **Success Feedback:** Displays confirmation message after successful deletion
-- **Not Found Handling:** Graceful error message when contact doesn't exist
-- **Cancellation Option:** User can abort deletion if confirmation is declined
-
-#### 📋 Delete Contact Workflow
-
-**DeleteContact() Method:**
-1. Prompt user to enter first name of contact to delete
-2. Search through contacts collection to find matching contact
-3. If found:
-   - Display full contact details using `ShowContact()`
-   - Ask for deletion confirmation ("Are you sure you want to delete? (yes/no)")
-   - If confirmed (user enters "yes"):
-     - Remove contact from the collection using `Remove()` method
-     - Display success message with deleted contact's name
-   - If declined (user enters anything else):
-     - Display cancellation message
-     - Return to main menu without deletion
-4. If not found:
-   - Display "Contact not found" message
-   - Return to main menu
-
-**Deletion Confirmation Flow:**
-```
-Enter First Name to Delete: John
-----------------------------
-Contact Details:
-Name: John Doe
-Address: 123 Main St, Springfield, IL 62701
-----------------------------
-Phone: 555-1234
-Email: john.doe@email.com
-----------------------------
-Are you sure you want to delete this contact? (yes/no): yes
-✓ Contact 'John Doe' deleted successfully!
-```
-
-#### 📊 Updated Menu Structure
-**Main Menu Options:**
-1. **Add Contact** - Create new contact with full details
-2. **Edit Contact** - Update existing contact information
-3. **Delete Contact** - Remove contact from address book
-4. **Show Contact** - Display specific contact by first name
-5. **Exit** - Close the address book application
-
-#### 💡 Design Patterns & Techniques Used
-- **Search & Remove Pattern** - Find contact by name, then remove from collection
-- **Confirmation Dialog** - User confirmation before destructive operations
-- **Defensive Deletion** - Show details before deletion to prevent mistakes
-- **String Comparison** - Case-sensitive "yes" check for confirmation
-- **User Feedback Loop** - Clear messaging for all outcomes (success, cancellation, not found)
-
-#### 🎓 Technical Concepts Practiced
-- Boolean confirmation logic for destructive operations
-- String comparison for user input validation ("yes" vs other responses)
-- Conditional branching for multiple outcomes (found/not found, confirm/cancel)
-- Safe deletion patterns to prevent accidental data loss
-- User experience design for critical operations
-
-#### 🔧 Code Architecture
-- **ContactImpl.DeleteContact()** - Core deletion logic with search, confirmation, and removal
-- **List<ContactDetails>** - Collection supports dynamic removal of items
-- **IContact Interface** - Contract extended to include DeleteContact() method
-- **AddressBookOperations** - Menu orchestration updated to include delete option
-- **Confirmation Pattern** - Two-step process (search + confirm) for safe deletion
-
-#### 🛡️ Safety Features
-- **Pre-deletion Display** - Shows full contact details before removal
-- **Explicit Confirmation** - Requires "yes" input to proceed with deletion
-- **Cancellation Support** - Any input other than "yes" cancels the operation
-- **Not Found Handling** - Safe handling when contact doesn't exist
-- **Feedback Messages** - Clear communication for all operation outcomes
-
-### 🚀 Next Steps
-- Search contacts by name or phone number
-- Display all contacts in the address book
-- Persistent storage (File/Database) for contact data
-- Contact validation (email format, phone number format)
-- Duplicate contact detection and prevention
-- Multiple address books support
-- Contact categorization (personal, business, family)
-- Edit history/audit trail for contact modifications
-- Bulk edit operations for multiple contacts
-- Undo/Restore deleted contacts functionality
-- Soft delete with archive feature
-- Export/Import contacts from/to CSV or JSON
+- **Array Storage:** Stores contacts in fixed array with index-based access
 
 ---
 
