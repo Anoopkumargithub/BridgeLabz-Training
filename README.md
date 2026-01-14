@@ -978,43 +978,70 @@ The Address Book system is a menu-driven console application designed to manage 
 
 ### 📊 Current Address Book Capabilities
 
-**Core Operations (CRUD):**
-| Operation | Status | Feature |
-|-----------|--------|---------|
-| **Create** | ✅ | Add single or multiple contacts |
-| **Read** | ✅ | Display specific contact by name |
-| **Update** | ✅ | Edit individual contact fields |
-| **Delete** | ✅ | Remove contacts with confirmation |
+**Core Operations (CRUD) - Role-Based:**
+| Operation | Admin Role | User Role | Feature |
+|-----------|-----------|-----------|---------|
+| **Create Address Book** | ✅ | ❌ | Admin only - Create new address books |
+| **Select Address Book** | ✅ | ✅ | Both roles - Open address books |
+| **Show All Books** | ✅ | ✅ | Display all address books with counts |
+| **Add Contact** | ✅ | ❌ | Admin only - Add contacts |
+| **Edit Contact** | ✅ | ❌ | Admin only - Modify contacts |
+| **Delete Contact** | ✅ | ❌ | Admin only - Remove contacts |
+| **View Contact** | ✅ | ✅ | Both roles - Display contact details |
 
-**Menu Options:**
-1. ✅ **Add Contact(s)** - Create one or multiple contacts with capacity check
-2. ✅ **Edit Contact** - Modify existing contact information
-3. ✅ **Delete Contact** - Remove contact with confirmation
-4. ✅ **Show Contact** - Display specific contact details
-5. ⏳ **View All Contacts** - List all contacts (In Progress)
-6. ✅ **Exit** - Close application gracefully
+**Admin Menu Options:**
+1. ✅ **Create New Address Book** - Create address book with unique name
+2. ✅ **Select Address Book** - Open address book by name
+3. ✅ **Show All Address Books** - List all address books with contact counts
+4. ✅ **Manage Contacts** - Full CRUD operations (Add, Edit, Delete, View)
+5. ✅ **Exit** - Close application gracefully
+
+**User Menu Options:**
+1. ✅ **Show All Address Books** - View available address books
+2. ✅ **Select Address Book** - Open address book to view contacts
+3. ✅ **Show Contact** - View specific contact details (read-only)
+4. ✅ **Exit** - Close application gracefully
+
+**Authentication:**
+- Admin Login: Email = `ABC@gmail.com`
+- User Login: Any other email address
 
 ### 🏗️ Architecture Overview
 
 **Core Classes:**
-- `ContactDetails` - Data model encapsulating all contact information
-- `ContactImpl` - Business logic for contact operations (Add, Edit, Delete, Search)
-- `IContact` - Interface contract defining contact operations
-- `AddressBook` - Main UI entry point coordinating menu-driven workflow
-- `AddressBookOperations` - Orchestration layer managing user interactions
+- `ContactDetails` - Data model encapsulating all contact information (8 fields)
+- `ContactImpl` - Business logic for multi-book operations (Add, Edit, Delete, Search, Book Management)
+- `IContact` - Interface contract defining contact and address book operations
+- `AddressBook` - Main UI entry point
+- `AddressBookOperations` - Orchestration layer with role-based menu handling
 
-**Data Storage:**
-- `ContactDetails[] contacts` - Fixed-size array for storing all contacts
-- Maximum capacity: 100 contacts (fixed array size: `new ContactDetails[100]`)
-- Manual capacity checking before each addition using array index
-- Contact count tracking with `int contactCount` variable
-- Direct array index manipulation for add/edit/delete operations
+**Role-Based Access Control:**
+- `AdminRole` flag tracks user authentication status
+- `CheckRole()` verifies email address (ABC@gmail.com = Admin, others = User)
+- `DisplayAdminMenu()` provides full system access
+- `DisplayUserMenu()` provides read-only access
+- Role-based filtering on all operations with permission checks
 
-**User Interaction:**
-- Menu-driven console application
-- Input validation for all user entries
-- Clear feedback messages for all operations
-- Graceful error handling for edge cases
+**Data Storage Architecture (Multi-Address Book):**
+- **2D Array Storage:** `ContactDetails[5, 10]` 
+  - First dimension: Up to 5 address books
+  - Second dimension: Up to 10 contacts per book
+- **Address Book Metadata:**
+  - `string[] addressBookNames` - Store unique names for each book
+  - `int[] contactCounts` - Track contacts per book (for capacity management)
+  - `int addressBookCount` - Total books created
+  - `int currentAddressBookIndex` - Currently selected book
+- **Capacity Management:**
+  - Maximum 5 address books (configurable)
+  - Maximum 10 contacts per book (configurable)
+  - Automatic full status detection
+
+**User Interaction Flow:**
+1. **Login:** Enter email to determine role (Admin or User)
+2. **Address Book Management:** Create, select, or view address books
+3. **Contact Operations:** Perform CRUD operations on selected book
+4. **Role-Based Filtering:** Menus show only role-appropriate options
+5. **Graceful Exit:** Logout with confirmation message
 
 ### 🎓 OOP Principles Demonstrated
 
@@ -1034,53 +1061,102 @@ The Address Book system is a menu-driven console application designed to manage 
 | Phase 3 | Edit Contact Operation | ✅ 100% | Field-by-field modification |
 | Phase 4 | Delete Contact Operation | ✅ 100% | Safe deletion with confirmation |
 | Phase 5 | Bulk Add Contacts | ✅ 100% | Multiple entry with capacity management |
+| Phase 6 | Multi-Address Book System | ✅ 100% | 2D array storage with book management |
+| Phase 7 | Role-Based Access Control | ✅ 100% | Admin (full access) and User (read-only) roles |
 
 
-### 🚀 Next Enhancements (Roadmap)
+### 🚀 Future Enhancements (Roadmap)
 
-**Immediate (Phase 6+):**
-- [ ] View All Contacts - Display complete contact list
-- [ ] Search by Phone/Email - Advanced search capabilities
+**Immediate (Phase 8+):**
+- [ ] Increase Book Capacity - Support more than 5 address books
+- [ ] Increase Contact Capacity - Support more than 10 contacts per book
+- [ ] Search by Phone/Email - Advanced search within selected book
 - [ ] Contact Validation - Email format and phone number validation
 - [ ] Duplicate Detection - Prevent adding same contact twice
 
 **Short-term:**
 - [ ] Persistent Storage - File/Database integration (JSON, CSV, or SQL)
 - [ ] Contact Categories - Organize contacts by type (Personal, Business, Family)
-- [ ] Advanced Search - Filter by city, state, or other criteria
+- [ ] Advanced Search - Filter by city, state, or other criteria across books
 - [ ] Batch Operations - Edit/delete multiple contacts at once
+- [ ] Export Contacts - Generate reports from specific address books
 
----
+**Long-term:**
+- [ ] Contact Sync - Synchronize across multiple devices
+- [ ] Cloud Integration - Store address books in cloud storage
+- [ ] Mobile App - Cross-platform mobile application
+- [ ] Contact Backup/Restore - Automated backup and recovery
+- [ ] Favorites & Groups - Tag important contacts and create groups
 
 ## 📖 Project 13: Address Book System
 
 ### 📌 Overview
-The Address Book is a menu-driven console application for managing contacts. Currently supports creating, editing, deleting, and bulk adding contacts with array-based storage.
+The Address Book is a menu-driven console application for managing multiple address books with role-based access control. Admins can manage address books and contacts, while users have read-only access to view contacts. The system uses 2D array storage to support up to 5 address books with 10 contacts each.
 
-### ✅ Completed Tasks (Tasks 1-5)
+### ✅ Completed Tasks (Tasks 1-6)
 
-| Task | Feature | Status |
-|------|---------|--------|
-| Task 1 | Create Contact with 8 fields (First Name, Last Name, Address, City, State, ZIP, Phone, Email) | ✅ |
-| Task 2 | Add New Contact to Address Book | ✅ |
-| Task 3 | Edit Existing Contact by Name | ✅ |
-| Task 4 | Delete Contact by Name with Confirmation | ✅ |
-| Task 5 | Add Multiple Contacts in Single Session | ✅ |
+| Task | Feature | Status | Role Access |
+|------|---------|--------|------------|
+| Task 1 | Create Contact with 8 fields | ✅ | Admin |
+| Task 2 | Add New Contact to Address Book | ✅ | Admin |
+| Task 3 | Edit Existing Contact by Name | ✅ | Admin |
+| Task 4 | Delete Contact by Name with Confirmation | ✅ | Admin |
+| Task 5 | Add Multiple Contacts in Single Session | ✅ | Admin |
+| Task 6 | Multiple Address Books with Role-Based Access | ✅ | Both Roles |
 
-### 🎯 Task 6 (Upcoming)
-- **Objective:** Refactor to add multiple Address Books to the System
-- **Details:** Each Address Book has a unique Name
-- **Status:** ⏳ Not Started
+### 🔐 Role-Based Access Control
 
----
+**Admin Role (Email: ABC@gmail.com)**
+- Create new address books with unique names
+- Select and manage address books
+- Add, edit, delete, and view contacts
+- View all address books and their contact counts
+- Full system administration
 
-## 🛠️ Technologies & Tools
+**User Role (Any other email)**
+- Browse all available address books
+- Select address books to view
+- View specific contact details (read-only)
+- Cannot modify or delete any data
+- Limited visibility into system structure
 
-#### 🎯 Completion Details
-- **User Input Flow:** Console prompts for all 8 contact fields (First Name, Last Name, Address, City, State, ZIP, Phone, Email)
-- **Contact Creation:** Creates ContactDetails object with user-provided values
-- **Display & Confirmation:** Automatically displays formatted contact info and confirms addition success
-- **Array Storage:** Stores contacts in fixed array with index-based access
+### 🏗️ Technical Implementation
+
+**Multi-Address Book Storage:**
+```
+ContactDetails[5, 10]  // 5 books max, 10 contacts per book
+├── addressBookNames[] // Store unique book names
+├── contactCounts[]    // Track contacts per book
+├── addressBookCount   // Total books created
+└── currentAddressBookIndex // Currently selected book
+```
+
+**Authentication:**
+```
+Email Input
+    ├─ ABC@gmail.com → Admin Role (Full Access)
+    └─ Other Email → User Role (Read-Only)
+```
+
+**Menu Structure:**
+```
+Admin Menu:
+├── Create New Address Book
+├── Select Address Book
+├── Show All Address Books
+├── Manage Contacts
+│   ├── Show Contact
+│   ├── Add Contact
+│   ├── Edit Contact
+│   └── Delete Contact
+└── Exit
+
+User Menu:
+├── Show All Address Books
+├── Select Address Book
+├── Show Contact
+└── Exit
+```
 
 ---
 
