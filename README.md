@@ -130,7 +130,44 @@
 
 ---
 
+### 📅 January 14, 2026 - Day 6
+#### 🎯 Topics Covered:
+- **Algorithm's Runtime Analysis**
+  - Time Complexity Analysis
+  - Space Complexity Analysis
+  - Big-O Notation
+  - Best, Average, and Worst Case scenarios
+  
+#### 💻 Practice Problems:
+- ✅ Concatenate Strings Efficiently Using StringBuilder
+  - Comparing string concatenation performance
+  - Analyzing O(n²) vs O(n) complexity
+  
+- ✅ Recursive vs Iterative Fibonacci Computation
+  - Recursive approach: O(2^n) exponential time
+  - Iterative approach: O(n) linear time
+  - Space complexity comparison
+  
+- ✅ Search a Target
+  - Linear Search: O(n) time complexity
+  - Binary Search: O(log n) time complexity
+  - Performance analysis on different input sizes
+  
+- ✅ Sorting Algorithms Analysis
+  - Bubble Sort: O(n²) worst case
+  - Quick Sort: O(n log n) average case
+  - Merge Sort: O(n log n) guaranteed
+  - Analyzing efficiency across different cases
+
+#### 📈 Key Learnings:
+- Understanding Big-O notation for algorithm efficiency
+- Trade-offs between time and space complexity
+- Importance of choosing the right algorithm for the problem
+- Performance measurement and optimization techniques
+
+---
+
 ## 📊 Summary
-- **Total Days:** 5
-- **Topics Covered:** LinkedList, Stack, Queue, HashMap, Sorting, Dynamic Programming, OOP Design Patterns, Collections
-- **Projects Completed:** 8+ Practice Problems + 3 Scenario-Based Projects
+- **Total Days:** 6
+- **Topics Covered:** LinkedList, Stack, Queue, HashMap, Sorting, Searching, Dynamic Programming, OOP Design Patterns, Collections, Algorithm Analysis, Big-O Notation
+- **Projects Completed:** 12+ Practice Problems + 3 Scenario-Based Projects
