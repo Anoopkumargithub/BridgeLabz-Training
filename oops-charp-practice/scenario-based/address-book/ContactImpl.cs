@@ -63,25 +63,73 @@ namespace BridgeLabzTraining.senariobased.address_book
         }
         public void AddContact()
         {
-            ContactDetails person = AddInfo();
-            if(count < contacts.Length)
+            while (count < contacts.Length)
             {
+                ContactDetails person = AddInfo();
                 contacts[count] = person;
                 count++;
                 Console.WriteLine(person.ToString());
                 Console.WriteLine();
-                Console.WriteLine("Added SucessFully");
+                Console.WriteLine("Added Successfully");
+                Console.WriteLine();
+
+                if (count == contacts.Length)
+                {
+                    Console.WriteLine("Address Book is Full");
+                    break;
+                }
+
+                Console.Write("Do you want to add another contact? (y/n): ");
+                string choice = Console.ReadLine();
+                Console.WriteLine();
+
+                if (choice?.ToLower() != "y")
+                {
+                    break;
+                }
             }
-            if(count == contacts.Length)
+
+            if (count == contacts.Length)
             {
-                Console.WriteLine("Address Book is Full");
+                Console.WriteLine("Cannot add more contacts. Address Book is Full");
+            }
+        }
+        public void ShowContact()
+        {
+            if (count == 0)
+            {
+                Console.WriteLine("No contacts available in the Address Book.");
+                return;
             }
 
+            Console.WriteLine("----Available Contacts----");
+            Console.WriteLine();
+            // show firstName only
+            for (int i = 0; i < count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {contacts[i].GetFirstName()}");
+            }
+            Console.WriteLine();
 
-        }
-        public void ShowContact(ContactDetails person)
-        {
-            Console.WriteLine(person.ToString());
+            Console.Write("Enter First Name to view full details: ");
+            string firstName = Console.ReadLine();
+            Console.WriteLine();
+
+            
+            for (int i = 0; i < count; i++)
+            {
+                // on the basis of firstName show complete details
+                if (contacts[i].GetFirstName() == firstName)
+                {
+                    Console.WriteLine("Contact Details:");
+                    Console.WriteLine();
+                    Console.WriteLine(contacts[i].ToString());
+                    return;
+                }
+            }
+
+            Console.WriteLine("No Contact Available with this Name");
+            return;
         }
 
         // helper function for input contact Data

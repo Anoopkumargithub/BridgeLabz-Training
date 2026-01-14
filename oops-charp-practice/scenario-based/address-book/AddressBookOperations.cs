@@ -46,17 +46,7 @@ namespace BridgeLabzTraining.senariobased.address_book
                 switch (choice)
                 {
                     case "1":
-                        Console.WriteLine("----Person Details----");
-                        ContactDetails Person = new ContactDetails(
-                                                "Anoop",
-                                                "Kumar",
-                                                "12 MG Road",
-                                                "Bengaluru",
-                                                "Karnataka",
-                                                "560001",
-                                                "987654321",
-                                                "anoop.kumar@email.com");
-                        contactUtility.ShowContact(Person);
+                        contactUtility.ShowContact();
                         break;
                     case "2":
                         if (AdminRole)
