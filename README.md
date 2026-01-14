@@ -906,6 +906,31 @@ Implement **Fitness Tracker System** with user management and exercise tracking 
 
 ---
 
+### 🗓️ **Date: 14-01-2026**
+### 🎯 Task of the Day
+Started **Address Book** project and completed the first task: create contacts with full details.
+
+**Project 13:** Address Book System - Add contacts with essential identity and communication fields.
+
+### 📌 Files
+- [oops-charp-practice/scenario-based/address-book/AddressBook.cs](oops-charp-practice/scenario-based/address-book/AddressBook.cs)
+- [oops-charp-practice/scenario-based/address-book/IContact.cs](oops-charp-practice/scenario-based/address-book/IContact.cs)
+- [oops-charp-practice/scenario-based/address-book/ContactDetails.cs](oops-charp-practice/scenario-based/address-book/ContactDetails.cs)
+- [oops-charp-practice/scenario-based/address-book/ContactImpl.cs](oops-charp-practice/scenario-based/address-book/ContactImpl.cs)
+
+### 🔧 Features (Task 1)
+- Create a contact with first/last name, address, city, state, zip, phone number, and email.
+- Interface-driven contract for contact operations to keep UI/logic decoupled.
+- Basic validation for required fields and formatting before insertion.
+- In-memory storage to list contacts after creation for quick verification.
+
+### 📚 Key Learnings
+- Capturing identity and communication details in a single model for consistency.
+- Using interfaces to enforce a clean API for add/list operations.
+- Structuring console flows so creation and display remain separate concerns.
+
+---
+
 ## 🛠️ Technologies & Tools
 
 ### 💻 Languages
