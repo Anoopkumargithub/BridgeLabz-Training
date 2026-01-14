@@ -8,72 +8,167 @@ namespace BridgeLabzTraining.senariobased.address_book
 {
     internal class ContactImpl : IContact
     {
-        ContactDetails [] contacts = new ContactDetails [10];
-        int count = 0;
+        private ContactDetails[,] contacts = new ContactDetails[5, 10]; // 5 address books, 10 contacts each
+        private string[] addressBookNames = new string[5]; // Store address book names
+        private int[] contactCounts = new int[5]; // Track contacts per address book
+        private int addressBookCount = 0; // Total number of address books
+        private int currentAddressBookIndex = -1; // Currently selected address book
+
+        public void CreateAddressBook()
+        {
+            if (addressBookCount >= addressBookNames.Length)
+            {
+                Console.WriteLine("Cannot create more Address Books. Maximum limit reached.");
+                return;
+            }
+
+            Console.Write("Enter Address Book Name: ");
+            string name = Console.ReadLine();
+            Console.WriteLine();
+
+            // Check for duplicate names
+            for (int i = 0; i < addressBookCount; i++)
+            {
+                if (addressBookNames[i] == name)
+                {
+                    Console.WriteLine($"Address Book '{name}' already exists!");
+                    return;
+                }
+            }
+
+            addressBookNames[addressBookCount] = name;
+            contactCounts[addressBookCount] = 0;
+            addressBookCount++;
+            Console.WriteLine($"Address Book '{name}' created successfully!");
+        }
+
+        public void ShowAllAddressBooks()
+        {
+            if (addressBookCount == 0)
+            {
+                Console.WriteLine("No Address Books available.");
+                return;
+            }
+
+            Console.WriteLine("----Available Address Books----");
+            for (int i = 0; i < addressBookCount; i++)
+            {
+                Console.WriteLine($"{i + 1}. {addressBookNames[i]} (Contacts: {contactCounts[i]})");
+            }
+        }
+
+        public bool SelectAddressBook()
+        {
+            if (addressBookCount == 0)
+            {
+                Console.WriteLine("No Address Books available. Please create one first.");
+                return false;
+            }
+
+            ShowAllAddressBooks();
+            Console.WriteLine();
+            Console.Write("Enter Address Book Name to open: ");
+            string name = Console.ReadLine();
+            Console.WriteLine();
+
+            for (int i = 0; i < addressBookCount; i++)
+            {
+                if (addressBookNames[i] == name)
+                {
+                    currentAddressBookIndex = i;
+                    Console.WriteLine($"----Opened Address Book: {addressBookNames[i]}----");
+                    return true;
+                }
+            }
+
+            Console.WriteLine($"Address Book '{name}' not found!");
+            return false;
+        }
 
         public void DeleteContact()
         {
+            if (currentAddressBookIndex == -1)
+            {
+                Console.WriteLine("Please select an Address Book first.");
+                return;
+            }
+
             Console.Write("Enter First Name: ");
             string firstName = Console.ReadLine();
 
+            int count = contactCounts[currentAddressBookIndex];
             for (int i = 0; i < count; i++)
             {
-                if (contacts[i].GetFirstName() == firstName)
+                if (contacts[currentAddressBookIndex, i].GetFirstName() == firstName)
                 {
+                    // Shift contacts to the left
                     for (int j = i; j < count - 1; j++)
                     {
-                        contacts[j] = contacts[j + 1];
+                        contacts[currentAddressBookIndex, j] = contacts[currentAddressBookIndex, j + 1];
                     }
-                    contacts[count - 1] = null;
-                    count--;
+                    contacts[currentAddressBookIndex, count - 1] = null;
+                    contactCounts[currentAddressBookIndex]--;
                     Console.WriteLine($"Contact '{firstName}' deleted successfully.");
                     return;
                 }
-                else
-                {
-                    Console.WriteLine("No Contact Available with this Name");
-                    return;
-                }
             }
+
+            Console.WriteLine("No Contact Available with this Name");
         }
+
         public void EditContact()
         {
+            if (currentAddressBookIndex == -1)
+            {
+                Console.WriteLine("Please select an Address Book first.");
+                return;
+            }
+
             Console.Write("Enter First Name: ");
             string firstName = Console.ReadLine();
 
-            for(int i = 0;i< contacts.Length;i++)
+            int count = contactCounts[currentAddressBookIndex];
+            for (int i = 0; i < count; i++)
             {
-                if(contacts[i].GetFirstName() == firstName)
+                if (contacts[currentAddressBookIndex, i].GetFirstName() == firstName)
                 {
                     Console.WriteLine("Current Person detail: ");
-                    Console.WriteLine(contacts[i].ToString());
+                    Console.WriteLine(contacts[currentAddressBookIndex, i].ToString());
                     Console.WriteLine();
                     ContactDetails person = AddInfo();
-                    contacts[i] = person;
+                    contacts[currentAddressBookIndex, i] = person;
 
-                    Console.WriteLine($"{contacts[i].GetFirstName()} detials updated");
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine("No Contact Available with this Name");
+                    Console.WriteLine($"{contacts[currentAddressBookIndex, i].GetFirstName()} details updated");
                     return;
                 }
             }
+
+            Console.WriteLine("No Contact Available with this Name");
         }
+
         public void AddContact()
         {
-            while (count < contacts.Length)
+            if (currentAddressBookIndex == -1)
+            {
+                Console.WriteLine("Please select an Address Book first.");
+                return;
+            }
+
+            int maxContacts = contacts.GetLength(1); // Second dimension size (10)
+            int count = contactCounts[currentAddressBookIndex];
+
+            while (count < maxContacts)
             {
                 ContactDetails person = AddInfo();
-                contacts[count] = person;
+                contacts[currentAddressBookIndex, count] = person;
+                contactCounts[currentAddressBookIndex]++;
                 count++;
                 Console.WriteLine(person.ToString());
                 Console.WriteLine();
                 Console.WriteLine("Added Successfully");
                 Console.WriteLine();
 
-                if (count == contacts.Length)
+                if (count == maxContacts)
                 {
                     Console.WriteLine("Address Book is Full");
                     break;
@@ -89,25 +184,32 @@ namespace BridgeLabzTraining.senariobased.address_book
                 }
             }
 
-            if (count == contacts.Length)
+            if (count == maxContacts)
             {
                 Console.WriteLine("Cannot add more contacts. Address Book is Full");
             }
         }
+
         public void ShowContact()
         {
+            if (currentAddressBookIndex == -1)
+            {
+                Console.WriteLine("Please select an Address Book first.");
+                return;
+            }
+
+            int count = contactCounts[currentAddressBookIndex];
             if (count == 0)
             {
-                Console.WriteLine("No contacts available in the Address Book.");
+                Console.WriteLine("No contacts available in this Address Book.");
                 return;
             }
 
             Console.WriteLine("----Available Contacts----");
             Console.WriteLine();
-            // show firstName only
             for (int i = 0; i < count; i++)
             {
-                Console.WriteLine($"{i + 1}. {contacts[i].GetFirstName()}");
+                Console.WriteLine($"{i + 1}. {contacts[currentAddressBookIndex, i].GetFirstName()}");
             }
             Console.WriteLine();
 
@@ -115,21 +217,18 @@ namespace BridgeLabzTraining.senariobased.address_book
             string firstName = Console.ReadLine();
             Console.WriteLine();
 
-            
             for (int i = 0; i < count; i++)
             {
-                // on the basis of firstName show complete details
-                if (contacts[i].GetFirstName() == firstName)
+                if (contacts[currentAddressBookIndex, i].GetFirstName() == firstName)
                 {
                     Console.WriteLine("Contact Details:");
                     Console.WriteLine();
-                    Console.WriteLine(contacts[i].ToString());
+                    Console.WriteLine(contacts[currentAddressBookIndex, i].ToString());
                     return;
                 }
             }
 
             Console.WriteLine("No Contact Available with this Name");
-            return;
         }
 
         // helper function for input contact Data
@@ -164,8 +263,6 @@ namespace BridgeLabzTraining.senariobased.address_book
             ContactDetails person = new ContactDetails(firstName, lastName, address, city,
                                                         state, zIPCode, phoneNumber, email);
             return person;
-
         }
-
     }
 }

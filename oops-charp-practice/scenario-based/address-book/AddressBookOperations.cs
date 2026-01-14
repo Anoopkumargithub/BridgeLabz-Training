@@ -9,12 +9,15 @@ namespace BridgeLabzTraining.senariobased.address_book
     internal class AddressBookOperations
     {
         private IContact contactUtility = new ContactImpl();
-        bool AdminRole = false;
+        private bool AdminRole = false;
 
         public bool CheckRole()
         {
+            Console.WriteLine("----Login to Address Book System----");
             Console.Write("Enter your Email: ");
             string email = Console.ReadLine();
+            Console.WriteLine();
+            
             if (email.Equals("ABC@gmail.com"))
             {
                 AdminRole = true;
@@ -22,25 +25,127 @@ namespace BridgeLabzTraining.senariobased.address_book
             }
             else
             {
-                Console.WriteLine("Wrong Credentials, Try Again!!");
                 AdminRole = false;
+                return true;
             }
-            return false;
         }
+
         public void DisplayOperation()
         {
-            Console.WriteLine("----Welcome To Address Book----");
+            // First check role at the beginning
+            if (!CheckRole())
+            {
+                return;
+            }
+
+            Console.WriteLine("----Welcome To Address Book System----");
+            Console.WriteLine();
+
+            if (AdminRole)
+            {
+                DisplayAdminMenu();
+            }
+            else
+            {
+                DisplayUserMenu();
+            }
+        }
+
+        // Admin Menu - full access
+        private void DisplayAdminMenu()
+        {
             string choice;
             do
             {
                 Console.WriteLine();
-                Console.WriteLine("1.Show Contact");
+                Console.WriteLine("----Admin Address Book Menu----");
+                Console.WriteLine("1. Create New Address Book");
+                Console.WriteLine("2. Select Address Book");
+                Console.WriteLine("3. Show All Address Books");
+                Console.WriteLine("4. Manage Contacts (in selected book)");
+                Console.WriteLine("5. Exit");
+
+                Console.Write("Enter your choice: ");
+                choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        contactUtility.CreateAddressBook();
+                        break;
+                    case "2":
+                        contactUtility.SelectAddressBook();
+                        break;
+                    case "3":
+                        contactUtility.ShowAllAddressBooks();
+                        break;
+                    case "4":
+                        ManageContactsAdmin();
+                        break;
+                    case "5":
+                        Console.WriteLine("Thank you, Visit Again!!");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Choice!!");
+                        break;
+                }
+            }
+            while (choice != "5");
+        }
+
+        // User Menu - Limited access (only ShowContact)
+        private void DisplayUserMenu()
+        {
+            string choice;
+            do
+            {
+                Console.WriteLine();
+                Console.WriteLine("----User Menu----");
+                Console.WriteLine("1. Show All Address Books");
+                Console.WriteLine("2. Select Address Book");
+                Console.WriteLine("3. Show Contact");
+                Console.WriteLine("4. Exit");
+
+                Console.Write("Enter your choice: ");
+                choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        contactUtility.ShowAllAddressBooks();
+                        break;
+                    case "2":
+                        contactUtility.SelectAddressBook();
+                        break;
+                    case "3":
+                        contactUtility.ShowContact();
+                        break;
+                    case "4":
+                        Console.WriteLine("Thank you, Visit Again!!");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Choice!!");
+                        break;
+                }
+            }
+            while (choice != "4");
+        }
+
+        // Admin contact management - Full CRUD operations
+        private void ManageContactsAdmin()
+        {
+            string choice;
+            do
+            {
+                Console.WriteLine();
+                Console.WriteLine("----Contact Management (Admin)----");
+                Console.WriteLine("1. Show Contact");
                 Console.WriteLine("2. Add Contact");
                 Console.WriteLine("3. Edit Contact");
                 Console.WriteLine("4. Delete Contact");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("5. Back to Main Menu");
 
-                Console.WriteLine("Enter your choice: ");
+                Console.Write("Enter your choice: ");
                 choice = Console.ReadLine();
 
                 switch (choice)
@@ -49,37 +154,16 @@ namespace BridgeLabzTraining.senariobased.address_book
                         contactUtility.ShowContact();
                         break;
                     case "2":
-                        if (AdminRole)
-                        {
-                            contactUtility.AddContact();
-                        }
-                        else if (CheckRole())
-                        {
-                            contactUtility.AddContact();
-                        }
+                        contactUtility.AddContact();
                         break;
                     case "3":
-                        if (AdminRole)
-                        {
-                            contactUtility.EditContact();
-                        }
-                        else if (CheckRole())
-                        {
-                            contactUtility.EditContact();
-                        }
-                            break;
+                        contactUtility.EditContact();
+                        break;
                     case "4":
-                        if (AdminRole)
-                        {
-                            contactUtility.DeleteContact();
-                        }
-                        else if (CheckRole())
-                        {
-                            contactUtility.DeleteContact();
-                        }
+                        contactUtility.DeleteContact();
                         break;
                     case "5":
-                        Console.WriteLine("Thankyou, Visit Again!!");
+                        Console.WriteLine("Returning to Main Menu...");
                         break;
                     default:
                         Console.WriteLine("Invalid Choice!!");

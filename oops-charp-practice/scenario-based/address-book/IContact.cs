@@ -8,6 +8,9 @@ namespace BridgeLabzTraining.senariobased.address_book
 {
     internal interface IContact
     {
+        void CreateAddressBook();
+        void ShowAllAddressBooks();
+        bool SelectAddressBook();
         void ShowContact();
 
         void AddContact();
