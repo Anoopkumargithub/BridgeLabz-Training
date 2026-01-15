@@ -1104,7 +1104,173 @@ public void SearchByState(string searchState)
 
 ---
 
-## 🛠️ Technologies & Tools
+## � Task 9: View Persons by City or State
+**Feature:** Ability to view persons by city or state with comprehensive listing and statistics
+
+### 🎯 Objective
+Display a comprehensive list of all persons residing in a specific city or state across multiple address books with organized formatting and person count.
+
+### ✨ Features Implemented
+- **View by City Functionality:**
+  - Accept city name input from user
+  - Search across all address books simultaneously
+  - Display matching persons grouped by address book
+  - Show full contact details for each person in the city
+  - Count total persons in the specified city
+  - Case-insensitive city matching for flexibility
+
+- **View by State Functionality:**
+  - Accept state name input from user
+  - Search across all address books simultaneously
+  - Display matching persons grouped by address book
+  - Show full contact details for each person in the state
+  - Count total persons in the specified state
+  - Case-insensitive state matching for flexibility
+
+- **Result Presentation:**
+  - Sequential numbering of persons across all address books
+  - Organized grouping by address book name
+  - Full contact details display (Name, Address, City, State, ZIP, Phone, Email)
+  - Summary count of total persons in selected city/state
+  - Graceful handling of "no persons found" scenarios
+
+- **User Interface Integration:**
+  - New menu options in both User and Admin menus
+  - "View Persons by City" - Option 5 in User Menu, Option 6 in Admin Contact Menu
+  - "View Persons by State" - Option 6 in User Menu, Option 7 in Admin Contact Menu
+  - Interactive input prompts for city/state selection
+
+### 📚 Key Learnings
+
+**Nested Loop Traversal:**
+- Iterate through multiple address books (outer loop)
+- Iterate through contacts in each book (inner loop)
+- Organize results by address book for clarity
+
+**String Comparison:**
+- Use `StringComparison.OrdinalIgnoreCase` for case-insensitive matching
+- Essential for flexible city/state searches
+
+**Data Organization:**
+- Group results by address book for better readability
+- Track which address book contains matching persons
+- Maintain sequential numbering across all books
+
+**Collection Filtering:**
+- Filter contacts based on city or state criteria
+- Count matching persons dynamically
+- Display comprehensive result sets
+
+**User Feedback:**
+- Show detailed results with full person information
+- Provide summary statistics (total count)
+- Handle empty result sets gracefully with appropriate messages
+
+### 💡 Technical Implementation
+
+**ViewPersonsByCity Method:**
+```csharp
+public void ViewPersonsByCity()
+{
+    Console.Write("Enter City Name: ");
+    string city = Console.ReadLine();
+    Console.WriteLine();
+
+    bool found = false;
+    int totalPersonsInCity = 0;
+
+    Console.WriteLine($"----Persons from City: {city}----");
+    Console.WriteLine();
+
+    for (int i = 0; i < addressBookCount; i++)
+    {
+        int totalContact = contactCounts[i];
+        bool citiesFound = false;
+
+        for (int j = 0; j < totalContact; j++)
+        {
+            if (contacts[i, j].GetCity().Equals(city, StringComparison.OrdinalIgnoreCase))
+            {
+                if (!citiesFound)
+                {
+                    Console.WriteLine($"\n--- Address Book: {addressBookNames[i]} ---");
+                    citiesFound = true;
+                }
+
+                Console.WriteLine($"\n{++totalPersonsInCity}. {contacts[i, j].GetFirstName()}");
+                Console.WriteLine(contacts[i, j].ToString());
+                Console.WriteLine();
+                found = true;
+            }
+        }
+    }
+
+    if (!found)
+    {
+        Console.WriteLine($"No persons found in city: {city}");
+    }
+    else
+    {
+        Console.WriteLine($"\n----Total Persons from '{city}': {totalPersonsInCity}----");
+    }
+    Console.WriteLine();
+}
+
+// Similar implementation for ViewPersonsByState()
+// using GetState() instead of GetCity()
+```
+
+**Menu Integration:**
+- User Menu (Option 5-6): Access to view operations
+- Admin Contact Management (Option 6-7): Access to view operations
+- Seamless integration with existing menu flow
+
+### 🔍 Differences from Task 8 (Search)
+
+| Feature | Task 8 (Search) | Task 9 (View) |
+|---------|-----------------|---------------|
+| Purpose | Find and display matching persons | List all persons from city/state |
+| Result Format | Shows matches inline | Organized by address book |
+| Numbering | Single display | Sequential across all books |
+| Count | Not explicitly shown | Total count provided |
+| User Intent | Quick lookup | Comprehensive listing |
+
+### 💡 OOP Principles Applied
+✅ **Encapsulation** - Method encapsulates search logic within utility class  
+✅ **Abstraction** - Complex multi-book search hidden from user  
+✅ **Separation of Concerns** - View logic separate from business operations  
+✅ **Code Reusability** - Same method works across all address books  
+✅ **Interface Consistency** - Methods follow IContact contract  
+
+### 🚀 Future Enhancements
+- **Sorting Options:**
+  - Sort persons by name (alphabetically)
+  - Sort by phone number
+  - Sort by email address
+
+- **Advanced Filtering:**
+  - View persons by city AND state combination
+  - Filter by name prefix within city/state
+  - Date-based filtering (when added)
+
+- **Export Options:**
+  - Export city/state persons to file
+  - Generate reports with statistics
+  - Print-friendly formats
+
+- **Statistics & Analytics:**
+  - Count persons by city distribution
+  - Count persons by state distribution
+  - Population density across locations
+
+- **Search Enhancements:**
+  - Partial city/state name matching
+  - Wildcard support in searches
+  - Saved search results
+
+---
+
+## �🛠️ Technologies & Tools
 
 ### 💻 Languages
 - C#
