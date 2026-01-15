@@ -8,6 +8,10 @@ namespace BridgeLabzTraining.senariobased.address_book
 {
     internal interface IContact
     {
+        void CountByCity();
+
+        void CountByState();
+
         void SearchByState();
 
         void SearchByCity();

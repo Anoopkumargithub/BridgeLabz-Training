@@ -65,7 +65,11 @@ namespace BridgeLabzTraining.senariobased.address_book
                 Console.WriteLine("2. Select Address Book");
                 Console.WriteLine("3. Show All Address Books");
                 Console.WriteLine("4. Manage Contacts (in selected book)");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("5. Search by City");
+                Console.WriteLine("6. Search by State");
+                Console.WriteLine("7. Count by City");
+                Console.WriteLine("8. Count by State");
+                Console.WriteLine("9. Exit");
 
                 Console.Write("Enter your choice: ");
                 choice = Console.ReadLine();
@@ -85,6 +89,18 @@ namespace BridgeLabzTraining.senariobased.address_book
                         ManageContactsAdmin();
                         break;
                     case "5":
+                        contactUtility.SearchByCity();
+                        break;
+                    case "6":
+                        contactUtility.SearchByState();
+                        break;
+                    case "7":
+                        contactUtility.CountByCity();
+                        break;
+                    case "8":
+                        contactUtility.CountByState();
+                        break;
+                    case "9":
                         Console.WriteLine("Thank you, Visit Again!!");
                         break;
                     default:
@@ -92,7 +108,7 @@ namespace BridgeLabzTraining.senariobased.address_book
                         break;
                 }
             }
-            while (choice != "5");
+            while (choice != "9");
         }
 
         // User Menu - Limited access (only ShowContact)
@@ -106,8 +122,11 @@ namespace BridgeLabzTraining.senariobased.address_book
                 Console.WriteLine("1. Show All Address Books");
                 Console.WriteLine("2. Select Address Book");
                 Console.WriteLine("3. Show Contact");
-                Console.WriteLine("4. Search By City or State");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("4. Search by City");
+                Console.WriteLine("5. Search by State");
+                Console.WriteLine("6. Count by City");
+                Console.WriteLine("7. Count by State");
+                Console.WriteLine("8. Exit");
 
                 Console.Write("Enter your choice: ");
                 choice = Console.ReadLine();
@@ -124,9 +143,18 @@ namespace BridgeLabzTraining.senariobased.address_book
                         contactUtility.ShowContact();
                         break;
                     case "4":
-                        SearchByCityOrState();
+                        contactUtility.SearchByCity();
                         break;
                     case "5":
+                        contactUtility.SearchByState();
+                        break;
+                    case "6":
+                        contactUtility.CountByCity();
+                        break;
+                    case "7":
+                        contactUtility.CountByState();
+                        break;
+                    case "8":
                         Console.WriteLine("Thank you, Visit Again!!");
                         break;
                     default:
@@ -134,39 +162,7 @@ namespace BridgeLabzTraining.senariobased.address_book
                         break;
                 }
             }
-            while (choice != "5");
-        }
-
-        // Common Menu -  Search By City or State
-        private void SearchByCityOrState()
-        {
-            Console.WriteLine("What you want to search by City or State");
-            Console.WriteLine("1. City");
-            Console.WriteLine("2. State");
-            Console.WriteLine("3. Exit");
-
-            string choice;
-            do
-            {
-                choice = Console.ReadLine();
-
-                switch (choice)
-                {
-                    case "1":
-                        contactUtility.SearchByCity();
-                        break;
-                    case "2":
-                        contactUtility.SearchByState();
-                        break;
-                    case "3":
-                        Console.WriteLine("Back To Main Menu");
-                        break;
-                    default:
-                        Console.WriteLine("Invalid Choice");
-                        break;
-                }
-            } while (choice != "3");
-
+            while (choice != "8");
         }
 
         // Admin contact management

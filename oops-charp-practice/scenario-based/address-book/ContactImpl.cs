@@ -14,7 +14,24 @@ namespace BridgeLabzTraining.senariobased.address_book
         private int addressBookCount = 0; // Total number of address books
         private int currentAddressBookIndex = -1; // Currently selected address book
 
-        
+        public void CountByCity()
+        {
+            Console.Write("Enter City: ");
+            string city = Console.ReadLine();
+            Console.WriteLine();
+
+            CountContacts(city, "City");
+        }
+
+        public void CountByState()
+        {
+            Console.Write("Enter State: ");
+            string state = Console.ReadLine();
+            Console.WriteLine();
+
+            CountContacts(state, "State");
+        }
+
         public void SearchByState()
         {
             Console.Write("Enter State: ");
@@ -331,6 +348,62 @@ namespace BridgeLabzTraining.senariobased.address_book
                 Console.WriteLine("No Contact Founds!!");
                 Console.WriteLine();
             }
+        }
+
+        private void CountContacts(string place, string searchType)
+        {
+            int totalCount = 0;
+            Dictionary<string, int> countByAddressBook = new Dictionary<string, int>();
+
+            for (int i = 0; i < addressBookCount; i++)
+            {
+                int bookCount = 0;
+                int totalContact = contactCounts[i];
+
+                for (int j = 0; j < totalContact; j++)
+                {
+                    bool matches = false;
+
+                    if (searchType == "City" && contacts[i, j].GetCity() == place)
+                    {
+                        matches = true;
+                    }
+                    else if (searchType == "State" && contacts[i, j].GetState() == place)
+                    {
+                        matches = true;
+                    }
+
+                    if (matches)
+                    {
+                        bookCount++;
+                        totalCount++;
+                    }
+                }
+
+                if (bookCount > 0)
+                {
+                    countByAddressBook[addressBookNames[i]] = bookCount;
+                }
+            }
+
+            // Display results
+            Console.WriteLine($"Count Results for {searchType}: '{place}'");
+            Console.WriteLine();
+
+            if (totalCount == 0)
+            {
+                Console.WriteLine($"No contacts found in {searchType}: '{place}'");
+            }
+            else
+            {
+                Console.WriteLine("Breakdown by Address Book:");
+                foreach (var entry in countByAddressBook)
+                {
+                    Console.WriteLine($"{entry.Key}: {entry.Value} contact(s)");
+                }
+                Console.WriteLine($"Total Contacts: {totalCount}");
+            }
+            Console.WriteLine();
         }
     }
 }
