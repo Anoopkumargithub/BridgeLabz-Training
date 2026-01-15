@@ -14,6 +14,24 @@ namespace BridgeLabzTraining.senariobased.address_book
         private int addressBookCount = 0; // Total number of address books
         private int currentAddressBookIndex = -1; // Currently selected address book
 
+        
+        public void SearchByState()
+        {
+            Console.Write("Enter State: ");
+            string state = Console.ReadLine();
+
+            SearchContact(state);
+
+        }
+
+        public void SearchByCity()
+        {
+            Console.Write("Enter City: ");
+            string city = Console.ReadLine();
+
+            SearchContact(city);
+        }
+
         public void CreateAddressBook()
         {
             if (addressBookCount >= addressBookNames.Length)
@@ -275,7 +293,6 @@ namespace BridgeLabzTraining.senariobased.address_book
         }
 
         // helper function for check duplicate contact
-
         bool IsDuplicate(int currentAddressBookIndex, ContactDetails person)
         {
             int count = contactCounts[currentAddressBookIndex];
@@ -287,6 +304,38 @@ namespace BridgeLabzTraining.senariobased.address_book
                 }
             }
             return false;
+        }
+
+        // helper function for Search Contacts
+
+        private void SearchContact(string place)
+        {
+            bool found = true;
+
+            for(int i = 0;i < addressBookCount; i++)
+            {
+                int totalContact = contactCounts[i];
+                for(int j = 0;j < totalContact; j++)
+                {
+                    if (contacts[i,j].GetState() == place)
+                    {
+                        contacts[i, j].ToString();
+                        Console.WriteLine();
+                        found = false;
+                    }
+                    else if (contacts[i,j].GetCity() == place)
+                    {
+                        contacts[i,j].ToString();
+                        Console.WriteLine();
+                        found = false;
+                    }
+                }
+            }
+            if (!found)
+            {
+                Console.WriteLine("No Contact Founds!!");
+                Console.WriteLine();
+            }
         }
     }
 }

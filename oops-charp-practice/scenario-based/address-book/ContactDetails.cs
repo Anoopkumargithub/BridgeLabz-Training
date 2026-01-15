@@ -34,6 +34,17 @@ namespace BridgeLabzTraining.senariobased.address_book
         {
             return FirstName;
         }
+        // get state
+        public string GetState()
+        {
+            return State; 
+        }
+        // get city
+        public string GetCity()
+        {
+            return City;
+        }
+
 
         public override string? ToString()
         {
