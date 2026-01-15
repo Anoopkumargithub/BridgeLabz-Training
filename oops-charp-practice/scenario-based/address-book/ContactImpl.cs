@@ -249,6 +249,9 @@ namespace BridgeLabzTraining.senariobased.address_book
                 return;
             }
 
+            // Sort contacts alphabetically by First Name
+            SortContactsByName(currentAddressBookIndex);
+
             Console.WriteLine("----Available Contacts----");
             Console.WriteLine();
             for (int i = 0; i < count; i++)
@@ -350,6 +353,7 @@ namespace BridgeLabzTraining.senariobased.address_book
             }
         }
 
+        // helper function for count Contacts 
         private void CountContacts(string place, string searchType)
         {
             int totalCount = 0;
@@ -404,6 +408,28 @@ namespace BridgeLabzTraining.senariobased.address_book
                 Console.WriteLine($"Total Contacts: {totalCount}");
             }
             Console.WriteLine();
+        }
+
+        // helper function for sorting contacts alphabetically by First Name (Use Bouble Sort)
+        private void SortContactsByName(int addressBookIndex)
+        {
+            int count = contactCounts[addressBookIndex];
+
+            for (int i = 0; i < count - 1; i++)
+            {
+                for (int j = 0; j < count - i - 1; j++)
+                {
+                    string name1 = contacts[addressBookIndex, j].GetFirstName();
+                    string name2 = contacts[addressBookIndex, j + 1].GetFirstName();
+
+                    if (string.Compare(name1, name2, StringComparison.OrdinalIgnoreCase) > 0)
+                    {
+                        ContactDetails temp = contacts[addressBookIndex, j];
+                        contacts[addressBookIndex, j] = contacts[addressBookIndex, j + 1];
+                        contacts[addressBookIndex, j + 1] = temp;
+                    }
+                }
+            }
         }
     }
 }
