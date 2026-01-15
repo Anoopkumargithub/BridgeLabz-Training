@@ -1437,6 +1437,193 @@ public void CountPersonsByCity()
 
 ---
 
+## 🔤 Task 11: Sort Address Book Entries Alphabetically
+**Feature:** Ability to sort the entries in the address book alphabetically by person's name
+
+### 🎯 Objective
+Provide functionality to organize contacts in alphabetical order by person's name within each address book for easier browsing and management.
+
+### ✨ Features Implemented
+- **Alphabetical Sorting:**
+  - Sort contacts by first name in ascending alphabetical order
+  - Uses Bubble Sort algorithm for sorting implementation
+  - Case-insensitive comparison for consistent ordering
+  - In-place sorting within the selected address book
+  - Maintains contact data integrity during sorting
+
+- **Sorting Functionality:**
+  - Sort contacts within currently selected address book
+  - User-initiated sorting through menu option
+  - Confirmation message after successful sorting
+  - Display sorted contacts immediately after sorting
+  - Works with any number of contacts in the book
+
+- **User Interface Integration:**
+  - New menu option: "Sort Contacts Alphabetically"
+  - Available in both Admin and User menus
+  - Simple one-click sorting operation
+  - Visual feedback showing sorted results
+
+### 📚 Key Learnings
+
+**Bubble Sort Algorithm:**
+- Classic comparison-based sorting technique
+- Iteratively compares adjacent elements and swaps if out of order
+- Multiple passes through the array until fully sorted
+- Time complexity: O(n²) for worst/average case, O(n) for best case
+- Space complexity: O(1) - sorts in-place without extra memory
+
+**String Comparison:**
+- Use `String.Compare()` with `StringComparison.OrdinalIgnoreCase`
+- Case-insensitive alphabetical ordering
+- Proper handling of special characters and numbers in names
+- Consistent sorting behavior across different inputs
+
+**Array Manipulation:**
+- Swapping elements in 2D array structure
+- Maintaining array bounds during sorting
+- Accessing and modifying contact objects in array
+- Preserving data integrity during swap operations
+
+**Algorithm Implementation:**
+- Nested loop structure for bubble sort
+- Optimization with early termination if already sorted
+- Proper index management to avoid out-of-bounds errors
+- Clean separation of sorting logic from display logic
+
+### 💡 Technical Implementation
+
+**Bubble Sort Method:**
+```csharp
+public void SortContactsAlphabetically()
+{
+    if (currentAddressBookIndex == -1)
+    {
+        Console.WriteLine("Please select an Address Book first.");
+        return;
+    }
+
+    int count = contactCounts[currentAddressBookIndex];
+    
+    if (count == 0)
+    {
+        Console.WriteLine("No contacts to sort.");
+        return;
+    }
+
+    // Bubble Sort Algorithm
+    for (int i = 0; i < count - 1; i++)
+    {
+        bool swapped = false;
+        
+        for (int j = 0; j < count - i - 1; j++)
+        {
+            // Compare adjacent contact names (case-insensitive)
+            string name1 = contacts[currentAddressBookIndex, j].GetFirstName();
+            string name2 = contacts[currentAddressBookIndex, j + 1].GetFirstName();
+            
+            if (String.Compare(name1, name2, StringComparison.OrdinalIgnoreCase) > 0)
+            {
+                // Swap contacts
+                ContactDetails temp = contacts[currentAddressBookIndex, j];
+                contacts[currentAddressBookIndex, j] = contacts[currentAddressBookIndex, j + 1];
+                contacts[currentAddressBookIndex, j + 1] = temp;
+                swapped = true;
+            }
+        }
+        
+        // Optimization: If no swaps in this pass, array is sorted
+        if (!swapped)
+            break;
+    }
+    
+    Console.WriteLine("Contacts sorted alphabetically by name!");
+    Console.WriteLine();
+}
+```
+
+**Algorithm Breakdown:**
+1. **Outer Loop:** Controls number of passes (n-1 passes for n elements)
+2. **Inner Loop:** Compares adjacent elements in each pass
+3. **Comparison:** Case-insensitive string comparison for alphabetical order
+4. **Swap:** Exchange positions if elements are out of order
+5. **Optimization:** Early termination if no swaps occur (already sorted)
+
+### 📊 Bubble Sort Performance
+
+| Scenario | Time Complexity | Description |
+|----------|----------------|-------------|
+| Best Case | O(n) | Already sorted contacts |
+| Average Case | O(n²) | Random order contacts |
+| Worst Case | O(n²) | Reverse sorted contacts |
+| Space | O(1) | In-place sorting, no extra space |
+
+### 💡 OOP Principles Applied
+✅ **Encapsulation** - Sorting logic encapsulated within utility method  
+✅ **Abstraction** - Complex algorithm hidden behind simple method call  
+✅ **Separation of Concerns** - Sorting separated from display and data storage  
+✅ **Single Responsibility** - Dedicated method for sorting functionality  
+✅ **Code Reusability** - Sorting method works for any address book  
+
+### 🎯 Use Cases
+- **Contact Management:** Organize contacts for easier browsing
+- **Quick Lookup:** Find contacts faster in sorted lists
+- **Professional Presentation:** Display contacts in organized manner
+- **Data Preparation:** Sort before exporting or printing
+- **User Experience:** Improved navigation through contact lists
+
+### 🔍 Why Bubble Sort?
+
+**Advantages:**
+- Simple to understand and implement
+- No additional memory required (in-place sorting)
+- Stable sort - maintains relative order of equal elements
+- Works well for small datasets (typical address books)
+- Educational value in understanding sorting algorithms
+
+**Limitations:**
+- Inefficient for large datasets (O(n²) complexity)
+- Better algorithms exist for performance-critical applications
+- Not suitable for very large contact lists
+
+### 🚀 Future Enhancements
+- **Alternative Sorting Algorithms:**
+  - Quick Sort for better performance O(n log n)
+  - Merge Sort for guaranteed O(n log n) performance
+  - Insertion Sort for nearly sorted data
+  - Heap Sort for memory-constrained environments
+
+- **Advanced Sorting Options:**
+  - Sort by last name instead of first name
+  - Sort by full name (first + last)
+  - Sort by city or state
+  - Sort by phone number or email
+  - Multi-level sorting (e.g., state → city → name)
+
+- **Sort Order Control:**
+  - Ascending or descending order selection
+  - Toggle between sort orders
+  - Save user's preferred sort order
+
+- **Sorting Across Books:**
+  - Sort all address books simultaneously
+  - Merge and sort contacts from multiple books
+  - Global alphabetical view across all books
+
+- **Performance Optimizations:**
+  - Switch to faster algorithm for large datasets
+  - Implement adaptive sorting based on data size
+  - Cache sorted order to avoid repeated sorting
+  - Background sorting for non-blocking UI
+
+- **User Experience:**
+  - Sort preview before confirming
+  - Undo sort operation
+  - Auto-sort option when adding new contacts
+  - Visual indicators for sorted status
+
+---
+
 ## �🛠️ Technologies & Tools
 
 ### 💻 Languages
