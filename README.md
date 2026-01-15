@@ -908,8 +908,9 @@ Implement **Fitness Tracker System** with user management and exercise tracking 
 
 ### 🗓️ **Date: 15-01-2026**
 ### 🎯 Tasks of the Day
-Completed **Task 7** for Address Book System enhancements:
+Completed **Task 7 & Task 8** for Address Book System enhancements:
 - **Task 7:** Ensure no duplicate entry of the same person in a particular address book
+- **Task 8:** Search person in a city or state across multiple address books
 
 ---
 
@@ -970,6 +971,111 @@ if (isDuplicate)
 ✅ **Data Integrity** - Preventing invalid state through constraint checks  
 ✅ **Single Responsibility** - Dedicated validation logic for duplicate prevention  
 ✅ **User Experience Design** - Clear feedback and recovery mechanisms  
+
+---
+
+## 🔍 Task 8: Multi-Book City/State Search
+**Feature:** Ability to search person in a city or state across multiple address books
+
+### 🎯 Objective
+Enable global search functionality to find contacts by city or state across all available address books in the system.
+
+### ✨ Features Implemented
+- **Cross-Book Search Capability:**
+  - Search by city across all address books simultaneously
+  - Search by state across all address books simultaneously
+  - Display matching contacts with their parent address book information
+  - Aggregate and organize results by address book
+
+- **Search Operations:**
+  1. **Search by City:**
+     - User enters city name
+     - System scans all address books for matching city entries
+     - Display list of all contacts from that city with book details
+
+  2. **Search by State:**
+     - User enters state name
+     - System scans all address books for matching state entries
+     - Display list of all contacts from that state with book details
+
+- **Result Presentation:**
+  - Show address book name containing the contact
+  - Display contact details (Name, City, State, Email, Phone)
+  - Format results for easy readability
+  - Handle "no results found" scenarios gracefully
+
+- **User Experience:**
+  - Simple menu-driven search interface
+  - Case-insensitive search for flexibility
+  - Clear result formatting with address book context
+  - Option to perform multiple searches
+
+### 📚 Key Learnings
+- Nested loop traversal across multiple arrays (books and contacts)
+- Global search algorithm implementation
+- Data aggregation from multiple sources
+- Result filtering and presentation techniques
+- Handling edge cases (no results, multiple matches)
+- Importance of data organization for efficient searching
+
+### 💡 Technical Implementation
+```csharp
+// Search across multiple address books by city
+public void SearchByCity(string searchCity)
+{
+    bool found = false;
+    
+    for (int bookIndex = 0; bookIndex < addressBookCount; bookIndex++)
+    {
+        for (int contactIndex = 0; contactIndex < contactCounts[bookIndex]; contactIndex++)
+        {
+            if (ContactDetails[bookIndex, contactIndex].City
+                .Equals(searchCity, StringComparison.OrdinalIgnoreCase))
+            {
+                if (!found)
+                {
+                    Console.WriteLine($"\nContacts from '{searchCity}':");
+                    found = true;
+                }
+                
+                Console.WriteLine($"Book: {addressBookNames[bookIndex]}");
+                Console.WriteLine(ContactDetails[bookIndex, contactIndex].DisplayContact());
+            }
+        }
+    }
+    
+    if (!found)
+        Console.WriteLine($"No contacts found in city: {searchCity}");
+}
+
+// Search across multiple address books by state
+public void SearchByState(string searchState)
+{
+    bool found = false;
+    
+    for (int bookIndex = 0; bookIndex < addressBookCount; bookIndex++)
+    {
+        for (int contactIndex = 0; contactIndex < contactCounts[bookIndex]; contactIndex++)
+        {
+            if (ContactDetails[bookIndex, contactIndex].State
+                .Equals(searchState, StringComparison.OrdinalIgnoreCase))
+            {
+                if (!found)
+                {
+                    Console.WriteLine($"\nContacts from state '{searchState}':");
+                    found = true;
+                }
+                
+                Console.WriteLine($"Book: {addressBookNames[bookIndex]}");
+                Console.WriteLine(ContactDetails[bookIndex, contactIndex].DisplayContact());
+            }
+        }
+    }
+    
+    if (!found)
+        Console.WriteLine($"No contacts found in state: {searchState}");
+}
+```
 
 ---
 
