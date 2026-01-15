@@ -1270,6 +1270,173 @@ public void ViewPersonsByCity()
 
 ---
 
+## 📊 Task 10: Count Contact Persons by City or State
+**Feature:** Ability to get number of contact persons (count) by city or state across all address books
+
+### 🎯 Objective
+Provide quick statistical summaries showing the total count of persons residing in a specific city or state across all address books in the system.
+
+### ✨ Features Implemented
+- **Count by City Functionality:**
+  - Accept city name input from user
+  - Search across all address books simultaneously
+  - Count matching persons in the specified city
+  - Display count breakdown by address book
+  - Show total count across all address books
+  - Case-insensitive city matching for flexibility
+
+- **Count by State Functionality:**
+  - Accept state name input from user
+  - Search across all address books simultaneously
+  - Count matching persons in the specified state
+  - Display count breakdown by address book
+  - Show total count across all address books
+  - Case-insensitive state matching for flexibility
+
+- **Statistics Presentation:**
+  - Per-book count breakdown (e.g., "Address Book: Friends - 3 persons")
+  - Grand total summary (e.g., "Total Persons in City: 8")
+  - Clear formatting for easy reading
+  - Graceful handling of "zero results" scenarios
+  - No detailed contact display (focused on quantity only)
+
+- **User Interface Integration:**
+  - Quick count queries without full contact details
+  - Efficient for getting statistical overviews
+  - Can be accessed before detailed view operations
+  - Supports rapid multiple queries
+
+### 📚 Key Learnings
+
+**Efficient Counting:**
+- Simple counter variable to track matching persons
+- Nested loops to traverse all address books and contacts
+- No need to store or display individual contact details
+- Optimized for performance with minimal data handling
+
+**Conditional Counting:**
+- Count incrementing based on city/state matching criteria
+- Case-insensitive string comparison for accuracy
+- Track counts per address book separately
+- Calculate grand totals across all books
+
+**Data Aggregation:**
+- Accumulate counts from multiple address books
+- Organize statistics by book for clarity
+- Provide single summary number for quick reference
+- Handle empty results gracefully
+
+**Result Formatting:**
+- Clear labeling of counts
+- Organized presentation by address book
+- Prominent display of total count
+- Distinguishes per-book vs. total statistics
+
+### 💡 Technical Implementation
+
+**Count by City Logic:**
+```csharp
+public void CountPersonsByCity()
+{
+    Console.Write("Enter City Name: ");
+    string city = Console.ReadLine();
+    Console.WriteLine();
+
+    int totalCount = 0;
+    bool found = false;
+
+    Console.WriteLine($"----Count of Persons from City: {city}----");
+    Console.WriteLine();
+
+    for (int i = 0; i < addressBookCount; i++)
+    {
+        int bookCount = 0;
+        int totalContact = contactCounts[i];
+
+        for (int j = 0; j < totalContact; j++)
+        {
+            if (contacts[i, j].GetCity().Equals(city, StringComparison.OrdinalIgnoreCase))
+            {
+                bookCount++;
+                totalCount++;
+                found = true;
+            }
+        }
+
+        if (bookCount > 0)
+        {
+            Console.WriteLine($"Address Book: {addressBookNames[i]} - {bookCount} person(s)");
+        }
+    }
+
+    if (!found)
+    {
+        Console.WriteLine($"No persons found in city: {city}");
+    }
+    else
+    {
+        Console.WriteLine($"\n----Total Persons from City '{city}': {totalCount}----");
+    }
+    Console.WriteLine();
+}
+
+// Similar implementation for CountPersonsByState()
+// using GetState() instead of GetCity()
+```
+
+**Key Differences from Task 9:**
+
+| Feature | Task 9 (View) | Task 10 (Count) |
+|---------|---------------|-----------------|
+| Purpose | Display comprehensive listing | Get statistical count only |
+| Output | Full contact details | Numbers/statistics only |
+| Performance | More data processing | Lightweight counting |
+| User Intent | See all details | Quick statistics |
+| Display | Verbose with all info | Concise summaries |
+| Data Shown | Complete contact info | Count breakdown only |
+
+### 💡 OOP Principles Applied
+✅ **Encapsulation** - Count logic encapsulated within utility method  
+✅ **Abstraction** - Complex counting algorithm hidden from user interface  
+✅ **Separation of Concerns** - Count operation independent from view operation  
+✅ **Code Reusability** - Counter mechanism works across all address books  
+✅ **Single Responsibility** - Dedicated method for counting purposes  
+
+### 🎯 Use Cases
+- **Quick Statistics:** Get city/state population counts at a glance
+- **Data Analysis:** Understand contact distribution across locations
+- **Reporting:** Generate summary statistics for presentations
+- **Validation:** Verify contact density before detailed operations
+- **Performance:** Lightweight queries that don't load all data
+
+### 🚀 Future Enhancements
+- **Advanced Statistics:**
+  - Count by city AND state combination
+  - Count persons by country/region
+  - Count contacts by phone type or email domain
+
+- **Comparative Analysis:**
+  - Compare counts across multiple cities
+  - Show percentage distribution across locations
+  - Highlight most populated cities/states
+
+- **Export & Reporting:**
+  - Export count statistics to file
+  - Generate population distribution reports
+  - Visual representations (charts/graphs)
+
+- **Time-Based Analytics:**
+  - Count new persons added by city (date range)
+  - Show growth trends by location
+  - Track changes in contact distribution over time
+
+- **Integration with Other Features:**
+  - Combine count with view operations
+  - Link counts to filtering operations
+  - Use for pagination in large datasets
+
+---
+
 ## �🛠️ Technologies & Tools
 
 ### 💻 Languages
