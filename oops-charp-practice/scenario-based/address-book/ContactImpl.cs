@@ -310,24 +310,19 @@ namespace BridgeLabzTraining.senariobased.address_book
 
         private void SearchContact(string place)
         {
-            bool found = true;
+            bool found = false;
 
             for(int i = 0;i < addressBookCount; i++)
             {
                 int totalContact = contactCounts[i];
                 for(int j = 0;j < totalContact; j++)
                 {
-                    if (contacts[i,j].GetState() == place)
+                    if (contacts[i,j].GetState() == place || contacts[i, j].GetCity() == place)
                     {
-                        contacts[i, j].ToString();
+                        Console.WriteLine($"Found in Address Book: {addressBookNames[i]}");
+                        Console.WriteLine(contacts[i, j].ToString());
                         Console.WriteLine();
-                        found = false;
-                    }
-                    else if (contacts[i,j].GetCity() == place)
-                    {
-                        contacts[i,j].ToString();
-                        Console.WriteLine();
-                        found = false;
+                        found = true;
                     }
                 }
             }
