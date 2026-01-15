@@ -906,257 +906,95 @@ Implement **Fitness Tracker System** with user management and exercise tracking 
 
 ---
 
-### 🗓️ **Date: 14-01-2026**
-### 🎯 Task of the Day
-Started **Address Book** project and completed the first task: create contacts with full details.
-
-**Project 13:** Address Book System - Add contacts with essential identity and communication fields.
+### 🗓️ **Date: 15-01-2026**
+### 🎯 Tasks of the Day
+Completed **Task 7** for Address Book System enhancements:
+- **Task 7:** Ensure no duplicate entry of the same person in a particular address book
 
 ---
 
-## 📖 Welcome to Address Book Application
+## 🔒 Task 7: Duplicate Entry Prevention
+**Feature:** Ability to ensure there is no duplicate entry of the same person in a particular address book
 
-```
-╔════════════════════════════════════════════════════════════════╗
-║                  WELCOME TO ADDRESS BOOK                       ║
-║         A Comprehensive Contact Management System               ║
-╚════════════════════════════════════════════════════════════════╝
-```
+### 🎯 Objective
+Prevent duplicate contacts from being added to the same address book by validating contact names before addition.
 
-### 📋 Project Overview
-The Address Book system is a menu-driven console application designed to manage personal and professional contacts efficiently. It demonstrates core OOP principles including encapsulation, abstraction, and interface-driven design patterns.
+### ✨ Features Implemented
+- **Duplicate Detection Logic:**
+  - Check if contact name already exists before adding new contact
+  - Case-insensitive name comparison for robust duplicate detection
+  - Prevent duplicate entries with user-friendly error messages
+  - Maintain data integrity within each address book
 
-### ✅ Completed Tasks & Features
+- **Implementation Details:**
+  - Validate contact name against existing contacts in selected address book
+  - Display informative message when attempting to add duplicate contact
+  - Recursive retry mechanism for user to enter different contact name
+  - Seamless integration with existing Add Contact functionality
 
-#### **Task 1: Create Contacts with Full Details** ✅ **COMPLETED**
-- **Objective:** Ability to create a Contact in Address Book with comprehensive information
-- **Fields Captured:** First Name, Last Name, Address, City, State, ZIP Code, Phone Number, Email
-- **Implementation:** ContactDetails model with parameterized constructor
-- **Status:** ✓ Fully functional contact creation with data validation
+- **User Experience:**
+  - Clear notification: "Contact with name '[Name]' already exists in this address book!"
+  - Option to retry with different name or cancel operation
+  - Prevents accidental data duplication
 
-#### **Task 2: Add New Contact to Address Book** ✅ **COMPLETED**
-- **Objective:** Ability to add a new Contact to the Address Book
-- **Features:** 
-  - User-driven input workflow for all contact fields
-  - Automatic contact creation and storage in List<ContactDetails>
-  - Confirmation message with formatted contact display
-  - Sequential field prompting for ease of use
-- **Status:** ✓ Fully functional single contact addition
+### 📚 Key Learnings
+- Linear search through contact array for existence validation
+- String comparison techniques for name matching
+- User input validation patterns for preventing invalid operations
+- Data integrity assurance through constraint implementation
+- Effective error messaging and user guidance
 
-#### **Task 3: Edit Existing Contact** ✅ **COMPLETED**
-- **Objective:** Ability to edit existing contact person using their first name
-- **Features:**
-  - Search-based contact lookup by first name
-  - Field selection menu (1-8 fields to update)
-  - Individual field modification without affecting others
-  - Updated contact display for confirmation
-  - Error handling for non-existent contacts
-- **Status:** ✓ Fully functional contact editing with validation
+### 💡 Technical Implementation
+```csharp
+// Duplicate check before adding contact
+bool isDuplicate = false;
+for (int i = 0; i < contactCounts[currentAddressBookIndex]; i++)
+{
+    if (ContactDetails[currentAddressBookIndex, i].Name
+        .Equals(contactName, StringComparison.OrdinalIgnoreCase))
+    {
+        isDuplicate = true;
+        break;
+    }
+}
 
-#### **Task 4: Delete Contact by Name** ✅ **COMPLETED**
-- **Objective:** Ability to delete a person from Address Book using person's first name
-- **Features:**
-  - Search-based contact location by first name
-  - Pre-deletion contact display for verification
-  - Explicit confirmation prompt ("yes/no") to prevent accidental deletion
-  - Safe removal using List<T>.Remove() method
-  - Success/cancellation feedback messages
-  - Error handling for non-existent contacts
-- **Status:** ✓ Fully functional safe contact deletion
-
-#### **Task 5: Add Multiple Persons to Address Book** ✅ **COMPLETED**
-- **Objective:** Ability to add multiple persons to Address Book in single session
-- **Features:**
-  - Continuous entry loop allowing sequential contact additions
-  - "Add another contact? (yes/no)" prompt after each entry
-  - Capacity management with configurable maximum limit (default 100 contacts)
-  - Capacity status display showing current/max contacts
-  - Full address book notification when capacity reached
-  - Session summary with total contacts added
-  - Dynamic List<ContactDetails> growth management
-- **Status:** ✓ Fully functional bulk contact addition with capacity control
-
-### 📊 Current Address Book Capabilities
-
-**Core Operations (CRUD) - Role-Based:**
-| Operation | Admin Role | User Role | Feature |
-|-----------|-----------|-----------|---------|
-| **Create Address Book** | ✅ | ❌ | Admin only - Create new address books |
-| **Select Address Book** | ✅ | ✅ | Both roles - Open address books |
-| **Show All Books** | ✅ | ✅ | Display all address books with counts |
-| **Add Contact** | ✅ | ❌ | Admin only - Add contacts |
-| **Edit Contact** | ✅ | ❌ | Admin only - Modify contacts |
-| **Delete Contact** | ✅ | ❌ | Admin only - Remove contacts |
-| **View Contact** | ✅ | ✅ | Both roles - Display contact details |
-
-**Admin Menu Options:**
-1. ✅ **Create New Address Book** - Create address book with unique name
-2. ✅ **Select Address Book** - Open address book by name
-3. ✅ **Show All Address Books** - List all address books with contact counts
-4. ✅ **Manage Contacts** - Full CRUD operations (Add, Edit, Delete, View)
-5. ✅ **Exit** - Close application gracefully
-
-**User Menu Options:**
-1. ✅ **Show All Address Books** - View available address books
-2. ✅ **Select Address Book** - Open address book to view contacts
-3. ✅ **Show Contact** - View specific contact details (read-only)
-4. ✅ **Exit** - Close application gracefully
-
-**Authentication:**
-- Admin Login: Email = `ABC@gmail.com`
-- User Login: Any other email address
-
-### 🏗️ Architecture Overview
-
-**Core Classes:**
-- `ContactDetails` - Data model encapsulating all contact information (8 fields)
-- `ContactImpl` - Business logic for multi-book operations (Add, Edit, Delete, Search, Book Management)
-- `IContact` - Interface contract defining contact and address book operations
-- `AddressBook` - Main UI entry point
-- `AddressBookOperations` - Orchestration layer with role-based menu handling
-
-**Role-Based Access Control:**
-- `AdminRole` flag tracks user authentication status
-- `CheckRole()` verifies email address (ABC@gmail.com = Admin, others = User)
-- `DisplayAdminMenu()` provides full system access
-- `DisplayUserMenu()` provides read-only access
-- Role-based filtering on all operations with permission checks
-
-**Data Storage Architecture (Multi-Address Book):**
-- **2D Array Storage:** `ContactDetails[5, 10]` 
-  - First dimension: Up to 5 address books
-  - Second dimension: Up to 10 contacts per book
-- **Address Book Metadata:**
-  - `string[] addressBookNames` - Store unique names for each book
-  - `int[] contactCounts` - Track contacts per book (for capacity management)
-  - `int addressBookCount` - Total books created
-  - `int currentAddressBookIndex` - Currently selected book
-- **Capacity Management:**
-  - Maximum 5 address books (configurable)
-  - Maximum 10 contacts per book (configurable)
-  - Automatic full status detection
-
-**User Interaction Flow:**
-1. **Login:** Enter email to determine role (Admin or User)
-2. **Address Book Management:** Create, select, or view address books
-3. **Contact Operations:** Perform CRUD operations on selected book
-4. **Role-Based Filtering:** Menus show only role-appropriate options
-5. **Graceful Exit:** Logout with confirmation message
-
-### 🎓 OOP Principles Demonstrated
-
-✅ **Encapsulation** - Private contact fields with public properties  
-✅ **Abstraction** - IContact interface hides implementation complexity  
-✅ **Single Responsibility** - Each class has focused, well-defined role  
-✅ **Separation of Concerns** - UI (AddressBook), Logic (ContactImpl), Models (ContactDetails)  
-✅ **Composition** - AddressBook composes ContactImpl for functionality  
-✅ **Defensive Programming** - Confirmation dialogs and capacity checks  
-
-### 📈 Development Progress
-
-| Phase | Task | Completion | Implementation |
-|-------|------|-----------|----------------|
-| Phase 1 | Create Contact Model | ✅ 100% | ContactDetails with 8 fields |
-| Phase 2 | Add Contact Operation | ✅ 100% | Single entry workflow |
-| Phase 3 | Edit Contact Operation | ✅ 100% | Field-by-field modification |
-| Phase 4 | Delete Contact Operation | ✅ 100% | Safe deletion with confirmation |
-| Phase 5 | Bulk Add Contacts | ✅ 100% | Multiple entry with capacity management |
-| Phase 6 | Multi-Address Book System | ✅ 100% | 2D array storage with book management |
-| Phase 7 | Role-Based Access Control | ✅ 100% | Admin (full access) and User (read-only) roles |
-
-
-### 🚀 Future Enhancements (Roadmap)
-
-**Immediate (Phase 8+):**
-- [ ] Increase Book Capacity - Support more than 5 address books
-- [ ] Increase Contact Capacity - Support more than 10 contacts per book
-- [ ] Search by Phone/Email - Advanced search within selected book
-- [ ] Contact Validation - Email format and phone number validation
-- [ ] Duplicate Detection - Prevent adding same contact twice
-
-**Short-term:**
-- [ ] Persistent Storage - File/Database integration (JSON, CSV, or SQL)
-- [ ] Contact Categories - Organize contacts by type (Personal, Business, Family)
-- [ ] Advanced Search - Filter by city, state, or other criteria across books
-- [ ] Batch Operations - Edit/delete multiple contacts at once
-- [ ] Export Contacts - Generate reports from specific address books
-
-**Long-term:**
-- [ ] Contact Sync - Synchronize across multiple devices
-- [ ] Cloud Integration - Store address books in cloud storage
-- [ ] Mobile App - Cross-platform mobile application
-- [ ] Contact Backup/Restore - Automated backup and recovery
-- [ ] Favorites & Groups - Tag important contacts and create groups
-
-## 📖 Project 13: Address Book System
-
-### 📌 Overview
-The Address Book is a menu-driven console application for managing multiple address books with role-based access control. Admins can manage address books and contacts, while users have read-only access to view contacts. The system uses 2D array storage to support up to 5 address books with 10 contacts each.
-
-### ✅ Completed Tasks (Tasks 1-6)
-
-| Task | Feature | Status | Role Access |
-|------|---------|--------|------------|
-| Task 1 | Create Contact with 8 fields | ✅ | Admin |
-| Task 2 | Add New Contact to Address Book | ✅ | Admin |
-| Task 3 | Edit Existing Contact by Name | ✅ | Admin |
-| Task 4 | Delete Contact by Name with Confirmation | ✅ | Admin |
-| Task 5 | Add Multiple Contacts in Single Session | ✅ | Admin |
-| Task 6 | Multiple Address Books with Role-Based Access | ✅ | Both Roles |
-
-### 🔐 Role-Based Access Control
-
-**Admin Role (Email: ABC@gmail.com)**
-- Create new address books with unique names
-- Select and manage address books
-- Add, edit, delete, and view contacts
-- View all address books and their contact counts
-- Full system administration
-
-**User Role (Any other email)**
-- Browse all available address books
-- Select address books to view
-- View specific contact details (read-only)
-- Cannot modify or delete any data
-- Limited visibility into system structure
-
-### 🏗️ Technical Implementation
-
-**Multi-Address Book Storage:**
-```
-ContactDetails[5, 10]  // 5 books max, 10 contacts per book
-├── addressBookNames[] // Store unique book names
-├── contactCounts[]    // Track contacts per book
-├── addressBookCount   // Total books created
-└── currentAddressBookIndex // Currently selected book
+if (isDuplicate)
+{
+    Console.WriteLine($"Contact with name '{contactName}' already exists!");
+    // Recursive retry or cancel
+}
 ```
 
-**Authentication:**
-```
-Email Input
-    ├─ ABC@gmail.com → Admin Role (Full Access)
-    └─ Other Email → User Role (Read-Only)
-```
+### 💡 OOP Principles Applied
+✅ **Encapsulation** - Data validation within the class boundaries  
+✅ **Data Integrity** - Preventing invalid state through constraint checks  
+✅ **Single Responsibility** - Dedicated validation logic for duplicate prevention  
+✅ **User Experience Design** - Clear feedback and recovery mechanisms  
 
-**Menu Structure:**
-```
-Admin Menu:
-├── Create New Address Book
-├── Select Address Book
-├── Show All Address Books
-├── Manage Contacts
-│   ├── Show Contact
-│   ├── Add Contact
-│   ├── Edit Contact
-│   └── Delete Contact
-└── Exit
+---
 
-User Menu:
-├── Show All Address Books
-├── Select Address Book
-├── Show Contact
-└── Exit
-```
+### 💡 OOP Principles Applied
+✅ **Encapsulation** - Search logic encapsulated within utility methods  
+✅ **Abstraction** - Complex search algorithm hidden from user interface  
+✅ **Separation of Concerns** - Search logic separate from data storage and presentation  
+✅ **Code Reusability** - Generic search methods work across multiple address books  
+
+### 🚀 Future Enhancements
+- **Advanced Search Options:**
+  - Search by phone number across multiple books
+  - Search by email across multiple books
+  - Combined search criteria (city AND state)
+  - Partial name search with wildcard support
+
+- **Performance Optimization:**
+  - Index-based search for faster lookups
+  - Caching frequently searched results
+  - Database migration for large datasets
+
+- **Export & Report Generation:**
+  - Export search results to file
+  - Generate reports by city/state
+  - Statistical analysis of contacts by location
 
 ---
 
@@ -1180,10 +1018,10 @@ User Menu:
 
 By the end of this training, I aim to be proficient in:
 - 🧠 Problem-solving and logical thinking
-- 🧹 Writing clean, readable, and maintainable code
-- 🏗️ Object-Oriented Programming principles and design patterns
-- 🔄 Working across multiple programming languages
-- 🏗️ Understanding modern development platforms like **.NET**
+- 🧹 Writing clean, readable, and maintaina                          le code
+- 🏗️ Object-Oriented Programming principles and design        pa    terns
+-                      🔄 Working across multiple programming languages
+- 🏗️ nderstanding modern development platforms like **.NET**
 
 ---
 
