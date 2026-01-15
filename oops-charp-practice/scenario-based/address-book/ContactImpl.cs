@@ -160,13 +160,22 @@ namespace BridgeLabzTraining.senariobased.address_book
             while (count < maxContacts)
             {
                 ContactDetails person = AddInfo();
-                contacts[currentAddressBookIndex, count] = person;
-                contactCounts[currentAddressBookIndex]++;
-                count++;
-                Console.WriteLine(person.ToString());
-                Console.WriteLine();
-                Console.WriteLine("Added Successfully");
-                Console.WriteLine();
+                // Check duplicate contact
+                if (!IsDuplicate(currentAddressBookIndex, person) || count == 0)
+                {
+                    contacts[currentAddressBookIndex, count] = person;
+                    contactCounts[currentAddressBookIndex]++;
+                    count++;
+                    Console.WriteLine(person.ToString());
+                    Console.WriteLine();
+                    Console.WriteLine("Added Successfully");
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.WriteLine("Person with this details is allready present");
+                    Console.WriteLine();
+                }
 
                 if (count == maxContacts)
                 {
@@ -263,6 +272,21 @@ namespace BridgeLabzTraining.senariobased.address_book
             ContactDetails person = new ContactDetails(firstName, lastName, address, city,
                                                         state, zIPCode, phoneNumber, email);
             return person;
+        }
+
+        // helper function for check duplicate contact
+
+        bool IsDuplicate(int currentAddressBookIndex, ContactDetails person)
+        {
+            int count = contactCounts[currentAddressBookIndex];
+            for (int i = 0; i < count; i++)
+            {
+                if (contacts[currentAddressBookIndex, i].GetFirstName() == person.GetFirstName())
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

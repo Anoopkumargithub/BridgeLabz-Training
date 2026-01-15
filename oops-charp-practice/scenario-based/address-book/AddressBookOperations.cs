@@ -21,11 +21,13 @@ namespace BridgeLabzTraining.senariobased.address_book
             if (email.Equals("ABC@gmail.com"))
             {
                 AdminRole = true;
+                Console.WriteLine("Welcome Admin!!");
                 return true;
             }
             else
             {
                 AdminRole = false;
+                Console.WriteLine("Welcome User!!");
                 return true;
             }
         }
@@ -131,7 +133,7 @@ namespace BridgeLabzTraining.senariobased.address_book
             while (choice != "4");
         }
 
-        // Admin contact management - Full CRUD operations
+        // Admin contact management
         private void ManageContactsAdmin()
         {
             string choice;
