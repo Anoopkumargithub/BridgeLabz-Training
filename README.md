@@ -246,7 +246,30 @@
 
 ---
 
+### 📅 January 17, 2026 - Day 8
+#### 🏗️ Scenario-Based Project:
+- **Fitness Application**
+  - ✅ ADD: Implement fitness application with user management and leaderboard features
+  
+  - **User Management Features**
+    - User profile management
+    - Activity tracking
+    - Performance monitoring
+  
+  - **Leaderboard Features**
+    - User ranking system
+    - Performance comparison
+    - Achievement tracking
+
+#### 🔧 Technical Highlights:
+- User data management
+- Leaderboard ranking algorithms
+- Interactive menu system
+- Data persistence and retrieval
+
+---
+
 ## 📊 Summary
-- **Total Days:** 7
+- **Total Days:** 8
 - **Topics Covered:** LinkedList, Stack, Queue, HashMap, Sorting, Searching, Dynamic Programming, OOP Design Patterns, Collections, Algorithm Analysis, Big-O Notation
-- **Projects Completed:** 12+ Practice Problems + 3 Scenario-Based Projects
+- **Projects Completed:** 12+ Practice Problems + 4 Scenario-Based Projects
