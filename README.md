@@ -247,7 +247,7 @@
 ---
 
 ### 📅 January 17, 2026 - Day 8
-#### 🏗️ Scenario-Based Project:
+#### 🏗️ Scenario-Based Projects:
 - **Fitness Application**
   - ✅ ADD: Implement fitness application with user management and leaderboard features
   
@@ -261,9 +261,24 @@
     - Performance comparison
     - Achievement tracking
 
+- **Flash Dealz Application**
+  - ✅ ADD: Implement Flash Dealz application with product management and sorting features
+  
+  - **Product Management Features**
+    - Product catalog management
+    - Price tracking and updates
+    - Product information storage
+  
+  - **Sorting Features**
+    - Sort by price
+    - Sort by product name
+    - Sort by availability
+    - Custom sorting implementations
+
 #### 🔧 Technical Highlights:
 - User data management
 - Leaderboard ranking algorithms
+- Product sorting algorithms
 - Interactive menu system
 - Data persistence and retrieval
 
