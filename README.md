@@ -285,9 +285,10 @@
 ---
 
 ### 📅 January 20, 2026 - Day 9
-#### 🏗️ Scenario-Based Project:
-- **Password Cracker Simulator**
-  - ✅ ADD: Password Cracker Simulator
+#### 🏗️ Scenario-Based Projects:
+
+##### 1. Password Cracker Simulator
+- ✅ ADD: Password Cracker Simulator
   
   - **Problem Brief:**
     - Story: Try all possible combinations to unlock a vault
@@ -308,6 +309,25 @@
     - Exponential growth visualization
     - Brute force analysis
 
+##### 2. Smart Warehouse Management System
+- ✅ ADD: Implement smart warehouse management system with electronics, groceries, and furniture management
+  
+  - **Concepts Covered:**
+    - Generic Classes
+    - Generic Constraints
+    - Variance (Covariance and Contravariance)
+  
+  - **Problem Statement:**
+    - Develop a warehouse system that manages different types of items (Electronics, Groceries, Furniture)
+  
+  - **System Features:**
+    - Generic warehouse management for different item types
+    - Type-safe inventory operations
+    - Category-specific item handling
+    - Electronics management (warranty, specifications)
+    - Groceries management (expiry dates, storage conditions)
+    - Furniture management (dimensions, assembly requirements)
+
 #### 🔧 Technical Highlights:
 - String generation algorithms
 - Recursive and iterative approaches
@@ -315,10 +335,14 @@
 - Time and space complexity analysis
 - Brute force attack simulation
 - Algorithm visualization
+- Generic type parameters and constraints
+- Type safety with generics
+- Variance in generic interfaces
+- Real-world warehouse operations simulation
 
 ---
 
 ## 📊 Summary
 - **Total Days:** 9
-- **Topics Covered:** LinkedList, Stack, Queue, HashMap, Sorting, Searching, Dynamic Programming, OOP Design Patterns, Collections, Algorithm Analysis, Big-O Notation, Brute Force Algorithms
-- **Projects Completed:** 12+ Practice Problems + 5 Scenario-Based Projects
+- **Topics Covered:** LinkedList, Stack, Queue, HashMap, Sorting, Searching, Dynamic Programming, OOP Design Patterns, Collections, Algorithm Analysis, Big-O Notation, Brute Force Algorithms, Generics, Generic Constraints, Variance
+- **Projects Completed:** 12+ Practice Problems + 7 Scenario-Based Projects
