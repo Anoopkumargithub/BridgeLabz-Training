@@ -328,6 +328,25 @@
     - Groceries management (expiry dates, storage conditions)
     - Furniture management (dimensions, assembly requirements)
 
+##### 3. Online Marketplace System
+- ✅ ADD: Implement online marketplace with product categories, services, and menu
+  
+  - **System Features:**
+    - Product category management
+    - Service offerings and management
+    - Interactive menu system
+    - Marketplace operations
+
+##### 4. Multi-Level University Course Management System
+- ✅ ADD: Implement multi-level university course management system with exam and assignment courses
+  
+  - **System Features:**
+    - Course hierarchy management
+    - Exam course handling
+    - Assignment course handling
+    - Multi-level course structure
+    - Course enrollment and tracking
+
 #### 🔧 Technical Highlights:
 - String generation algorithms
 - Recursive and iterative approaches
@@ -345,4 +364,4 @@
 ## 📊 Summary
 - **Total Days:** 9
 - **Topics Covered:** LinkedList, Stack, Queue, HashMap, Sorting, Searching, Dynamic Programming, OOP Design Patterns, Collections, Algorithm Analysis, Big-O Notation, Brute Force Algorithms, Generics, Generic Constraints, Variance
-- **Projects Completed:** 12+ Practice Problems + 7 Scenario-Based Projects
+- **Projects Completed:** 12+ Practice Problems + 9 Scenario-Based Projects
