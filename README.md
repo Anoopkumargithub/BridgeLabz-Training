@@ -284,7 +284,41 @@
 
 ---
 
+### 📅 January 20, 2026 - Day 9
+#### 🏗️ Scenario-Based Project:
+- **Password Cracker Simulator**
+  - ✅ ADD: Password Cracker Simulator
+  
+  - **Problem Brief:**
+    - Story: Try all possible combinations to unlock a vault
+  
+  - **Scenario A: Generate All Strings**
+    - Generate all possible strings of length n
+    - Combinatorial string generation
+    - Complete password space exploration
+  
+  - **Scenario B: Early Termination**
+    - Stop if password is matched
+    - Optimized search with early exit
+    - Performance improvement through pattern matching
+  
+  - **Scenario C: Complexity Analysis**
+    - Visualize time-space complexity
+    - Algorithm performance comparison
+    - Exponential growth visualization
+    - Brute force analysis
+
+#### 🔧 Technical Highlights:
+- String generation algorithms
+- Recursive and iterative approaches
+- Early termination optimization
+- Time and space complexity analysis
+- Brute force attack simulation
+- Algorithm visualization
+
+---
+
 ## 📊 Summary
-- **Total Days:** 8
-- **Topics Covered:** LinkedList, Stack, Queue, HashMap, Sorting, Searching, Dynamic Programming, OOP Design Patterns, Collections, Algorithm Analysis, Big-O Notation
-- **Projects Completed:** 12+ Practice Problems + 4 Scenario-Based Projects
+- **Total Days:** 9
+- **Topics Covered:** LinkedList, Stack, Queue, HashMap, Sorting, Searching, Dynamic Programming, OOP Design Patterns, Collections, Algorithm Analysis, Big-O Notation, Brute Force Algorithms
+- **Projects Completed:** 12+ Practice Problems + 5 Scenario-Based Projects
