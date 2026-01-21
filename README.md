@@ -347,6 +347,19 @@
     - Multi-level course structure
     - Course enrollment and tracking
 
+#### 🏗️ Scenario-Based Project:
+- ✅ ADD: Implement Aadhar Card Management System
+  - **Features:**
+    - Add new Aadhar records
+    - Sort records (e.g., by name or Aadhar number)
+    - Search records efficiently
+    - Display records in a user-friendly format
+  - **Data Structures & Concepts:**
+    - List-based storage
+    - Sorting algorithms for ordering records
+    - Search (linear/binary based on sorted data)
+    - Input validation and basic CRUD workflows
+
 #### 🔧 Technical Highlights:
 - String generation algorithms
 - Recursive and iterative approaches
@@ -363,21 +376,22 @@
 
 ### 📅 January 21, 2026 - Day 10
 #### 🏗️ Scenario-Based Project:
-- ✅ ADD: Implement Aadhar Card Management System
+- ✅ ADD: Implement RankSheetGenerator with Merge Sort and Student classes
   - **Features:**
-    - Add new Aadhar records
-    - Sort records (e.g., by name or Aadhar number)
-    - Search records efficiently
-    - Display records in a user-friendly format
+    - Capture student details (name, id, scores)
+    - Compute total/average scores
+    - Sort students by score using Merge Sort
+    - Generate ranked output with ties handled
+    - Display ordered rank sheet
   - **Data Structures & Concepts:**
-    - List-based storage
-    - Sorting algorithms for ordering records
-    - Search (linear/binary based on sorted data)
-    - Input validation and basic CRUD workflows
+    - Custom `Student` model for encapsulated data
+    - Merge Sort for stable O(n log n) ordering
+    - Comparers for deterministic tie-breaking
+    - List-based storage and iteration utilities
 
 ---
 
 ## 📊 Summary
 - **Total Days:** 10
 - **Topics Covered:** LinkedList, Stack, Queue, HashMap, Sorting, Searching, Dynamic Programming, OOP Design Patterns, Collections, Algorithm Analysis, Big-O Notation, Brute Force Algorithms, Generics, Generic Constraints, Variance, Record Management Workflows
-- **Projects Completed:** 12+ Practice Problems + 10 Scenario-Based Projects
+- **Projects Completed:** 12+ Practice Problems + 11 Scenario-Based Projects
