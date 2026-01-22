@@ -1,0 +1,3 @@
+Name: Adam
+Age: 21
+Favorite Language: Hindi
