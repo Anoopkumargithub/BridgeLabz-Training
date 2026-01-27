@@ -214,6 +214,76 @@ Output: "Hello world !"
 
 ---
 
+### 11. CreditCardNumber.cs ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Validate credit card numbers using Luhn algorithm with regex
+
+**Key Concept:** Pattern validation and numeric validation
+```
+Input: 4532 1234 5678 9010
+Output: Valid
+```
+**Run:** `dotnet run regex/advance-problem/CreditCardNumber.cs`
+
+---
+
+### 12. CurrencyExtraction.cs ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Extract currency values and amounts from text
+
+**Key Concept:** Lookahead/lookbehind, decimal numbers
+```
+Input: "Items cost $19.99, €15.50, and ₹1500"
+Output: [$19.99, €15.50, ₹1500]
+```
+**Run:** `dotnet run regex/advance-problem/CurrencyExtraction.cs`
+
+---
+
+### 13. RepeatingWords.cs ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Detect and extract repeating words in text
+
+**Key Concept:** Backreferences and word boundaries
+```
+Input: "The the quick brown brown fox"
+Output: [the, brown]
+```
+**Run:** `dotnet run regex/advance-problem/RepeatingWords.cs`
+
+---
+
+### 14. ProgrammingLanguageDetection.cs ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Identify programming languages from code snippets
+
+**Key Concept:** Pattern matching for language-specific syntax
+```
+Input: "function hello() { console.log('hi'); }"
+Output: JavaScript
+```
+**Run:** `dotnet run regex/advance-problem/ProgrammingLanguageDetection.cs`
+
+---
+
+### 15. SocialSecurityNumber.cs ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Validate social security numbers (XXX-XX-XXXX format)
+
+**Key Concept:** Format validation with specific digit patterns
+```
+Input: 123-45-6789
+Output: Valid
+```
+**Run:** `dotnet run regex/advance-problem/SocialSecurityNumber.cs`
+
+---
+
 ### Prerequisites
 
 - .NET 8.0 or higher
@@ -597,7 +667,12 @@ collection-csharp-practice/
     │   └── UnionIntersectionOfSet.cs ✅
     ├── regex/
     │   ├── advance-problem/
-    │   │   └── ValidateanIPAddress.cs ✅
+    │   │   ├── ValidateanIPAddress.cs ✅
+    │   │   ├── CreditCardNumber.cs ✅
+    │   │   ├── CurrencyExtraction.cs ✅
+    │   │   ├── RepeatingWords.cs ✅
+    │   │   ├── ProgrammingLanguageDetection.cs ✅
+    │   │   └── SocialSecurityNumber.cs ✅
     │   ├── basic-regex-problems/
     │   │   ├── ValidHexColorCode.cs ✅
     │   │   ├── ValidNumberPlate.cs ✅
@@ -627,9 +702,9 @@ collection-csharp-practice/
 | Map Operations | 2 | 2 | 100% ✅ |
 | Queue Operations | 2 | 2 | 100% ✅ |
 | Set Operations | 4 | 4 | 100% ✅ |
-| Regex Operations | 10 | 10 | 100% ✅ |
+| Regex Operations | 15 | 15 | 100% ✅ |
 | Real-World Problems | 2 | 2 | 100% ✅ |
-| **TOTAL** | **25** | **25** | **100% ✅** |
+| **TOTAL** | **30** | **30** | **100% ✅** |
 
 ---
 
