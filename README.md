@@ -28,7 +28,13 @@
 | 8 | Extract Webpage URLs | `regex/extraction-problems/ExtractWebpages.cs` | ✅ Done |
 | 9 | Censor Bad Words | `regex/replace-modify-string/CensorBadWords.cs` | ✅ Done |
 | 10 | Replace Multiple Spaces | `regex/replace-modify-string/MultipleSpacesToSingleSpace.cs` | ✅ Done |
+| 11 | Validate Credit Card Numbers | `regex/advance-problem/CreditCardNumber.cs` | ✅ Done |
+| 12 | Extract Currency Values | `regex/advance-problem/CurrencyExtraction.cs` | ✅ Done |
+| 13 | Detect Repeating Words | `regex/advance-problem/RepeatingWords.cs` | ✅ Done |
+| 14 | Identify Programming Languages | `regex/advance-problem/ProgrammingLanguageDetection.cs` | ✅ Done |
+| 15 | Validate Social Security Numbers | `regex/advance-problem/SocialSecurityNumber.cs` | ✅ Done |
 
+**Total:** 15/15 Tasks Completed ✅
 
 ---
 
@@ -64,7 +70,7 @@
 
 ## 📋 Detailed Implementation Guide
 
-## Regex Operations (10 Tasks - ✅ All Completed)
+## Regex Operations (15 Tasks - ✅ All Completed)
 
 Learn powerful text processing with Regex across validation, extraction, and string modification:
 
