@@ -68,6 +68,21 @@
 
 ---
 
+### January 27, 2026 - nUnit Testing and New Implementations
+
+**Learnings:**
+- Explored nUnit testing framework for unit testing in C#.
+
+**New Implementations:**
+- Implemented `ListManager` and `StringUtils` classes with basic functionalities.
+- Added corresponding tests for both classes.
+- Updated project files for calculator and string utility applications.
+
+**Next Steps:**
+- Continue enhancing test coverage and functionalities for the new classes.
+
+---
+
 ## 📋 Detailed Implementation Guide
 
 ## Regex Operations (15 Tasks - ✅ All Completed)
