@@ -28,13 +28,17 @@
 | 8 | Extract Webpage URLs | `regex/extraction-problems/ExtractWebpages.cs` | ✅ Done |
 | 9 | Censor Bad Words | `regex/replace-modify-string/CensorBadWords.cs` | ✅ Done |
 | 10 | Replace Multiple Spaces | `regex/replace-modify-string/MultipleSpacesToSingleSpace.cs` | ✅ Done |
-| 11 | Validate Credit Card Numbers | `regex/advance-problem/CreditCardNumber.cs` | ✅ Done |
-| 12 | Extract Currency Values | `regex/advance-problem/CurrencyExtraction.cs` | ✅ Done |
-| 13 | Detect Repeating Words | `regex/advance-problem/RepeatingWords.cs` | ✅ Done |
-| 14 | Identify Programming Languages | `regex/advance-problem/ProgrammingLanguageDetection.cs` | ✅ Done |
-| 15 | Validate Social Security Numbers | `regex/advance-problem/SocialSecurityNumber.cs` | ✅ Done |
+| 11 | Database Connection | `database/DatabaseConnection.cs` | ✅ Done |
+| 12 | File Processor | `file/FileProcessor.cs` | ✅ Done |
+| 13 | Performance Testing Utilities | `testing/PerformanceTesting.cs` | ✅ Done |
+| 14 | Parameterized Tests for Number Validation | `testing/NumberValidationTests.cs` | ✅ Done |
+| 15 | Validate Credit Card Numbers | `regex/advance-problem/CreditCardNumber.cs` | ✅ Done |
+| 16 | Extract Currency Values | `regex/advance-problem/CurrencyExtraction.cs` | ✅ Done |
+| 17 | Detect Repeating Words | `regex/advance-problem/RepeatingWords.cs` | ✅ Done |
+| 18 | Identify Programming Languages | `regex/advance-problem/ProgrammingLanguageDetection.cs` | ✅ Done |
+| 19 | Validate Social Security Numbers | `regex/advance-problem/SocialSecurityNumber.cs` | ✅ Done |
 
-**Total:** 15/15 Tasks Completed ✅
+**Total:** 19/19 Tasks Completed ✅
 
 ---
 
@@ -229,7 +233,63 @@ Output: "Hello world !"
 
 ---
 
-### 11. CreditCardNumber.cs ✅
+### 11. Database Connection | `database/DatabaseConnection.cs` ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Establish a connection to a database
+
+**Key Concept:** Connection string and configuration
+```
+Input: "Server=.;Database=TestDB;User=;Password="
+Output: Connected
+```
+**Run:** `dotnet run database/DatabaseConnection.cs`
+
+---
+
+### 12. File Processor | `file/FileProcessor.cs` ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Process files (e.g., CSV, JSON)
+
+**Key Concept:** File reading and parsing
+```
+Input: "data.csv"
+Output: Processed rows
+```
+**Run:** `dotnet run file/FileProcessor.cs`
+
+---
+
+### 13. Performance Testing Utilities | `testing/PerformanceTesting.cs` ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Test performance of algorithms
+
+**Key Concept:** Timing and memory usage
+```
+Input: "Find frequency of elements"
+Output: Time taken: 0.001 seconds
+```
+**Run:** `dotnet run testing/PerformanceTesting.cs`
+
+---
+
+### 14. Parameterized Tests for Number Validation | `testing/NumberValidationTests.cs` ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Validate numbers with different parameters
+
+**Key Concept:** Parameterized test cases
+```
+Input: 123, 456, 789
+Output: Valid
+```
+**Run:** `dotnet run testing/NumberValidationTests.cs`
+
+---
+
+### 15. CreditCardNumber.cs ✅
 **Status:** Completed on January 27, 2026
 
 **Purpose:** Validate credit card numbers using Luhn algorithm with regex
@@ -243,7 +303,7 @@ Output: Valid
 
 ---
 
-### 12. CurrencyExtraction.cs ✅
+### 16. CurrencyExtraction.cs ✅
 **Status:** Completed on January 27, 2026
 
 **Purpose:** Extract currency values and amounts from text
@@ -257,7 +317,7 @@ Output: [$19.99, €15.50, ₹1500]
 
 ---
 
-### 13. RepeatingWords.cs ✅
+### 17. RepeatingWords.cs ✅
 **Status:** Completed on January 27, 2026
 
 **Purpose:** Detect and extract repeating words in text
@@ -271,7 +331,7 @@ Output: [the, brown]
 
 ---
 
-### 14. ProgrammingLanguageDetection.cs ✅
+### 18. ProgrammingLanguageDetection.cs ✅
 **Status:** Completed on January 27, 2026
 
 **Purpose:** Identify programming languages from code snippets
@@ -285,7 +345,7 @@ Output: JavaScript
 
 ---
 
-### 15. SocialSecurityNumber.cs ✅
+### 19. SocialSecurityNumber.cs ✅
 **Status:** Completed on January 27, 2026
 
 **Purpose:** Validate social security numbers (XXX-XX-XXXX format)
