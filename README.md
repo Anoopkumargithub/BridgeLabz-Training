@@ -8,6 +8,30 @@
 
 ## Assignment Progress Tracker
 
+### 📅 January 27, 2026 - ✅ COMPLETED
+
+**Assignment:** Regex Validation, Extraction & String Modification
+
+**Status:** ✅ COMPLETED & TESTED
+
+#### Tasks Completed Today:
+
+| # | Task | File(s) | Status |
+|---|------|---------|--------|
+| 1 | Validate an IP Address | `regex/advance-problem/ValidateanIPAddress.cs` | ✅ Done |
+| 2 | Validate Hex Color Code | `regex/basic-regex-problems/ValidHexColorCode.cs` | ✅ Done |
+| 3 | Validate Vehicle Number Plate | `regex/basic-regex-problems/ValidNumberPlate.cs` | ✅ Done |
+| 4 | Validate Username | `regex/basic-regex-problems/ValidUsername.cs` | ✅ Done |
+| 5 | Extract Capitalized Words | `regex/extraction-problems/CapitalizedWordsfromaSentence.cs` | ✅ Done |
+| 6 | Extract Email Addresses | `regex/extraction-problems/ExtractAllEmailAddressesfromaText.cs` | ✅ Done |
+| 7 | Extract Dates | `regex/extraction-problems/ExtractDates.cs` | ✅ Done |
+| 8 | Extract Webpage URLs | `regex/extraction-problems/ExtractWebpages.cs` | ✅ Done |
+| 9 | Censor Bad Words | `regex/replace-modify-string/CensorBadWords.cs` | ✅ Done |
+| 10 | Replace Multiple Spaces | `regex/replace-modify-string/MultipleSpacesToSingleSpace.cs` | ✅ Done |
+
+
+---
+
 ### 📅 January 21, 2026 - ✅ COMPLETED
 
 **Assignment:** Collection Framework Implementation - Data Structures & Real-World Systems
@@ -39,6 +63,150 @@
 ---
 
 ## 📋 Detailed Implementation Guide
+
+## Regex Operations (10 Tasks - ✅ All Completed)
+
+Learn powerful text processing with Regex across validation, extraction, and string modification:
+
+### 1. ValidateanIPAddress.cs ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Validate IPv4 addresses
+
+**Key Concept:** Anchored patterns, octet range checks
+```
+Input: 192.168.1.1
+Output: Valid
+```
+**Run:** `dotnet run regex/advance-problem/ValidateanIPAddress.cs`
+
+---
+
+### 2. ValidHexColorCode.cs ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Validate hex color codes (#RGB, #RRGGBB)
+
+**Key Concept:** Character classes and grouping
+```
+Input: #1a2B3c
+Output: Valid
+```
+**Run:** `dotnet run regex/basic-regex-problems/ValidHexColorCode.cs`
+
+---
+
+### 3. ValidNumberPlate.cs ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Validate vehicle number plates (format-driven)
+
+**Key Concept:** Position-specific tokens and optional groups
+```
+Input: MH12 AB 1234
+Output: Valid
+```
+**Run:** `dotnet run regex/basic-regex-problems/ValidNumberPlate.cs`
+
+---
+
+### 4. ValidUsername.cs ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Validate usernames with allowed characters and length
+
+**Key Concept:** Boundaries and quantifiers
+```
+Input: user_123
+Output: Valid
+```
+**Run:** `dotnet run regex/basic-regex-problems/ValidUsername.cs`
+
+---
+
+### 5. CapitalizedWordsfromaSentence.cs ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Extract capitalized words from sentences
+
+**Key Concept:** Word boundaries and character classes
+```
+Input: "The Quick brown Fox"
+Output: [The, Quick, Fox]
+```
+**Run:** `dotnet run regex/extraction-problems/CapitalizedWordsfromaSentence.cs`
+
+---
+
+### 6. ExtractAllEmailAddressesfromaText.cs ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Extract email addresses from text
+
+**Key Concept:** Character sets, groups, and escaping special chars
+```
+Input: "Reach me at a.b@example.com and team@company.org"
+Output: [a.b@example.com, team@company.org]
+```
+**Run:** `dotnet run regex/extraction-problems/ExtractAllEmailAddressesfromaText.cs`
+
+---
+
+### 7. ExtractDates.cs ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Extract dates in common formats
+
+**Key Concept:** Alternation and capturing groups
+```
+Input: "Today is 21/01/2026 and 2026-01-21"
+Output: [21/01/2026, 2026-01-21]
+```
+**Run:** `dotnet run regex/extraction-problems/ExtractDates.cs`
+
+---
+
+### 8. ExtractWebpages.cs ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Extract webpage URLs (http/https)
+
+**Key Concept:** Optional groups and non-whitespace matching
+```
+Input: "Visit https://example.com and http://site.org/page"
+Output: [https://example.com, http://site.org/page]
+```
+**Run:** `dotnet run regex/extraction-problems/ExtractWebpages.cs`
+
+---
+
+### 9. CensorBadWords.cs ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Censor offensive words with masking
+
+**Key Concept:** Case-insensitive matching and replacement
+```
+Input: "This is a badword!"
+Output: "This is a ******!"
+```
+**Run:** `dotnet run regex/replace-modify-string/CensorBadWords.cs`
+
+---
+
+### 10. MultipleSpacesToSingleSpace.cs ✅
+**Status:** Completed on January 27, 2026
+
+**Purpose:** Replace multiple spaces with a single space
+
+**Key Concept:** Quantifiers and global replacement
+```
+Input: "Hello   world    !"
+Output: "Hello world !"
+```
+**Run:** `dotnet run regex/replace-modify-string/MultipleSpacesToSingleSpace.cs`
+
+---
 
 ### Prerequisites
 
@@ -343,6 +511,25 @@ cd collection-csharp-practice/gcr-code-base/list-interface
 foreach ($file in Get-ChildItem *.cs) { dotnet run $file.Name }
 ```
 
+### Run Regex Programs
+```bash
+# Validation (basic-regex-problems)
+cd collection-csharp-practice/gcr-code-base/regex/basic-regex-problems
+foreach ($file in Get-ChildItem *.cs) { dotnet run $file.Name }
+
+# Extraction (extraction-problems)
+cd ../extraction-problems
+foreach ($file in Get-ChildItem *.cs) { dotnet run $file.Name }
+
+# Replace/Modify (replace-modify-string)
+cd ../replace-modify-string
+foreach ($file in Get-ChildItem *.cs) { dotnet run $file.Name }
+
+# Advanced (advance-problem)
+cd ../advance-problem
+dotnet run ValidateanIPAddress.cs
+```
+
 ---
 
 ## Learning Outcomes
@@ -402,6 +589,21 @@ collection-csharp-practice/
     │   ├── FindSubset.cs ✅
     │   ├── SymmetricDifference.cs ✅
     │   └── UnionIntersectionOfSet.cs ✅
+    ├── regex/
+    │   ├── advance-problem/
+    │   │   └── ValidateanIPAddress.cs ✅
+    │   ├── basic-regex-problems/
+    │   │   ├── ValidHexColorCode.cs ✅
+    │   │   ├── ValidNumberPlate.cs ✅
+    │   │   └── ValidUsername.cs ✅
+    │   ├── extraction-problems/
+    │   │   ├── CapitalizedWordsfromaSentence.cs ✅
+    │   │   ├── ExtractAllEmailAddressesfromaText.cs ✅
+    │   │   ├── ExtractDates.cs ✅
+    │   │   └── ExtractWebpages.cs ✅
+    │   └── replace-modify-string/
+    │       ├── CensorBadWords.cs ✅
+    │       └── MultipleSpacesToSingleSpace.cs ✅
     └── real-world-system-problem/
         ├── shopping-cart/
         │   └── ShoppingCart.cs ✅
@@ -419,8 +621,9 @@ collection-csharp-practice/
 | Map Operations | 2 | 2 | 100% ✅ |
 | Queue Operations | 2 | 2 | 100% ✅ |
 | Set Operations | 4 | 4 | 100% ✅ |
+| Regex Operations | 10 | 10 | 100% ✅ |
 | Real-World Problems | 2 | 2 | 100% ✅ |
-| **TOTAL** | **15** | **15** | **100% ✅** |
+| **TOTAL** | **25** | **25** | **100% ✅** |
 
 ---
 
