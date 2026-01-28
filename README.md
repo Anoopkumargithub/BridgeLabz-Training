@@ -10,7 +10,7 @@
 
 ### 📅 January 28, 2026 - ✅ COMPLETED
 
-**Assignment:** Reflection in C# - Advanced Concepts
+**Assignment:** Reflection in C# - Advanced Concepts & Custom Attributes
 
 **Status:** ✅ COMPLETED & TESTED
 
@@ -30,8 +30,16 @@
 | 10 | Attribute Demo | `reflection/AttributeDemo.cs` | ✅ Done |
 | 11 | Dynamic Invoke | `reflection/DynamicInvoke.cs` | ✅ Done |
 | 12 | Modify Static | `reflection/ModifyStatic.cs` | ✅ Done |
+| 13 | CacheResult Attribute | `attributes/CacheResult.cs` | ✅ Done |
+| 14 | TaskInfo Attribute | `attributes/TaskInfo.cs` | ✅ Done |
+| 15 | ImportantMethod Attribute | `attributes/ImportantMethod.cs` | ✅ Done |
+| 16 | MaxLength Attribute | `attributes/MaxLength.cs` | ✅ Done |
+| 17 | BugReport Attribute | `attributes/BugReport.cs` | ✅ Done |
+| 18 | RoleAllowed Attribute | `attributes/RoleAllowed.cs` | ✅ Done |
+| 19 | Todo Attribute | `attributes/Todo.cs` | ✅ Done |
+| 20 | Suppress Warnings Attribute | `attributes/SuppressWarnings.cs` | ✅ Done |
 
-**Total:** 12/12 Tasks Completed ✅
+**Total:** 20/20 Tasks Completed ✅
 
 **Learnings:**
 - Explored C# Reflection API for runtime type inspection
@@ -42,6 +50,256 @@
 - Built proxies and decorators with reflection
 - Performance measurement using MethodTimer
 - Custom serialization with JsonGenerator
+- **Designed and implemented custom attributes from scratch**
+- **Applied attributes to classes, methods, properties, and parameters**
+- **Used reflection to read and process custom attributes at runtime**
+- **Built attribute-based validation and caching mechanisms**
+- **Created security-related attributes for role-based access control**
+- **Implemented documentation attributes for runtime API documentation**
+
+---
+
+## Custom Attributes and Annotations (8 Tasks - ✅ All Completed)
+
+Master attribute creation and usage with reflection-driven functionality:
+
+### 1. CacheResult.cs ✅
+**Status:** Completed on January 28, 2026
+
+**Purpose:** Cache method results with configurable TTL (Time-To-Live)
+
+**Key Concept:** Method interception and decorator pattern with caching
+```csharp
+[CacheResult(DurationSeconds = 60)]
+public string FetchData(string key) { /* ... */ }
+```
+**Features:**
+- Automatic result caching
+- Configurable cache duration
+- Cache invalidation after TTL
+- Performance optimization
+
+**Run:** `dotnet run attributes/CacheResult.cs`
+
+---
+
+### 2. TaskInfo.cs ✅
+**Status:** Completed on January 28, 2026
+
+**Purpose:** Document task metadata with status tracking
+
+**Key Concept:** Metadata annotation for documentation and runtime lookup
+```csharp
+[TaskInfo(
+    Title = "Implement Login",
+    Status = "In Progress",
+    Priority = 2,
+    AssignedTo = "Developer Name"
+)]
+public class LoginService { /* ... */ }
+```
+**Features:**
+- Task title and description
+- Status tracking (Pending, In Progress, Completed)
+- Priority levels (1-5)
+- Assignment tracking
+
+**Run:** `dotnet run attributes/TaskInfo.cs`
+
+---
+
+### 3. ImportantMethod.cs ✅
+**Status:** Completed on January 28, 2026
+
+**Purpose:** Mark critical methods for monitoring and logging
+
+**Key Concept:** Aspect-oriented programming with method interception
+```csharp
+[ImportantMethod(RequiresAudit = true)]
+public void ProcessPayment(decimal amount) { /* ... */ }
+```
+**Features:**
+- Mark methods as critical
+- Enable audit logging
+- Enforce exception handling
+- Track execution metrics
+
+**Run:** `dotnet run attributes/ImportantMethod.cs`
+
+---
+
+### 4. MaxLength.cs ✅
+**Status:** Completed on January 28, 2026
+
+**Purpose:** Validate property/parameter length constraints
+
+**Key Concept:** Data validation attribute with reflection-based validation
+```csharp
+[MaxLength(100)]
+public string Username { get; set; }
+
+[MaxLength(256)]
+public string EmailAddress { get; set; }
+```
+**Features:**
+- String length validation
+- Custom error messages
+- Property-level constraints
+- Runtime validation
+
+**Run:** `dotnet run attributes/MaxLength.cs`
+
+---
+
+### 5. BugReport.cs ✅
+**Status:** Completed on January 28, 2026
+
+**Purpose:** Track known bugs and issues in code
+
+**Key Concept:** Documentation attribute for bug tracking
+```csharp
+[BugReport(
+    BugId = "BUG-123",
+    Description = "Off-by-one error in pagination",
+    Severity = "High",
+    ReportedBy = "QA Team",
+    Status = "Pending Fix"
+)]
+public int GetPageNumber(int offset) { /* ... */ }
+```
+**Features:**
+- Bug ID tracking
+- Severity levels
+- Resolution status
+- Reporter information
+- Optional: Compile-time warnings for unfixed bugs
+
+**Run:** `dotnet run attributes/BugReport.cs`
+
+---
+
+### 6. RoleAllowed.cs ✅
+**Status:** Completed on January 28, 2026
+
+**Purpose:** Enforce role-based access control (RBAC) on methods
+
+**Key Concept:** Security attribute with runtime authorization checks
+```csharp
+[RoleAllowed("Admin", "Manager")]
+public void DeleteUser(int userId) { /* ... */ }
+
+[RoleAllowed("User")]
+public void ViewProfile() { /* ... */ }
+```
+**Features:**
+- Role-based access control
+- Multiple roles support
+- Runtime authorization enforcement
+- Audit trail logging
+- Exception handling for unauthorized access
+
+**Run:** `dotnet run attributes/RoleAllowed.cs`
+
+---
+
+### 7. Todo.cs ✅
+**Status:** Completed on January 28, 2026
+
+**Purpose:** Mark incomplete work items for developers
+
+**Key Concept:** Development annotation attribute
+```csharp
+[Todo("Refactor this method for better performance")]
+public void CalculateMetrics() { /* ... */ }
+
+[Todo("Add error handling", Priority = "High")]
+public void ProcessData() { /* ... */ }
+```
+**Features:**
+- Task description
+- Priority levels
+- Assignment to developers
+- Due date tracking
+- Compile-time detection
+
+**Run:** `dotnet run attributes/Todo.cs`
+
+---
+
+### 8. SuppressWarnings.cs ✅
+**Status:** Completed on January 28, 2026
+
+**Purpose:** Suppress specific compiler and analysis warnings
+
+**Key Concept:** Control code analysis and warning suppression
+```csharp
+[SuppressWarnings("CS0618", "Reason: Deprecated method still needed for compatibility")]
+public void LegacyMethod() { /* ... */ }
+```
+**Features:**
+- Suppress specific warning codes
+- Document suppression reasons
+- Category-based suppression
+- Validation of warning codes
+
+**Run:** `dotnet run attributes/SuppressWarnings.cs`
+
+---
+
+## Attribute Implementation Guide
+
+### Creating Custom Attributes
+
+```csharp
+// Step 1: Define the attribute class
+[AttributeUsage(
+    AttributeTargets.Class | AttributeTargets.Method,
+    AllowMultiple = false,
+    Inherited = true
+)]
+public class MyAttribute : Attribute
+{
+    public string Name { get; set; }
+    public int Value { get; set; }
+}
+
+// Step 2: Apply to target
+[MyAttribute(Name = "Test", Value = 42)]
+public class MyClass { }
+
+// Step 3: Read with reflection
+var attr = typeof(MyClass)
+    .GetCustomAttribute<MyAttribute>();
+Console.WriteLine($"{attr.Name}: {attr.Value}");
+```
+
+### Common AttributeUsage Targets
+
+| Target | Description |
+|--------|-------------|
+| `AttributeTargets.Class` | Can be applied to classes |
+| `AttributeTargets.Method` | Can be applied to methods |
+| `AttributeTargets.Property` | Can be applied to properties |
+| `AttributeTargets.Parameter` | Can be applied to parameters |
+| `AttributeTargets.Field` | Can be applied to fields |
+| `AttributeTargets.All` | Can be applied anywhere |
+
+### Reading Attributes at Runtime
+
+```csharp
+// Get single attribute
+var attr = typeof(MyClass)
+    .GetCustomAttribute<MyAttribute>();
+
+// Get all attributes
+var attrs = typeof(MyClass)
+    .GetCustomAttributes<MyAttribute>();
+
+// Get method attributes
+var methodAttrs = typeof(MyClass)
+    .GetMethod("MyMethod")
+    .GetCustomAttributes<MyAttribute>();
+```
 
 ---
 
