@@ -391,7 +391,23 @@
 
 ---
 
+### 📅 January 30, 2026 - Day 11
+#### 🏗️ Scenario-Based Project:
+- ✅ ADD: Implement Lexical Twist functionality with word transformation and vowel replacement
+  - **Features:**
+    - Word transformation operations
+    - Vowel replacement algorithms
+    - String manipulation techniques
+    - Character analysis and modification
+  - **Data Structures & Concepts:**
+    - String manipulation and traversal
+    - Character arrays for in-place modifications
+    - Vowel detection and replacement logic
+    - StringBuilder for efficient string operations
+
+---
+
 ## 📊 Summary
-- **Total Days:** 10
-- **Topics Covered:** LinkedList, Stack, Queue, HashMap, Sorting, Searching, Dynamic Programming, OOP Design Patterns, Collections, Algorithm Analysis, Big-O Notation, Brute Force Algorithms, Generics, Generic Constraints, Variance, Record Management Workflows
-- **Projects Completed:** 12+ Practice Problems + 11 Scenario-Based Projects
+- **Total Days:** 11
+- **Topics Covered:** LinkedList, Stack, Queue, HashMap, Sorting, Searching, Dynamic Programming, OOP Design Patterns, Collections, Algorithm Analysis, Big-O Notation, Brute Force Algorithms, Generics, Generic Constraints, Variance, Record Management Workflows, String Manipulation
+- **Projects Completed:** 12+ Practice Problems + 12 Scenario-Based Projects
