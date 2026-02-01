@@ -6,6 +6,47 @@
 
 ## 📅 Progress Log
 
+### **01-Feb-2026** | JSON Handling - Data Processing & Validation
+
+#### 📚 Topic Covered
+**JSON File Operations, Parsing, Validation & Object Conversion**
+
+---
+
+#### ✅ Tasks Completed
+
+| # | Task | Description | Implementation | Status |
+|---|------|-------------|----------------|--------|
+| 1 | **Create JSON** | Create and write objects to JSON files | [CreateJson.cs](io-csharp-practice/gcr-code-base/json-data-handling/practice-problem/basic-json-handling/CreateJson.cs) | ✅ Done |
+| 2 | **Convert C# Object to JSON** | Convert strongly-typed C# objects into JSON format | [ConvertCsharpObjectToJson.cs](io-csharp-practice/gcr-code-base/json-data-handling/practice-problem/basic-json-handling/ConvertCsharpObjectToJson.cs) | ✅ Done |
+| 3 | **Read JSON** | Read and parse JSON files using JsonConvert | [ReadJson.cs](io-csharp-practice/gcr-code-base/json-data-handling/practice-problem/basic-json-handling/ReadJson.cs) | ✅ Done |
+| 4 | **Merge JSON Objects** | Merge two JSON objects into a single combined object | [MergeJson.cs](io-csharp-practice/gcr-code-base/json-data-handling/practice-problem/intermediate-json-handling/MergeJson.cs) | ✅ Done |
+| 5 | **Validate JSON Object** | Validate JSON against a defined schema and structure | [ValidateJsonScehma.cs](io-csharp-practice/gcr-code-base/json-data-handling/practice-problem/basic-json-handling/ValidateJsonScehma.cs) | ✅ Done |
+
+**Total Completed:** 5/5 Tasks ✅
+
+---
+
+#### 🎯 Key Learnings
+- Newtonsoft.Json (JSON.NET) library for JSON operations
+- Serialization and deserialization of objects
+- JsonConvert.SerializeObject() and JsonConvert.DeserializeObject()
+- Handling nested JSON structures
+- Schema validation and error handling
+- LINQ queries on JSON data
+- Performance considerations with large JSON files
+- Object mapping and type conversion
+
+---
+
+#### 🛠️ Technologies Used
+- **Language**: C# (.NET)
+- **Libraries**: Newtonsoft.Json, System.Text.Json
+- **Concepts**: JSON Parsing, Serialization, Validation, LINQ
+- **Tools**: Visual Studio Code, .NET SDK
+
+---
+
 ### **29-Jan-2026** | Stream I/O - CSV Data Handling
 
 #### 📚 Topic Covered
@@ -71,12 +112,13 @@
 
 ## 📊 Overall Progress
 
-| Category | Skills Acquired |
-|----------|----------------|
-| **Stream I/O** | File reading, writing, and manipulation |
-| **Data Processing** | Filtering, sorting, searching, validation |
-| **Advanced Operations** | Duplicate detection, merging, object mapping |
+| Category | Date | Skills Acquired | Tasks Completed |
+|----------|------|-----------------|-----------------|
+| **JSON Handling** | 01-Feb-2026 | Object conversion, reading, merging, validation | 5/5 ✅ |
+| **Stream I/O** | 29-Jan-2026 | File reading, writing, and manipulation | 12 |
+| **Data Processing** | 29-Jan-2026 | Filtering, sorting, searching, validation | - |
+| **Advanced Operations** | 29-Jan-2026 | Duplicate detection, merging, object mapping | - |
 
 ---
 
-*Last Updated: 29-Jan-2026*
+*Last Updated: 01-Feb-2026*
