@@ -6,6 +6,46 @@
 
 ## 📅 Progress Log
 
+### **02-Feb-2026** | IPL Censorship Analyzer - Project Configuration & Sample Data Setup
+
+#### 📚 Topic Covered
+**NuGet Package Management, Project Configuration & Sample Data Integration**
+
+---
+
+#### ✅ Tasks Completed
+
+| # | Task | Description | Implementation | Status |
+|---|------|-------------|----------------|--------|
+| 1 | **NuGet Configuration** | Created project.assets.json and project.nuget.cache for NuGet package management | [ipl-censorship-analyser.csproj](io-csharp-practice/gcr-code-base/ipl-censorship-analyser/ipl-censorship-analyser.csproj) | ✅ Done |
+| 2 | **NuGet Support Files** | Added NuGet properties and targets files to support project restoration | [ipl-censorship-analyser.csproj.nuget.g.props](io-csharp-practice/gcr-code-base/ipl-censorship-analyser/obj/ipl-censorship-analyser.csproj.nuget.g.props) | ✅ Done |
+| 3 | **Sample Data Integration** | Added sample CSV and JSON files with match data for testing and analysis | [sample.csv](io-csharp-practice/gcr-code-base/ipl-censorship-analyser/sample.csv) & [sample.json](io-csharp-practice/gcr-code-base/ipl-censorship-analyser/sample.json) | ✅ Done |
+| 4 | **JSON Library Integration** | Integrated Newtonsoft.Json package version 13.0.4 for JSON handling | [project.assets.json](io-csharp-practice/gcr-code-base/ipl-censorship-analyser/obj/project.assets.json) | ✅ Done |
+
+**Total Completed:** 4/4 Tasks ✅
+
+---
+
+#### 🎯 Key Learnings
+- NuGet package management and dependency resolution
+- Project configuration and build restoration process
+- Working with project.assets.json and cache management
+- Integration of third-party libraries (Newtonsoft.Json)
+- Sample data creation for IPL match statistics
+- Project structure organization for data analysis
+- CSV and JSON data format handling for IPL data
+
+---
+
+#### 🛠️ Technologies Used
+- **Language**: C# (.NET)
+- **Libraries**: Newtonsoft.Json 13.0.4
+- **Concepts**: NuGet Management, Project Configuration, Data Handling
+- **Tools**: Visual Studio Code, .NET SDK, NuGet Package Manager
+- **Data Formats**: CSV, JSON
+
+---
+
 ### **01-Feb-2026** | JSON Handling - Data Processing & Validation
 
 #### 📚 Topic Covered
@@ -114,6 +154,7 @@
 
 | Category | Date | Skills Acquired | Tasks Completed |
 |----------|------|-----------------|-----------------|
+| **IPL Censorship Analyzer** | 02-Feb-2026 | NuGet management, project configuration, data integration | 4/4 ✅ |
 | **JSON Handling** | 01-Feb-2026 | Object conversion, reading, merging, validation | 5/5 ✅ |
 | **Stream I/O** | 29-Jan-2026 | File reading, writing, and manipulation | 12 |
 | **Data Processing** | 29-Jan-2026 | Filtering, sorting, searching, validation | - |
@@ -121,4 +162,4 @@
 
 ---
 
-*Last Updated: 01-Feb-2026*
+*Last Updated: 02-Feb-2026*
