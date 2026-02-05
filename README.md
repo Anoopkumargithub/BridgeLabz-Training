@@ -9,6 +9,7 @@ Welcome to my Database Management Systems (DBMS) learning repository! This conta
 - [Types of DBMS](#-types-of-dbms)
 - [SQL Language Categories](#-sql-language-categories)
 - [Normalization](#-normalization)
+- [Aggregate Functions & Subqueries](#-aggregate-functions--subqueries)
 - [Joins](#-joins)
 - [Performance Optimization](#-performance-optimization)
 - [Security & Administration](#-security--administration)
@@ -285,6 +286,143 @@ INNER JOIN Employees e2 ON e1.ManagerID = e2.EmployeeID;
 
 ---
 
+## 📊 Aggregate Functions & Subqueries
+
+**Aggregate Functions** perform calculations on data sets, and **Subqueries** are queries inside queries - incredibly powerful for complex analysis!
+
+> 💡 **Simple Explanation:** Aggregate functions are like calculators that summarize data, and subqueries are like zooming in to find specific details!
+
+### Common Aggregate Functions:
+
+| Function | Purpose | Example |
+|----------|---------|---------|
+| `COUNT()` | Count rows | `SELECT COUNT(*) FROM Employees;` |
+| `SUM()` | Sum values | `SELECT SUM(Salary) FROM Employees;` |
+| `AVG()` | Calculate average | `SELECT AVG(Salary) FROM Employees;` |
+| `MAX()` | Find maximum value | `SELECT MAX(Salary) FROM Employees;` |
+| `MIN()` | Find minimum value | `SELECT MIN(Salary) FROM Employees;` |
+| `GROUP_CONCAT()` | Combine values | `SELECT GROUP_CONCAT(FirstName) FROM Employees;` |
+
+### Practical Examples: Employees & Departments
+
+#### Database Schema:
+```sql
+-- Create Departments Table
+CREATE TABLE Departments (
+    DepartmentID INT PRIMARY KEY IDENTITY(1,1),
+    DepartmentName VARCHAR(100) NOT NULL,
+    Location VARCHAR(100),
+    BudgetAmount DECIMAL(15,2)
+);
+
+-- Create Employees Table
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY IDENTITY(101,1),
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    DepartmentID INT NOT NULL,
+    Salary DECIMAL(10,2),
+    HireDate DATE,
+    JobTitle VARCHAR(50),
+    FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
+);
+
+-- Insert Sample Data
+INSERT INTO Departments (DepartmentName, Location, BudgetAmount)
+VALUES 
+    ('IT', 'New York', 500000),
+    ('HR', 'Boston', 300000),
+    ('Sales', 'Chicago', 400000),
+    ('Finance', 'New York', 350000);
+
+INSERT INTO Employees (FirstName, LastName, DepartmentID, Salary, HireDate, JobTitle)
+VALUES 
+    ('John', 'Doe', 1, 75000, '2022-01-15', 'Senior Developer'),
+    ('Jane', 'Smith', 1, 70000, '2022-03-20', 'Developer'),
+    ('Bob', 'Johnson', 2, 60000, '2021-06-10', 'HR Manager'),
+    ('Alice', 'Williams', 3, 65000, '2023-02-01', 'Sales Manager'),
+    ('Charlie', 'Brown', 1, 72000, '2022-11-05', 'Database Admin'),
+    ('Diana', 'Davis', 4, 68000, '2023-05-12', 'Financial Analyst');
+```
+
+#### Aggregate Function Examples:
+
+```sql
+-- Total salary cost per department
+SELECT 
+    d.DepartmentName,
+    COUNT(e.EmployeeID) AS EmployeeCount,
+    SUM(e.Salary) AS TotalSalary,
+    AVG(e.Salary) AS AverageSalary,
+    MAX(e.Salary) AS HighestSalary,
+    MIN(e.Salary) AS LowestSalary
+FROM Employees e
+INNER JOIN Departments d ON e.DepartmentID = d.DepartmentID
+GROUP BY d.DepartmentID, d.DepartmentName
+ORDER BY TotalSalary DESC;
+
+-- Employees earning above average salary
+SELECT 
+    FirstName,
+    LastName,
+    Salary
+FROM Employees
+WHERE Salary > (SELECT AVG(Salary) FROM Employees)
+ORDER BY Salary DESC;
+
+-- Departments with more than 1 employee
+SELECT 
+    d.DepartmentName,
+    COUNT(e.EmployeeID) AS EmployeeCount
+FROM Departments d
+INNER JOIN Employees e ON d.DepartmentID = e.DepartmentID
+GROUP BY d.DepartmentID, d.DepartmentName
+HAVING COUNT(e.EmployeeID) > 1;
+```
+
+#### Advanced Subquery Examples:
+
+```sql
+-- Find employees in the highest-paying department
+SELECT FirstName, LastName, Salary, JobTitle
+FROM Employees
+WHERE DepartmentID = (
+    SELECT DepartmentID
+    FROM Employees
+    GROUP BY DepartmentID
+    ORDER BY AVG(Salary) DESC
+    LIMIT 1
+);
+
+-- List all employees with salary greater than their department's average
+SELECT 
+    e.FirstName,
+    e.LastName,
+    e.Salary,
+    d.DepartmentName,
+    (SELECT AVG(Salary) FROM Employees WHERE DepartmentID = d.DepartmentID) AS DeptAvgSalary
+FROM Employees e
+INNER JOIN Departments d ON e.DepartmentID = d.DepartmentID
+WHERE e.Salary > (
+    SELECT AVG(Salary) 
+    FROM Employees 
+    WHERE DepartmentID = d.DepartmentID
+);
+
+-- Find departments where total salary exceeds budget
+SELECT 
+    d.DepartmentName,
+    d.BudgetAmount,
+    SUM(e.Salary) AS ActualSalary,
+    (SUM(e.Salary) - d.BudgetAmount) AS BudgetOverage
+FROM Departments d
+INNER JOIN Employees e ON d.DepartmentID = e.DepartmentID
+GROUP BY d.DepartmentID, d.DepartmentName, d.BudgetAmount
+HAVING SUM(e.Salary) > d.BudgetAmount;
+```
+
+---
+
 ## ⚡ Performance Optimization
 
 > 💡 **Simple Explanation:** Optimization is like organizing a library with a card catalog - finding books becomes lightning fast!
@@ -479,16 +617,68 @@ volumes:
 ```
 BridgeLabz-Training/
 │
-├── README.md                    # This file - Your DBMS learning guide
-├── dbms-practice/               # Practice exercises and examples
+├── README.md                                # This file - Your DBMS learning guide
+├── dbms-practice/                           # Practice exercises and examples
 │   ├── gcr-code-base/
-│   │   └── Joins.sql           # SQL joins practice
-│   ├── ddl-examples/           # Data Definition Language examples
-│   ├── dml-examples/           # Data Manipulation Language examples
-│   ├── normalization/          # Normalization exercises
-│   └── performance/            # Query optimization practice
-└── projects/                    # Real-world database projects
+│   │   └── Joins.sql                       # SQL joins practice
+│   ├── employees_departments.sql            # ⭐ Complete Employees & Departments schema with JOINs
+│   ├── ddl-examples/                       # Data Definition Language examples
+│   ├── dml-examples/                       # Data Manipulation Language examples
+│   ├── normalization/                      # Normalization exercises
+│   └── performance/                        # Query optimization practice
+└── projects/                                # Real-world database projects
 ```
+
+**📌 New File: `employees_departments.sql`**
+- ✅ Complete database schema (Departments & Employees tables)
+- ✅ Sample data insertion
+- ✅ INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN examples
+- ✅ SELF JOIN and CROSS JOIN examples
+- ✅ Multiple JOIN with aggregations
+- ✅ Advanced subquery & JOIN combinations
+- ✅ View creation for data analysis
+- ✅ Index creation for performance
+- ✅ Company-wide statistics queries
+
+---
+
+## 🎯 Learning Goals & Progress
+
+### Week-by-Week Learning Plan:
+
+**Week 1-2: Foundations** ✅
+- [x] Master SQL fundamentals (DDL, DML, DQL, DCL, TCL)
+- [x] Set up MSSQL with Docker
+- [x] Connect VS Code to database
+- [x] Practice basic CRUD operations
+
+**Week 3-4: Intermediate Concepts** 🔄 (IN PROGRESS)
+- [x] Understand database normalization (1NF to BCNF)
+- [x] Practice all types of JOINs
+- [x] Create Employees & Departments schema with sample data
+- [x] Learn aggregate functions (COUNT, SUM, AVG, MAX, MIN) ✅ **COMPLETED TODAY**
+- [x] Master subqueries and complex filtering ✅ **COMPLETED TODAY**
+- [x] Create SQL script with all JOIN types (INNER, LEFT, RIGHT, FULL OUTER, SELF, CROSS) ✅ **COMPLETED TODAY**
+- [x] Build comprehensive query examples with aggregations and statistics ✅ **COMPLETED TODAY**
+- [ ] Learn CTEs (Common Table Expressions)
+- [ ] Master window functions
+
+**Week 5-6: Advanced Topics**
+- [ ] Learn query optimization techniques
+- [ ] Implement indexing strategies
+- [ ] Study stored procedures and functions
+- [ ] Work with triggers and views
+
+**Week 7-8: Expert Level**
+- [ ] Master transaction management
+- [ ] Learn database security best practices
+- [ ] Performance tuning and execution plans
+- [ ] Practice with real-world scenarios
+
+**Ongoing:**
+- [ ] Build a complete project database
+- [ ] Document learnings and create notes
+- [ ] Solve SQL challenges on HackerRank/LeetCode
 
 ---
 
@@ -501,7 +691,14 @@ This repository documents my journey in mastering database management. Feel free
 ---
 
 **Last Updated:** February 6, 2026  
-**Currently Learning:** SQL Joins & Performance Optimization
+**Today's Achievements:** ✅
+- Mastered Aggregate Functions & Subqueries
+- Created comprehensive SQL script with 30+ JOIN and aggregation queries
+- Built complete Employees & Departments schema with sample data
+- Implemented views and indexes for performance
+
+**Currently Learning:** CTEs & Window Functions  
+**Next:** Stored Procedures & Triggers
 
 ---
 
