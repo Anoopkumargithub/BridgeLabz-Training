@@ -109,18 +109,23 @@
 | 9 | **Role-Based Access** | Admin and User roles with different permissions | [AddressBookOperations.cs](io-csharp-practice/scenario-base/AddressBook/AddressBookOperations.cs) | ✅ Done |
 | 10 | **Write to CSV File** | Export all address books and contacts to CSV file with headers using StreamWriter | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
 | 11 | **Read from CSV File** | Import address books and contacts from CSV file using StreamReader with validation | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
+| 12 | **Write to JSON File** | Export all address books and contacts to JSON file with formatted structure using JsonConvert | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
+| 13 | **Read from JSON File** | Import address books and contacts from JSON file with deserialization using JsonConvert | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
 
-**Total Completed:** 11/11 Tasks ✅
+**Total Completed:** 13/13 Tasks ✅
 
 ---
 
 #### 🎯 Key Learnings
 - **CSV File I/O Operations**: StreamWriter for writing and StreamReader for reading CSV files
 - **CSV Data Structure**: Creating properly formatted CSV files with headers (AddressBookName, FirstName, LastName, Address, City, State, ZIPCode, PhoneNumber, Email)
-- **Data Persistence**: Saving multiple address books with all contact details to CSV format for long-term storage
-- **CSV Parsing**: Reading and parsing comma-separated values to reconstruct objects
-- **Error Handling**: Try-catch blocks for file operations (file not found, access denied, etc.) with user-friendly messages
-- **Data Validation**: File existence checks, CSV structure validation, and user confirmation before overwriting
+- **JSON File I/O Operations**: JsonConvert.SerializeObject() for serialization and JsonConvert.DeserializeObject() for deserialization
+- **JSON Data Structure**: Nested JSON format with address books and contact arrays for hierarchical data organization
+- **Data Persistence**: Saving multiple address books with all contact details to both CSV and JSON formats for flexible storage
+- **CSV/JSON Parsing**: Reading and parsing comma-separated values and JSON structures to reconstruct objects
+- **Newtonsoft.Json Library**: Using Json.NET for advanced JSON serialization with formatting and configuration options
+- **Error Handling**: Try-catch blocks for file operations (file not found, access denied, JSON parsing errors, etc.) with user-friendly messages
+- **Data Validation**: File existence checks, structure validation, and user confirmation before overwriting data
 - **Role-Based Access Control**: Admin (full access) vs User (read-only) permissions
 - **LINQ Operations**: OrderBy for sorting, Where for filtering, FirstOrDefault for searching
 - **Dictionary Collections**: Managing multiple address books with key-value pairs
@@ -131,9 +136,10 @@
 
 #### 🛠️ Technologies Used
 - **Language**: C# (.NET)
-- **Concepts**: File I/O, Stream Processing, LINQ, Collections (Dictionary, List), OOP, Interfaces
+- **Libraries**: Newtonsoft.Json 13.0.3
+- **Concepts**: File I/O, Stream Processing, JSON Serialization, LINQ, Collections (Dictionary, List), OOP, Interfaces
 - **Tools**: Visual Studio Code, .NET SDK
-- **Data Format**: CSV (Comma-Separated Values)
+- **Data Formats**: CSV (Comma-Separated Values), JSON (JavaScript Object Notation)
 
 ---
 
@@ -153,8 +159,16 @@
 - ✅ **CSV Structure**: Organized format (AddressBookName,FirstName,LastName,Address,City,State,ZIPCode,PhoneNumber,Email)
 - ✅ Data persistence across application sessions
 - ✅ User-friendly file naming (auto .csv extension)
-- ✅ Confirmation prompts before data replacement operations
-- ✅ Comprehensive error handling for file operations
+
+**JSON File I/O Features:**
+- ✅ **Write to JSON File**: Export all address books in hierarchical JSON format with proper formatting
+- ✅ **Read from JSON File**: Import address books and contacts from JSON file with complete deserialization
+- ✅ **JSON Structure**: Nested format with address books as parent objects and contacts as arrays
+- ✅ Pretty-printed JSON output for readability
+- ✅ User-friendly file naming (auto .json extension)
+- ✅ Complete object recreation from JSON with validation
+- ✅ Confirmation prompts before data replacement operations (both formats)
+- ✅ Comprehensive error handling for all file operations
 
 **Access Control:**
 - ✅ **Admin Role** (ABC@gmail.com): Full access to all features
@@ -243,7 +257,7 @@ AddressBook/
 
 | Category | Date | Skills Acquired | Tasks Completed |
 |----------|------|-----------------|-----------------|
-| **Address Book System** | 30-Jan-2026 | CSV File I/O, data persistence, role-based access, LINQ operations | 11/11 ✅ |
+| **Address Book System** | 30-Jan-2026 | CSV/JSON File I/O, data persistence, serialization, role-based access, LINQ | 13/13 ✅ |
 | **IPL Censorship Analyzer** | 02-Feb-2026 | NuGet management, project configuration, data integration | 4/4 ✅ |
 | **JSON Handling** | 01-Feb-2026 | Object conversion, reading, merging, validation | 5/5 ✅ |
 | **Stream I/O** | 29-Jan-2026 | File reading, writing, and manipulation | 12 |
