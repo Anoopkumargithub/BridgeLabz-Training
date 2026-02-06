@@ -67,7 +67,9 @@ namespace BridgeLabzTraining.senariobased.address_book
                 Console.WriteLine("8. Count by State");
                 Console.WriteLine("9. Save to File");
                 Console.WriteLine("10. Load from File");
-                Console.WriteLine("11. Exit");
+                Console.WriteLine("11. Save to JSON File");
+                Console.WriteLine("12. Load from JSON File");
+                Console.WriteLine("13. Exit");
 
                 Console.Write("Enter your choice: ");
                 choice = Console.ReadLine();
@@ -105,6 +107,12 @@ namespace BridgeLabzTraining.senariobased.address_book
                         contactUtility.LoadFromFile();
                         break;
                     case "11":
+                        contactUtility.SaveToJsonFile();
+                        break;
+                    case "12":
+                        contactUtility.LoadFromJsonFile();
+                        break;
+                    case "13":
                         Console.WriteLine("Thank you, Visit Again!!");
                         break;
                     default:
@@ -112,7 +120,7 @@ namespace BridgeLabzTraining.senariobased.address_book
                         break;
                 }
             }
-            while (choice != "11");
+            while (choice != "13");
         }
 
         // User Menu - Limited access (only ShowContact)
@@ -132,7 +140,9 @@ namespace BridgeLabzTraining.senariobased.address_book
                 Console.WriteLine("7. Count by State");
                 Console.WriteLine("8. Save to File");
                 Console.WriteLine("9. Load from File");
-                Console.WriteLine("10. Exit");
+                Console.WriteLine("10. Save to JSON File");
+                Console.WriteLine("11. Load from JSON File");
+                Console.WriteLine("12. Exit");
 
                 Console.Write("Enter your choice: ");
                 choice = Console.ReadLine();
@@ -167,6 +177,12 @@ namespace BridgeLabzTraining.senariobased.address_book
                         contactUtility.LoadFromFile();
                         break;
                     case "10":
+                        contactUtility.SaveToJsonFile();
+                        break;
+                    case "11":
+                        contactUtility.LoadFromJsonFile();
+                        break;
+                    case "12":
                         Console.WriteLine("Thank you, Visit Again!!");
                         break;
                     default:
@@ -174,7 +190,7 @@ namespace BridgeLabzTraining.senariobased.address_book
                         break;
                 }
             }
-            while (choice != "10");
+            while (choice != "12");
         }
 
         // Admin contact management

@@ -28,5 +28,9 @@ namespace BridgeLabzTraining.senariobased.address_book
         void SaveToFile();
 
         void LoadFromFile();
+
+        void SaveToJsonFile();
+
+        void LoadFromJsonFile();
     }
 }

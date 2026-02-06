@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace BridgeLabzTraining.senariobased.address_book
 {
@@ -465,6 +466,120 @@ namespace BridgeLabzTraining.senariobased.address_book
             catch (Exception ex)
             {
                 Console.WriteLine($"Error loading from file: {ex.Message}");
+                Console.WriteLine();
+            }
+        }
+
+        public void SaveToJsonFile()
+        {
+            try
+            {
+                Console.Write("Enter file name to save (without extension): ");
+                string fileName = Console.ReadLine();
+                string filePath = fileName + ".json";
+
+                // Create a structure to hold address books and contacts
+                var jsonData = new Dictionary<string, List<Dictionary<string, string>>>();
+
+                foreach (var book in addressBooks)
+                {
+                    var contactsList = new List<Dictionary<string, string>>();
+                    
+                    foreach (var contact in book.Value)
+                    {
+                        var contactData = new Dictionary<string, string>
+                        {
+                            { "FirstName", contact.GetFirstName() },
+                            { "LastName", contact.GetLastName() },
+                            { "Address", contact.GetAddress() },
+                            { "City", contact.GetCity() },
+                            { "State", contact.GetState() },
+                            { "ZIPCode", contact.GetZIPCode() },
+                            { "PhoneNumber", contact.GetPhoneNumber() },
+                            { "Email", contact.GetEmail() }
+                        };
+                        contactsList.Add(contactData);
+                    }
+                    
+                    jsonData[book.Key] = contactsList;
+                }
+
+                // Serialize to JSON with formatting
+                string jsonString = JsonConvert.SerializeObject(jsonData, Formatting.Indented);
+                File.WriteAllText(filePath, jsonString);
+
+                Console.WriteLine($"Address Book data saved successfully to {filePath}");
+                Console.WriteLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving to JSON file: {ex.Message}");
+                Console.WriteLine();
+            }
+        }
+
+        public void LoadFromJsonFile()
+        {
+            try
+            {
+                Console.Write("Enter file name to load (without extension): ");
+                string fileName = Console.ReadLine();
+                string filePath = fileName + ".json";
+
+                if (!File.Exists(filePath))
+                {
+                    Console.WriteLine($"File '{filePath}' not found!");
+                    Console.WriteLine();
+                    return;
+                }
+
+                // Clear existing data
+                Console.Write("This will replace existing data. Continue? (y/n): ");
+                string confirm = Console.ReadLine();
+                if (confirm?.ToLower() != "y")
+                {
+                    Console.WriteLine("Load operation cancelled.");
+                    Console.WriteLine();
+                    return;
+                }
+
+                addressBooks.Clear();
+                currentAddressBook = null;
+
+                // Read and deserialize JSON
+                string jsonString = File.ReadAllText(filePath);
+                var jsonData = JsonConvert.DeserializeObject<Dictionary<string, List<Dictionary<string, string>>>>(jsonString);
+
+                int count = 0;
+                foreach (var bookEntry in jsonData)
+                {
+                    string addressBookName = bookEntry.Key;
+                    addressBooks[addressBookName] = new List<ContactDetails>();
+
+                    foreach (var contactData in bookEntry.Value)
+                    {
+                        ContactDetails contact = new ContactDetails(
+                            contactData["FirstName"],
+                            contactData["LastName"],
+                            contactData["Address"],
+                            contactData["City"],
+                            contactData["State"],
+                            contactData["ZIPCode"],
+                            contactData["PhoneNumber"],
+                            contactData["Email"]
+                        );
+                        addressBooks[addressBookName].Add(contact);
+                        count++;
+                    }
+                }
+
+                Console.WriteLine($"Successfully loaded {count} contact(s) from {filePath}");
+                Console.WriteLine($"Total Address Books: {addressBooks.Count}");
+                Console.WriteLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading from JSON file: {ex.Message}");
                 Console.WriteLine();
             }
         }
