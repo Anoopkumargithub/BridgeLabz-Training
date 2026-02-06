@@ -87,6 +87,92 @@
 
 ---
 
+### **30-Jan-2026** | Address Book System - File I/O Integration
+
+#### 📚 Topic Covered
+**File I/O Operations, CSV Data Persistence & Role-Based Access Control**
+
+---
+
+#### ✅ Tasks Completed
+
+| # | Task | Description | Implementation | Status |
+|---|------|-------------|----------------|--------|
+| 1 | **Address Book Management** | Create multiple address books with unique names | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
+| 2 | **Contact Operations** | Add, edit, delete and display contacts with full details | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
+| 3 | **Duplicate Prevention** | Prevent duplicate contacts based on first name | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
+| 4 | **Search by City** | Search and display contacts across all address books by city | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
+| 5 | **Search by State** | Search and display contacts across all address books by state | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
+| 6 | **Count by City** | Count contacts by city with breakdown per address book | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
+| 7 | **Count by State** | Count contacts by state with breakdown per address book | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
+| 8 | **Alphabetical Sorting** | Sort and display contacts alphabetically by first name using LINQ | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
+| 9 | **Role-Based Access** | Admin and User roles with different permissions | [AddressBookOperations.cs](io-csharp-practice/scenario-base/AddressBook/AddressBookOperations.cs) | ✅ Done |
+| 10 | **Save to File** | Write address book data to CSV file using StreamWriter | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
+| 11 | **Load from File** | Read and restore address book data from CSV file using StreamReader | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
+
+**Total Completed:** 11/11 Tasks ✅
+
+---
+
+#### 🎯 Key Learnings
+- **File I/O Operations**: StreamWriter and StreamReader for CSV file handling
+- **Data Persistence**: Saving and loading multiple address books with all contact details
+- **CSV Format**: Structured data storage with headers and proper formatting
+- **Error Handling**: Try-catch blocks for file operations with user-friendly messages
+- **Data Validation**: File existence checks and user confirmation before overwriting
+- **Role-Based Access Control**: Admin (full access) vs User (read-only) permissions
+- **LINQ Operations**: OrderBy for sorting, Where for filtering, FirstOrDefault for searching
+- **Dictionary Collections**: Managing multiple address books with key-value pairs
+- **Object-Oriented Design**: Interface implementation and separation of concerns
+- **Input Validation**: Duplicate detection and data integrity checks
+
+---
+
+#### 🛠️ Technologies Used
+- **Language**: C# (.NET)
+- **Concepts**: File I/O, Stream Processing, LINQ, Collections (Dictionary, List), OOP, Interfaces
+- **Tools**: Visual Studio Code, .NET SDK
+- **Data Format**: CSV (Comma-Separated Values)
+
+---
+
+#### 📋 Features Implemented
+
+**Core Address Book Features:**
+- ✅ Multiple address book management
+- ✅ Contact CRUD operations (Create, Read, Update, Delete)
+- ✅ Duplicate contact prevention
+- ✅ Alphabetical sorting of contacts
+- ✅ Search contacts by city or state across all address books
+- ✅ Count contacts by city or state with detailed breakdown
+
+**File I/O Features:**
+- ✅ **Save to File**: Export all address books and contacts to CSV format
+- ✅ **Load from File**: Import address books and contacts from CSV file
+- ✅ Data persistence across sessions
+- ✅ Confirmation prompts before data operations
+- ✅ Comprehensive error handling
+
+**Access Control:**
+- ✅ **Admin Role** (ABC@gmail.com): Full access to all features
+- ✅ **User Role** (Others): Read-only access (view, search, count)
+
+---
+
+#### 📁 Project Structure
+
+```
+AddressBook/
+├── AddressBook.cs                 # Main entry point
+├── AddressBookOperations.cs       # Menu system & role management
+├── ContactDetails.cs              # Contact model with properties
+├── ContactImpl.cs                 # Core business logic & file I/O
+├── IContact.cs                    # Interface definition
+└── AddressBook.csproj            # Project configuration
+```
+
+---
+
 ### **29-Jan-2026** | Stream I/O - CSV Data Handling
 
 #### 📚 Topic Covered
@@ -154,6 +240,7 @@
 
 | Category | Date | Skills Acquired | Tasks Completed |
 |----------|------|-----------------|-----------------|
+| **Address Book System** | 07-Feb-2026 | File I/O, CSV persistence, role-based access, LINQ operations | 11/11 ✅ |
 | **IPL Censorship Analyzer** | 02-Feb-2026 | NuGet management, project configuration, data integration | 4/4 ✅ |
 | **JSON Handling** | 01-Feb-2026 | Object conversion, reading, merging, validation | 5/5 ✅ |
 | **Stream I/O** | 29-Jan-2026 | File reading, writing, and manipulation | 12 |
@@ -162,4 +249,4 @@
 
 ---
 
-*Last Updated: 02-Feb-2026*
+*Last Updated: 07-Feb-2026*
