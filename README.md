@@ -87,10 +87,10 @@
 
 ---
 
-### **30-Jan-2026** | Address Book System - File I/O Integration
+### **30-Jan-2026** | Address Book System - CSV File I/O Implementation
 
 #### 📚 Topic Covered
-**File I/O Operations, CSV Data Persistence & Role-Based Access Control**
+**CSV File Read/Write Operations, Data Persistence & Role-Based Access Control**
 
 ---
 
@@ -107,19 +107,20 @@
 | 7 | **Count by State** | Count contacts by state with breakdown per address book | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
 | 8 | **Alphabetical Sorting** | Sort and display contacts alphabetically by first name using LINQ | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
 | 9 | **Role-Based Access** | Admin and User roles with different permissions | [AddressBookOperations.cs](io-csharp-practice/scenario-base/AddressBook/AddressBookOperations.cs) | ✅ Done |
-| 10 | **Save to File** | Write address book data to CSV file using StreamWriter | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
-| 11 | **Load from File** | Read and restore address book data from CSV file using StreamReader | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
+| 10 | **Write to CSV File** | Export all address books and contacts to CSV file with headers using StreamWriter | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
+| 11 | **Read from CSV File** | Import address books and contacts from CSV file using StreamReader with validation | [ContactImpl.cs](io-csharp-practice/scenario-base/AddressBook/ContactImpl.cs) | ✅ Done |
 
 **Total Completed:** 11/11 Tasks ✅
 
 ---
 
 #### 🎯 Key Learnings
-- **File I/O Operations**: StreamWriter and StreamReader for CSV file handling
-- **Data Persistence**: Saving and loading multiple address books with all contact details
-- **CSV Format**: Structured data storage with headers and proper formatting
-- **Error Handling**: Try-catch blocks for file operations with user-friendly messages
-- **Data Validation**: File existence checks and user confirmation before overwriting
+- **CSV File I/O Operations**: StreamWriter for writing and StreamReader for reading CSV files
+- **CSV Data Structure**: Creating properly formatted CSV files with headers (AddressBookName, FirstName, LastName, Address, City, State, ZIPCode, PhoneNumber, Email)
+- **Data Persistence**: Saving multiple address books with all contact details to CSV format for long-term storage
+- **CSV Parsing**: Reading and parsing comma-separated values to reconstruct objects
+- **Error Handling**: Try-catch blocks for file operations (file not found, access denied, etc.) with user-friendly messages
+- **Data Validation**: File existence checks, CSV structure validation, and user confirmation before overwriting
 - **Role-Based Access Control**: Admin (full access) vs User (read-only) permissions
 - **LINQ Operations**: OrderBy for sorting, Where for filtering, FirstOrDefault for searching
 - **Dictionary Collections**: Managing multiple address books with key-value pairs
@@ -146,12 +147,14 @@
 - ✅ Search contacts by city or state across all address books
 - ✅ Count contacts by city or state with detailed breakdown
 
-**File I/O Features:**
-- ✅ **Save to File**: Export all address books and contacts to CSV format
-- ✅ **Load from File**: Import address books and contacts from CSV file
-- ✅ Data persistence across sessions
-- ✅ Confirmation prompts before data operations
-- ✅ Comprehensive error handling
+**CSV File I/O Features:**
+- ✅ **Write to CSV File**: Export all address books and contacts to CSV format with proper headers
+- ✅ **Read from CSV File**: Import address books and contacts from CSV file with data validation
+- ✅ **CSV Structure**: Organized format (AddressBookName,FirstName,LastName,Address,City,State,ZIPCode,PhoneNumber,Email)
+- ✅ Data persistence across application sessions
+- ✅ User-friendly file naming (auto .csv extension)
+- ✅ Confirmation prompts before data replacement operations
+- ✅ Comprehensive error handling for file operations
 
 **Access Control:**
 - ✅ **Admin Role** (ABC@gmail.com): Full access to all features
@@ -240,7 +243,7 @@ AddressBook/
 
 | Category | Date | Skills Acquired | Tasks Completed |
 |----------|------|-----------------|-----------------|
-| **Address Book System** | 07-Feb-2026 | File I/O, CSV persistence, role-based access, LINQ operations | 11/11 ✅ |
+| **Address Book System** | 30-Jan-2026 | CSV File I/O, data persistence, role-based access, LINQ operations | 11/11 ✅ |
 | **IPL Censorship Analyzer** | 02-Feb-2026 | NuGet management, project configuration, data integration | 4/4 ✅ |
 | **JSON Handling** | 01-Feb-2026 | Object conversion, reading, merging, validation | 5/5 ✅ |
 | **Stream I/O** | 29-Jan-2026 | File reading, writing, and manipulation | 12 |
@@ -249,4 +252,4 @@ AddressBook/
 
 ---
 
-*Last Updated: 07-Feb-2026*
+*Last Updated: 30-Jan-2026*
