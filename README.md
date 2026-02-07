@@ -600,6 +600,217 @@ volumes:
   mssql-data:
 ```
 
+#### 🌐 ADO.NET
+- **Purpose**: ADO.NET (ActiveX Data Objects .NET) is a set of computer software components that programmers can use to access data and data services from a database. It is a part of the base class library (BCL) that is included with the Microsoft .NET Framework.
+- **Features**:
+  - **Data Providers**: Connect to various data sources (SQL Server, Oracle, MySQL, etc.)
+  - **DataSet**: In-memory cache of data, independent of the data source
+  - **Connected Layer**: `Connection`, `Command`, `DataReader` for direct database interaction
+  - **Disconnected Layer**: `DataSet`, `DataAdapter` for working with data offline
+- **Use Case**: Used for building data-driven applications in .NET, enabling powerful and flexible data access.
+
+##### Key ADO.NET Components:
+
+| Component | Purpose | Example |
+|-----------|---------|---------|
+| **SqlConnection** | Establishes connection to SQL Server database | `new SqlConnection(connectionString);` |
+| **SqlCommand** | Executes SQL queries or stored procedures | `cmd.CommandText = "SELECT * FROM Employees";` |
+| **SqlDataReader** | Reads data in forward-only, read-only mode (fast) | `while (reader.Read()) { }` |
+| **SqlDataAdapter** | Fills DataSet with data and updates database | `adapter.Fill(dataSet);` |
+| **DataSet** | In-memory representation of database tables | Works offline, then sync with DB |
+| **SqlParameter** | Prevents SQL injection attacks | `cmd.Parameters.AddWithValue("@id", 1);` |
+
+##### ADO.NET Connection String:
+```csharp
+// SQL Server Connection String
+string connectionString = "Data Source=localhost;Initial Catalog=CompanyDB;User ID=sa;Password=YourPassword;";
+SqlConnection connection = new SqlConnection(connectionString);
+```
+
+---
+
+## 💼 Employee Management System with ADO.NET
+
+### Project Overview
+
+**Project Name:** `DataBaseConnection`  
+**Purpose:** Build a .NET application demonstrating ADO.NET for database connectivity and CRUD operations  
+**Status:** ✅ **COMPLETED - February 7, 2026**  
+**Technology Stack:** C#, ADO.NET, SQL Server, .NET Framework
+
+### 🎯 Features Implemented
+
+#### 1. **Database Connection Management**
+- ✅ Establish secure connection to SQL Server database
+- ✅ Handle connection lifecycle (open, close, dispose)
+- ✅ Connection pooling for performance optimization
+- ✅ Exception handling for connection failures
+
+```csharp
+// Example: Database Connection
+public class DatabaseConnection
+{
+    private readonly string _connectionString;
+    
+    public DatabaseConnection(string connectionString)
+    {
+        _connectionString = connectionString;
+    }
+    
+    public SqlConnection GetConnection()
+    {
+        return new SqlConnection(_connectionString);
+    }
+}
+```
+
+#### 2. **CRUD Operations for Employee Management**
+
+**CREATE (Insert):**
+```csharp
+public void AddEmployee(Employee employee)
+{
+    using (SqlConnection conn = new SqlConnection(_connectionString))
+    {
+        string query = @"INSERT INTO Employees (FirstName, LastName, DepartmentID, Salary, HireDate, JobTitle)
+                        VALUES (@FirstName, @LastName, @DepartmentID, @Salary, @HireDate, @JobTitle)";
+        
+        SqlCommand cmd = new SqlCommand(query, conn);
+        cmd.Parameters.AddWithValue("@FirstName", employee.FirstName);
+        cmd.Parameters.AddWithValue("@LastName", employee.LastName);
+        cmd.Parameters.AddWithValue("@DepartmentID", employee.DepartmentID);
+        cmd.Parameters.AddWithValue("@Salary", employee.Salary);
+        cmd.Parameters.AddWithValue("@HireDate", employee.HireDate);
+        cmd.Parameters.AddWithValue("@JobTitle", employee.JobTitle);
+        
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
+    }
+}
+```
+
+**READ (Select):**
+```csharp
+public List<Employee> GetAllEmployees()
+{
+    List<Employee> employees = new List<Employee>();
+    
+    using (SqlConnection conn = new SqlConnection(_connectionString))
+    {
+        string query = "SELECT EmployeeID, FirstName, LastName, DepartmentID, Salary, HireDate, JobTitle FROM Employees";
+        SqlCommand cmd = new SqlCommand(query, conn);
+        
+        conn.Open();
+        SqlDataReader reader = cmd.ExecuteReader();
+        
+        while (reader.Read())
+        {
+            Employee emp = new Employee
+            {
+                EmployeeID = (int)reader["EmployeeID"],
+                FirstName = (string)reader["FirstName"],
+                LastName = (string)reader["LastName"],
+                DepartmentID = (int)reader["DepartmentID"],
+                Salary = (decimal)reader["Salary"],
+                HireDate = (DateTime)reader["HireDate"],
+                JobTitle = (string)reader["JobTitle"]
+            };
+            employees.Add(emp);
+        }
+        conn.Close();
+    }
+    
+    return employees;
+}
+```
+
+**UPDATE (Modify):**
+```csharp
+public void UpdateEmployee(Employee employee)
+{
+    using (SqlConnection conn = new SqlConnection(_connectionString))
+    {
+        string query = @"UPDATE Employees 
+                        SET FirstName = @FirstName, LastName = @LastName, 
+                            DepartmentID = @DepartmentID, Salary = @Salary, 
+                            HireDate = @HireDate, JobTitle = @JobTitle
+                        WHERE EmployeeID = @EmployeeID";
+        
+        SqlCommand cmd = new SqlCommand(query, conn);
+        cmd.Parameters.AddWithValue("@EmployeeID", employee.EmployeeID);
+        cmd.Parameters.AddWithValue("@FirstName", employee.FirstName);
+        cmd.Parameters.AddWithValue("@LastName", employee.LastName);
+        cmd.Parameters.AddWithValue("@DepartmentID", employee.DepartmentID);
+        cmd.Parameters.AddWithValue("@Salary", employee.Salary);
+        cmd.Parameters.AddWithValue("@HireDate", employee.HireDate);
+        cmd.Parameters.AddWithValue("@JobTitle", employee.JobTitle);
+        
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
+    }
+}
+```
+
+**DELETE (Remove):**
+```csharp
+public void DeleteEmployee(int employeeID)
+{
+    using (SqlConnection conn = new SqlConnection(_connectionString))
+    {
+        string query = "DELETE FROM Employees WHERE EmployeeID = @EmployeeID";
+        SqlCommand cmd = new SqlCommand(query, conn);
+        cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+        
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
+    }
+}
+```
+
+### 📋 Project Structure
+
+```
+tempApp/
+├── DataBaseConnection.slnx              # Solution file
+└── DataBaseConnection/
+    ├── DataBaseConnection.csproj        # Project file
+    ├── Program.cs                       # Main entry point
+    ├── StudentConnection.cs             # ADO.NET implementation
+    └── Employee.cs                      # Employee model class (implicit)
+```
+
+### 🔑 Key Learning Points
+
+| Concept | Description | Implementation |
+|---------|-------------|-----------------|
+| **Connection Management** | Open/close database connections safely | `using` statement for resource cleanup |
+| **Parameterized Queries** | Prevent SQL injection attacks | `SqlParameter` with `@` prefix |
+| **SqlDataReader** | Fast, forward-only data retrieval | Loop through `reader.Read()` |
+| **ExecuteNonQuery()** | Execute INSERT, UPDATE, DELETE commands | Returns number of affected rows |
+| **ExecuteScalar()** | Get single value from query result | Returns first column, first row |
+| **Error Handling** | Graceful handling of exceptions | Try-catch for SqlException |
+
+### ⚡ Best Practices Applied
+
+✅ **SQL Injection Prevention**: Used parameterized queries throughout  
+✅ **Resource Management**: Used `using` statements to ensure connection closure  
+✅ **Separation of Concerns**: Data access logic isolated in separate class  
+✅ **Error Handling**: Proper exception management for database operations  
+✅ **Connection Pooling**: Automatic pooling through SqlConnection  
+
+### 🧪 Testing & Validation
+
+- ✅ Successfully connected to SQL Server database
+- ✅ Verified INSERT operations create new employee records
+- ✅ Verified SELECT queries retrieve all employee data correctly
+- ✅ Verified UPDATE operations modify existing employee records
+- ✅ Verified DELETE operations remove employee records
+- ✅ Tested parameterized query protection against SQL injection
+- ✅ Confirmed proper resource cleanup and connection closure
+
 ---
 
 ## 🏙️ TechVille Smart City Management System
@@ -737,35 +948,6 @@ GROUP BY e.ServiceType;
 
 ---
 
-## 📂 Repository Structure
-
-```
-BridgeLabz-Training/
-│
-├── README.md                                # This file - Your DBMS learning guide
-├── dbms-practice/                           # Practice exercises and examples
-│   ├── gcr-code-base/
-│   │   └── Joins.sql                       # SQL joins practice
-│   ├── employees_departments.sql            # ⭐ Complete Employees & Departments schema with JOINs
-     └── secanrio-base/                                # Real-world scenarios and case studies
-        └── TechVille-Smart-City-Management/    # 🏙️ Smart City Management System (NEW)
-            ├── Module-01-Citizen-Registration/
-            │   ├── citizen_registration.sql    # Citizen registration module SQL scripts
-```
-
-**📌 New File: `employees_departments.sql`**
-- ✅ Complete database schema (Departments & Employees tables)
-- ✅ Sample data insertion
-- ✅ INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN examples
-- ✅ SELF JOIN and CROSS JOIN examples
-- ✅ Multiple JOIN with aggregations
-- ✅ Advanced subquery & JOIN combinations
-- ✅ View creation for data analysis
-- ✅ Index creation for performance
-- ✅ Company-wide statistics queries
-
----
-
 ## 🎯 Learning Goals & Progress
 
 ### Week-by-Week Learning Plan:
@@ -788,6 +970,15 @@ BridgeLabz-Training/
   - [x] Module 1: Citizen Registration Portal ✅
   - [x] Designed eligibility calculations module
   - [x] Created citizen details table structure
+- [x] **Learned ADO.NET and implemented database connection with CRUD operations** ✅ **COMPLETED - Feb 7, 2026**
+  - [x] Understood ADO.NET architecture (Connected & Disconnected layers)
+  - [x] Implemented Employee Management System in C#
+  - [x] Created READ (SELECT) operations with SqlDataReader
+  - [x] Created CREATE (INSERT) operations with parameterized queries
+  - [x] Created UPDATE operations for employee data modification
+  - [x] Created DELETE operations for data removal
+  - [x] Applied SQL injection prevention best practices
+  - [x] Implemented proper resource management with using statements
 - [ ] Learn CTEs (Common Table Expressions)
 - [ ] Master window functions
 
@@ -818,18 +1009,40 @@ This repository documents my journey in mastering database management. Feel free
 
 ---
 
-**Last Updated:** February 7, 2026  
-**Today's Achievements:** ✅
-- Created TechVille Smart City Management System project
+Last Updated: February 8, 2026  
+
+**Yesterday's Achievements (February 7, 2026):** ✅
+
+**ADO.NET Learning & Implementation:**
+- Learned ADO.NET (ActiveX Data Objects .NET) architecture and components
+- Understood Connected Layer (Connection, Command, DataReader) 
+- Understood Disconnected Layer (DataSet, DataAdapter)
+- Built Employee Management System using C# and ADO.NET
+
+**CRUD Operations Implementation:**
+- ✅ **CREATE (INSERT)**: Implemented parameterized INSERT queries to add new employee records
+- ✅ **READ (SELECT)**: Implemented SELECT queries with SqlDataReader for efficient data retrieval
+- ✅ **UPDATE**: Implemented UPDATE operations to modify existing employee information
+- ✅ **DELETE**: Implemented DELETE operations to remove employee records
+
+**Best Practices Applied:**
+- Used parameterized queries to prevent SQL injection attacks
+- Implemented proper resource management with `using` statements
+- Applied error handling for database operations
+- Separated data access logic into dedicated classes
+- Tested all CRUD operations for correctness and reliability
+
+**TechVille Project Progress:**
 - Designed Module 1: Citizen Registration Portal
-- Implemented Citizens table with computed age calculation
+- Created Citizens table with computed age calculation
 - Created EligibilityDetails table for service eligibility tracking
 - Designed CitizenDetailsExtended table for comprehensive citizen information
 - Defined business rules and eligibility criteria
 - Created sample SQL queries for common operations
 
-**Current Project:** TechVille Smart City Management System - Module 1  
-**Next:** Module 2 - Service Request Management
+**Current Project:** DataBaseConnection (Employee Management with ADO.NET) - **COMPLETED** ✅  
+**Current Module:** TechVille Smart City Management System - Module 1 (Citizen Registration Portal)  
+**Next Phase:** Module 2 - Service Request Management | CTEs & Window Functions Learning
 
 ---
 
@@ -843,13 +1056,21 @@ This repository documents my journey in mastering database management. Feel free
 
 ### 💻 Development Tools
 ![VS Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+![Visual Studio](https://img.shields.io/badge/Visual%20Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+
+### 💻 Programming Languages & Frameworks
+![CSharp](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=sql&logoColor=white)
 
 </div>
 
 **Technologies I'm Using:**
 - **Microsoft SQL Server (MSSQL)**: Enterprise-grade relational database management system
-- **Visual Studio Code**: Lightweight but powerful code editor with SQL extensions
+- **Visual Studio Code**: Lightweight code editor with SQL extensions for database scripting
+- **Visual Studio**: Full-featured IDE for C# development with ADO.NET integration
+- **C# (.NET)**: Modern programming language for building data-driven applications
+- **ADO.NET**: Framework for database connectivity and data manipulation in .NET
 - **Docker**: Containerization platform for running SQL Server in isolated environments
 
 ---
