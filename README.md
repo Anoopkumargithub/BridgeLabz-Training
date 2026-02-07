@@ -602,7 +602,132 @@ volumes:
 
 ---
 
+## 🏙️ TechVille Smart City Management System
+
+A comprehensive database project for managing smart city operations, citizen services, and urban infrastructure. This project demonstrates real-world database design with multiple interconnected modules.
+
+### 📋 Project Overview
+
+**Database Name:** `TechVille_SmartCity_DB`  
+**Purpose:** Centralized management system for smart city operations  
+**Status:** 🚀 In Development  
+**Start Date:** February 7, 2026
+
+### 🔧 Module 1: Citizen Registration Portal
+
+**Objective:** Implement a comprehensive citizen registration system with eligibility calculations and verification.
+
+#### Features:
+- ✅ **Citizen Registration Module** - Register and manage citizen information
+- ✅ **Eligibility Calculations** - Automated eligibility verification for services
+- ✅ **Details Table** - Comprehensive citizen details with demographics
+
+#### Tables & Schema:
+
+##### 1. **Citizens Table**
+```sql
+CREATE TABLE Citizens (
+    CitizenID INT PRIMARY KEY IDENTITY(1,1),
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    DateOfBirth DATE NOT NULL,
+    Age INT COMPUTED,
+    Email VARCHAR(100) UNIQUE,
+    PhoneNumber VARCHAR(15),
+    ResidentialAddress VARCHAR(255),
+    AdhaarNumber VARCHAR(12) UNIQUE,
+    RegistrationDate DATETIME DEFAULT GETDATE(),
+    Status VARCHAR(20) -- Active, Inactive, Suspended
+);
+```
+
+##### 2. **Eligibility Details Table**
+```sql
+CREATE TABLE EligibilityDetails (
+    EligibilityID INT PRIMARY KEY IDENTITY(1,1),
+    CitizenID INT NOT NULL,
+    ServiceType VARCHAR(50), -- Health, Education, Housing, etc.
+    IsEligible BIT,
+    IncomeLevel DECIMAL(10,2),
+    FamilySize INT,
+    PropertyValue DECIMAL(12,2),
+    EligibilityScore INT,
+    CalculationDate DATETIME DEFAULT GETDATE(),
+    ValidUpto DATE,
+    FOREIGN KEY (CitizenID) REFERENCES Citizens(CitizenID)
+);
+```
+
+##### 3. **Citizen Details Extended Table**
+```sql
+CREATE TABLE CitizenDetailsExtended (
+    DetailID INT PRIMARY KEY IDENTITY(1,1),
+    CitizenID INT NOT NULL,
+    Occupation VARCHAR(100),
+    EducationLevel VARCHAR(50),
+    MaritalStatus VARCHAR(20),
+    Gender VARCHAR(10),
+    BloodGroup VARCHAR(5),
+    DisabilityStatus BIT,
+    NationalityStatus VARCHAR(50),
+    PermanentAddress VARCHAR(255),
+    FOREIGN KEY (CitizenID) REFERENCES Citizens(CitizenID)
+);
+```
+
+#### Key Features Implemented:
+- 🔍 **Automated Age Calculation** - Computed column for age based on DOB
+- 📊 **Eligibility Scoring Algorithm** - Dynamic eligibility assessment
+- 🔐 **Unique Identification** - Adhaar number for unique citizen identification
+- 📅 **Validity Tracking** - Eligibility expiration dates
+- 🏛️ **Service Classification** - Multiple service types (Health, Education, Housing, etc.)
+- 🚨 **Status Management** - Track citizen account status (Active, Inactive, Suspended)
+
+#### Business Rules:
+1. Citizens must be 18+ years old to register
+2. Eligibility is recalculated based on income and family size
+3. Eligibility validity period: 1 year from calculation date
+4. Each citizen can have multiple eligibility records for different services
+5. Adhaar number and Email must be unique
+
+#### SQL Queries for Common Operations:
+```sql
+-- Get eligible citizens for health services
+SELECT c.*, e.EligibilityScore, e.IncomeLevel
+FROM Citizens c
+JOIN EligibilityDetails e ON c.CitizenID = e.CitizenID
+WHERE e.ServiceType = 'Health' AND e.IsEligible = 1;
+
+-- Find citizens with expired eligibility
+SELECT c.FirstName, c.LastName, e.ServiceType, e.ValidUpto
+FROM Citizens c
+JOIN EligibilityDetails e ON c.CitizenID = e.CitizenID
+WHERE e.ValidUpto < GETDATE();
+
+-- Calculate eligibility statistics
+SELECT 
+    e.ServiceType,
+    COUNT(*) as TotalApplications,
+    SUM(CASE WHEN e.IsEligible = 1 THEN 1 ELSE 0 END) as EligibleCount,
+    AVG(e.IncomeLevel) as AverageIncome
+FROM EligibilityDetails e
+GROUP BY e.ServiceType;
+```
+
+### 📈 Module Roadmap
+
+| Module | Status | Description |
+|--------|--------|-------------|
+| **Module 1** | ✅ In Progress | Citizen Registration Portal |
+| **Module 2** | 📅 Planned | Service Request Management |
+| **Module 3** | 📅 Planned | Utility & Infrastructure Management |
+| **Module 4** | 📅 Planned | Complaints & Grievance System |
+| **Module 5** | 📅 Planned | Analytics & Reporting Dashboard |
+
+---
+
 ## 📖 Learning Resources
+
 
 - 📚 [Microsoft SQL Server Documentation](https://docs.microsoft.com/en-us/sql/)
 - 🎥 [SQL Tutorial Videos](https://www.youtube.com/results?search_query=sql+tutorial)
@@ -622,11 +747,10 @@ BridgeLabz-Training/
 │   ├── gcr-code-base/
 │   │   └── Joins.sql                       # SQL joins practice
 │   ├── employees_departments.sql            # ⭐ Complete Employees & Departments schema with JOINs
-│   ├── ddl-examples/                       # Data Definition Language examples
-│   ├── dml-examples/                       # Data Manipulation Language examples
-│   ├── normalization/                      # Normalization exercises
-│   └── performance/                        # Query optimization practice
-└── projects/                                # Real-world database projects
+     └── secanrio-base/                                # Real-world scenarios and case studies
+        └── TechVille-Smart-City-Management/    # 🏙️ Smart City Management System (NEW)
+            ├── Module-01-Citizen-Registration/
+            │   ├── citizen_registration.sql    # Citizen registration module SQL scripts
 ```
 
 **📌 New File: `employees_departments.sql`**
@@ -656,10 +780,14 @@ BridgeLabz-Training/
 - [x] Understand database normalization (1NF to BCNF)
 - [x] Practice all types of JOINs
 - [x] Create Employees & Departments schema with sample data
-- [x] Learn aggregate functions (COUNT, SUM, AVG, MAX, MIN) ✅ **COMPLETED TODAY**
-- [x] Master subqueries and complex filtering ✅ **COMPLETED TODAY**
-- [x] Create SQL script with all JOIN types (INNER, LEFT, RIGHT, FULL OUTER, SELF, CROSS) ✅ **COMPLETED TODAY**
-- [x] Build comprehensive query examples with aggregations and statistics ✅ **COMPLETED TODAY**
+- [x] Learn aggregate functions (COUNT, SUM, AVG, MAX, MIN) ✅ **COMPLETED**
+- [x] Master subqueries and complex filtering ✅ **COMPLETED**
+- [x] Create SQL script with all JOIN types (INNER, LEFT, RIGHT, FULL OUTER, SELF, CROSS) ✅ **COMPLETED**
+- [x] Build comprehensive query examples with aggregations and statistics ✅ **COMPLETED**
+- [x] Started TechVille Smart City Management System Project ✅ **NEW - Feb 7, 2026**
+  - [x] Module 1: Citizen Registration Portal ✅
+  - [x] Designed eligibility calculations module
+  - [x] Created citizen details table structure
 - [ ] Learn CTEs (Common Table Expressions)
 - [ ] Master window functions
 
@@ -690,14 +818,18 @@ This repository documents my journey in mastering database management. Feel free
 
 ---
 
-**Last Updated:** February 6, 2026  
+**Last Updated:** February 7, 2026  
 **Today's Achievements:** ✅
-- Initialized healthcare database schema
-- Created tables for patients, doctors, appointments, and billing
-- Designed and added the ER diagram for the healthcare database
+- Created TechVille Smart City Management System project
+- Designed Module 1: Citizen Registration Portal
+- Implemented Citizens table with computed age calculation
+- Created EligibilityDetails table for service eligibility tracking
+- Designed CitizenDetailsExtended table for comprehensive citizen information
+- Defined business rules and eligibility criteria
+- Created sample SQL queries for common operations
 
-**Currently Learning:** CTEs & Window Functions  
-**Next:** Stored Procedures & Triggers
+**Current Project:** TechVille Smart City Management System - Module 1  
+**Next:** Module 2 - Service Request Management
 
 ---
 
