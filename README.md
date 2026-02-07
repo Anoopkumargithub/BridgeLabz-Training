@@ -407,7 +407,23 @@
 
 ---
 
+### 📅 March 2, 2026 - Day 12
+#### 🏗️ Scenario-Based Project:
+- ✅ ADD: Implement FlipKeyUtility and Program for password cleansing and inversion
+  - **Features:**
+    - Password cleansing operations
+    - String inversion techniques
+    - Character reversal algorithms
+    - Utility-based password manipulations
+  - **Data Structures & Concepts:**
+    - Character array manipulation
+    - String reversal and inversion logic
+    - Password transformation utilities
+    - Efficient string processing
+
+---
+
 ## 📊 Summary
-- **Total Days:** 11
-- **Topics Covered:** LinkedList, Stack, Queue, HashMap, Sorting, Searching, Dynamic Programming, OOP Design Patterns, Collections, Algorithm Analysis, Big-O Notation, Brute Force Algorithms, Generics, Generic Constraints, Variance, Record Management Workflows, String Manipulation
-- **Projects Completed:** 12+ Practice Problems + 12 Scenario-Based Projects
+- **Total Days:** 12
+- **Topics Covered:** LinkedList, Stack, Queue, HashMap, Sorting, Searching, Dynamic Programming, OOP Design Patterns, Collections, Algorithm Analysis, Big-O Notation, Brute Force Algorithms, Generics, Generic Constraints, Variance, Record Management Workflows, String Manipulation, Password Processing
+- **Projects Completed:** 12+ Practice Problems + 13 Scenario-Based Projects
