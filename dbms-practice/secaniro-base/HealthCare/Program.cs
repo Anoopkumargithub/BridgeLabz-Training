@@ -5,15 +5,11 @@ class Program
 {
     static void Main()
     {
-        PatientService service = new PatientService();
-
         while (true)
         {
             Console.WriteLine("\n===== HEALTHCARE SYSTEM =====");
-            Console.WriteLine("1. Add Patient");
-            Console.WriteLine("2. Update Patient");
-            Console.WriteLine("3. Search Patient");
-            Console.WriteLine("4. Get Patient By ID");
+            Console.WriteLine("1. Patient Module");
+            Console.WriteLine("2. Doctor Module");
             Console.WriteLine("0. Exit");
             Console.Write("Choose option: ");
 
@@ -22,19 +18,11 @@ class Program
             switch (choice)
             {
                 case "1":
-                    service.AddPatient();
+                    PatientMenu.Start();
                     break;
 
                 case "2":
-                    service.UpdatePatient();
-                    break;
-
-                case "3":
-                    service.SearchPatient();
-                    break;
-
-                case "4":
-                    service.GetPatientById();
+                    DoctorMenu.Start();
                     break;
 
                 case "0":
