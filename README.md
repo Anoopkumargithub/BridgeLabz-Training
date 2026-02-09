@@ -4,7 +4,7 @@ Welcome to my Database Management Systems (DBMS) learning repository! This conta
 
 ---
 
-## �📚 Table of Contents
+## 📚 Table of Contents
 - [What is DBMS?](#-what-is-dbms)
 - [Types of DBMS](#-types-of-dbms)
 - [SQL Language Categories](#-sql-language-categories)
@@ -17,7 +17,103 @@ Welcome to my Database Management Systems (DBMS) learning repository! This conta
 
 ---
 
-## 🗄️ What is DBMS?
+## 🎯 Project Progress & Learning Timeline
+
+Here's a chronological overview of my learning journey and project implementations.
+
+---
+
+### February 9, 2026 - HealthCare Project Update
+
+**Project Name:** `HealthCare`
+**Status:** ✅ In Progress
+**Technology Stack:** C#, ADO.NET, SQL Server, .NET Framework
+
+**Key Achievements:**
+- Started a new HealthCare project to manage patient and doctor information.
+- Implemented the Patient module with full CRUD (Create, Read, Update, Delete) operations.
+  - Implemented `AddPatient`, `UpdatePatient`, `search by keyword`, and `GetById` functionalities.
+  - Connected the Patient module to the SQL Server database using ADO.NET.
+  - Created initial SQL scripts for patient schema and setup.
+  - Incorporated custom exception handling and applied Object-Oriented Programming (OOP) principles.
+- Implemented the Doctor module with full CRUD operations.
+- Implemented the Speciality module with CRUD and search operations.
+- Designed and created encapsulated classes, interfaces, repositories (for database interaction), services (for business logic and user input handling), and menu classes for both Doctor and Speciality modules.
+
+---
+
+### February 7, 2026 - ADO.NET & Employee Management System
+
+**Project Name:** `DataBaseConnection` (Employee Management with ADO.NET)
+**Status:** ✅ COMPLETED
+**Technology Stack:** C#, ADO.NET, SQL Server, .NET Framework
+
+**Key Achievements:**
+- Comprehensive learning and implementation of ADO.NET (ActiveX Data Objects .NET) architecture and components.
+  - Gained understanding of the Connected Layer (`SqlConnection`, `SqlCommand`, `SqlDataReader`).
+  - Gained understanding of the Disconnected Layer (`DataSet`, `SqlDataAdapter`).
+- Built a complete Employee Management System demonstrating ADO.NET for database connectivity.
+
+**CRUD Operations Implemented:**
+- ✅ **CREATE (INSERT)**: Implemented parameterized INSERT queries to add new employee records securely.
+- ✅ **READ (SELECT)**: Implemented SELECT queries with `SqlDataReader` for efficient, forward-only data retrieval.
+- ✅ **UPDATE**: Implemented UPDATE operations to modify existing employee information.
+- ✅ **DELETE**: Implemented DELETE operations to remove employee records.
+
+**Best Practices Applied:**
+- **SQL Injection Prevention**: Utilized parameterized queries to safeguard against SQL injection attacks.
+- **Resource Management**: Employed `using` statements to ensure proper disposal and closure of database connections.
+- **Separation of Concerns**: Isolated data access logic into dedicated repository classes for maintainability.
+- **Error Handling**: Implemented robust exception management for various database operations.
+- **Connection Pooling**: Leveraged automatic connection pooling through `SqlConnection` for performance optimization.
+
+---
+
+### February 7, 2026 - TechVille Smart City Management System (Module 1)
+
+**Project Name:** `TechVille_SmartCity_DB` (Module 1: Citizen Registration Portal)
+**Status:** 🚀 In Development
+**Start Date:** February 7, 2026
+
+**Key Achievements:**
+- Designed Module 1: Citizen Registration Portal for managing smart city citizen data.
+- Created the `Citizens` table with a computed column for automated age calculation.
+- Developed the `EligibilityDetails` table for tracking service eligibility based on various criteria.
+- Designed the `CitizenDetailsExtended` table to store comprehensive citizen demographic information.
+- Defined core business rules and eligibility criteria for citizen services.
+- Implemented sample SQL queries for common operations, such as retrieving eligible citizens and calculating statistics.
+
+---
+
+### Upcoming Learning Goals & Project Phases:
+
+**Intermediate Concepts:**
+- [ ] Learn CTEs (Common Table Expressions)
+- [ ] Master window functions
+
+**Advanced Topics:**
+- [ ] Learn query optimization techniques (beyond basic indexing)
+- [ ] Implement advanced indexing strategies
+- [ ] Study stored procedures and functions (creation, execution, best practices)
+- [ ] Work with triggers and views (implementation and use cases)
+
+**Expert Level:**
+- [ ] Master transaction management (ACID properties, isolation levels)
+- [ ] Learn advanced database security best practices
+- [ ] Performance tuning and execution plan analysis (in-depth)
+- [ ] Practice with real-world scenarios and complex database challenges
+
+**Ongoing Development:**
+- [ ] **Next Phase for TechVille Smart City:** Module 2 - Service Request Management
+- [ ] Build a complete, end-to-end database project
+- [ ] Document learnings and create detailed notes
+- [ ] Solve challenging SQL problems on platforms like HackerRank/LeetCode
+
+---
+
+## 🗄️ DBMS Fundamentals
+
+### What is DBMS?
 
 A **Database Management System (DBMS)** is software that enables users to create, manage, and manipulate databases efficiently. It provides an interface between the database and end-users or application programs.
 
@@ -39,7 +135,7 @@ Imagine storing thousands of customer records in Excel files - chaos, right? DBM
 
 ---
 
-## 🔧 Types of DBMS
+### 🔧 Types of DBMS
 
 | Type | Description | Examples |
 |------|-------------|----------|
@@ -52,7 +148,9 @@ Imagine storing thousands of customer records in Excel files - chaos, right? DBM
 
 ---
 
-## 💻 SQL Language Categories
+## 💻 SQL Core Concepts
+
+### SQL Language Categories
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -63,7 +161,7 @@ Imagine storing thousands of customer records in Excel files - chaos, right? DBM
 └─────────────────────────────────────────────┘
 ```
 
-### 1️⃣ DDL (Data Definition Language)
+#### 1️⃣ DDL (Data Definition Language)
 **Purpose:** Defines and manages database schema and structure.
 **Think of it as:** The architect that designs the building structure.
 
@@ -85,7 +183,7 @@ CREATE TABLE Employees (
 );
 ```
 
-### 2️⃣ DML (Data Manipulation Language)
+#### 2️⃣ DML (Data Manipulation Language)
 **Purpose:** Manipulates data within database objects.
 **Think of it as:** The workers who add, modify, or remove items from the building.
 
@@ -105,7 +203,7 @@ SET Salary = 80000
 WHERE EmployeeID = 101;
 ```
 
-### 3️⃣ DQL (Data Query Language)
+#### 3️⃣ DQL (Data Query Language)
 **Purpose:** Retrieves data from the database.
 **Think of it as:** The search engine that finds what you need.
 
@@ -121,7 +219,7 @@ WHERE Salary > 50000
 ORDER BY LastName;
 ```
 
-### 4️⃣ DCL (Data Control Language)
+#### 4️⃣ DCL (Data Control Language)
 **Purpose:** Controls access and permissions.
 **Think of it as:** The security guard who decides who can enter and what they can do.
 
@@ -136,7 +234,7 @@ GRANT SELECT, INSERT ON Employees TO DataAnalyst;
 REVOKE DELETE ON Employees FROM DataAnalyst;
 ```
 
-### 5️⃣ TCL (Transaction Control Language)
+#### 5️⃣ TCL (Transaction Control Language)
 **Purpose:** Manages database transactions.
 **Think of it as:** The checkpoint system that can save progress or undo mistakes.
 
@@ -157,7 +255,7 @@ COMMIT;
 
 ---
 
-## 📐 Normalization
+### 📐 Normalization
 
 **Normalization** is the process of organizing data to minimize redundancy and improve data integrity.
 
@@ -212,7 +310,7 @@ CREATE TABLE OrderDetails (
 
 ---
 
-## 🔗 Joins
+### 🔗 Joins
 
 **Joins** combine rows from two or more tables based on related columns.
 
@@ -286,7 +384,7 @@ INNER JOIN Employees e2 ON e1.ManagerID = e2.EmployeeID;
 
 ---
 
-## 📊 Aggregate Functions & Subqueries
+### 📊 Aggregate Functions & Subqueries
 
 **Aggregate Functions** perform calculations on data sets, and **Subqueries** are queries inside queries - incredibly powerful for complex analysis!
 
@@ -423,7 +521,9 @@ HAVING SUM(e.Salary) > d.BudgetAmount;
 
 ---
 
-## ⚡ Performance Optimization
+## ⚡ Advanced DBMS Topics
+
+### Performance Optimization
 
 > 💡 **Simple Explanation:** Optimization is like organizing a library with a card catalog - finding books becomes lightning fast!
 
@@ -472,7 +572,7 @@ SET SHOWPLAN_ALL OFF;
 
 ---
 
-## 🔐 Security & Administration
+### 🔐 Security & Administration
 
 > 💡 **Remember:** A database breach can cost millions! Security is NOT optional.
 
@@ -531,473 +631,112 @@ WITH REPLACE;
 
 ## 🛠️ Tools & Environment
 
-### My Learning Stack:
+Here are the tools and technologies I'm using in my DBMS learning journey:
 
-#### 💾 Microsoft SQL Server (MSSQL)
-- **Purpose**: Primary RDBMS for learning and practice
-- **Edition**: Developer Edition / Express
-- **Features**: T-SQL, Stored Procedures, Triggers, Views
+<div align="center">
 
-#### 💻 Visual Studio Code
-- **Extensions Used**:
-  - `mssql` - Microsoft SQL Server extension
-  - `SQL Server (mssql)`
-  - `SQLTools`
-  - `Database Client`
+### 💾 Database
+![MSSQL](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white)
+- **Microsoft SQL Server (MSSQL)**: Primary RDBMS for learning and practice.
+  - **Edition**: Developer Edition / Express
+  - **Features**: T-SQL, Stored Procedures, Triggers, Views
 
-```json
-// Recommended VS Code Settings
-{
-  "mssql.format.alignColumnDefinitionsInColumns": true,
-  "mssql.intelliSense.enableIntelliSense": true,
-  "editor.formatOnSave": true
-}
-```
+### 💻 Development Tools
+![VS Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+![Visual Studio](https://img.shields.io/badge/Visual%20Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+- **Visual Studio Code**: Lightweight code editor with powerful SQL extensions for database scripting.
+  - **Extensions Used**: `mssql` (Microsoft SQL Server extension), `SQL Server (mssql)`, `SQLTools`, `Database Client`
+  - **Recommended VS Code Settings**:
+    ```json
+    {
+      "mssql.format.alignColumnDefinitionsInColumns": true,
+      "mssql.intelliSense.enableIntelliSense": true,
+      "editor.formatOnSave": true
+    }
+    ```
+- **Visual Studio**: Full-featured IDE for C# development with integrated ADO.NET capabilities.
+- **Docker**: Containerization platform used for running SQL Server in isolated and portable environments, simplifying setup and avoiding local machine clutter.
+  - **Running SQL Server in a container for development:**
+    ```bash
+    # Step 1: Pull MSSQL Docker image
+    docker pull mcr.microsoft.com/mssql/server:2022-latest
 
-#### 🐳 Docker
-**Why Docker?** Isolated, portable, and easy to set up - no mess on your local machine!
+    # Step 2: Run SQL Server container
+    docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YourStrong@Password" \\
+      -p 1433:1433 --name mssql-server \\
+      -d mcr.microsoft.com/mssql/server:2022-latest
 
-Running SQL Server in a container for development:
+    # Step 3: Verify container is running
+    docker ps
 
-```bash
-# Step 1: Pull MSSQL Docker image
-docker pull mcr.microsoft.com/mssql/server:2022-latest
+    # Step 4: Connect to container
+    docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd \\
+      -S localhost -U SA -P "YourStrong@Password"
 
-# Step 2: Run SQL Server container
-docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YourStrong@Password" \
-  -p 1433:1433 --name mssql-server \
-  -d mcr.microsoft.com/mssql/server:2022-latest
-
-# Step 3: Verify container is running
-docker ps
-
-# Step 4: Connect to container
-docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd \
-  -S localhost -U SA -P "YourStrong@Password"
-
-# Useful Docker Commands:
-docker stop mssql-server     # Stop the container
-docker start mssql-server    # Start the container
-docker logs mssql-server     # View logs
-```
-
-**Docker Compose Setup:**
-```yaml
-version: '3.8'
-services:
-  mssql:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: mssql-dev
-    environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=YourStrong@Password
-      - MSSQL_PID=Developer
-    ports:
-      - "1433:1433"
+    # Useful Docker Commands:
+    docker stop mssql-server     # Stop the container
+    docker start mssql-server    # Start the container
+    docker logs mssql-server     # View logs
+    ```
+  - **Docker Compose Setup Example:**
+    ```yaml
+    version: '3.8'
+    services:
+      mssql:
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        container_name: mssql-dev
+        environment:
+          - ACCEPT_EULA=Y
+          - SA_PASSWORD=YourStrong@Password
+          - MSSQL_PID=Developer
+        ports:
+          - "1433:1433"
+        volumes:
+          - mssql-data:/var/opt/mssql
     volumes:
-      - mssql-data:/var/opt/mssql
-volumes:
-  mssql-data:
-```
+      mssql-data:
+    ```
 
-#### 🌐 ADO.NET
-- **Purpose**: ADO.NET (ActiveX Data Objects .NET) is a set of computer software components that programmers can use to access data and data services from a database. It is a part of the base class library (BCL) that is included with the Microsoft .NET Framework.
-- **Features**:
-  - **Data Providers**: Connect to various data sources (SQL Server, Oracle, MySQL, etc.)
-  - **DataSet**: In-memory cache of data, independent of the data source
-  - **Connected Layer**: `Connection`, `Command`, `DataReader` for direct database interaction
-  - **Disconnected Layer**: `DataSet`, `DataAdapter` for working with data offline
-- **Use Case**: Used for building data-driven applications in .NET, enabling powerful and flexible data access.
+### 💻 Programming Languages & Frameworks
+![CSharp](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=sql&logoColor=white)
+- **C# (.NET)**: Modern, object-oriented programming language used for building data-driven applications.
+- **ADO.NET**: Microsoft .NET Framework component providing robust data access services from various databases.
+  - **Purpose**: A set of software components for accessing data and data services from a database.
+  - **Features**:
+    - **Data Providers**: Connect to various data sources (SQL Server, Oracle, MySQL, etc.)
+    - **DataSet**: In-memory cache of data, independent of the data source.
+    - **Connected Layer**: `Connection`, `Command`, `DataReader` for direct database interaction.
+    - **Disconnected Layer**: `DataSet`, `DataAdapter` for working with data offline.
+  - **Use Case**: Essential for building powerful and flexible data access layers in .NET applications.
+  - **Key ADO.NET Components**:
+    | Component | Purpose | Example |
+    |-----------|---------|---------|
+    | **SqlConnection** | Establishes connection to SQL Server database | `new SqlConnection(connectionString);` |
+    | **SqlCommand** | Executes SQL queries or stored procedures | `cmd.CommandText = "SELECT * FROM Employees";` |
+    | **SqlDataReader** | Reads data in forward-only, read-only mode (fast) | `while (reader.Read()) { }` |
+    | **SqlDataAdapter** | Fills DataSet with data and updates database | `adapter.Fill(dataSet);` |
+    | **DataSet** | In-memory representation of database tables | Works offline, then sync with DB |
+    | **SqlParameter** | Prevents SQL injection attacks | `cmd.Parameters.AddWithValue("@id", 1);` |
+  - **ADO.NET Connection String Example**:
+    ```csharp
+    // SQL Server Connection String
+    string connectionString = "Data Source=localhost;Initial Catalog=CompanyDB;User ID=sa;Password=YourPassword;";
+    SqlConnection connection = new SqlConnection(connectionString);
+    ```
 
-##### Key ADO.NET Components:
-
-| Component | Purpose | Example |
-|-----------|---------|---------|
-| **SqlConnection** | Establishes connection to SQL Server database | `new SqlConnection(connectionString);` |
-| **SqlCommand** | Executes SQL queries or stored procedures | `cmd.CommandText = "SELECT * FROM Employees";` |
-| **SqlDataReader** | Reads data in forward-only, read-only mode (fast) | `while (reader.Read()) { }` |
-| **SqlDataAdapter** | Fills DataSet with data and updates database | `adapter.Fill(dataSet);` |
-| **DataSet** | In-memory representation of database tables | Works offline, then sync with DB |
-| **SqlParameter** | Prevents SQL injection attacks | `cmd.Parameters.AddWithValue("@id", 1);` |
-
-##### ADO.NET Connection String:
-```csharp
-// SQL Server Connection String
-string connectionString = "Data Source=localhost;Initial Catalog=CompanyDB;User ID=sa;Password=YourPassword;";
-SqlConnection connection = new SqlConnection(connectionString);
-```
-
----
-
-## 💼 Employee Management System with ADO.NET
-
-### Project Overview
-
-**Project Name:** `DataBaseConnection`  
-**Purpose:** Build a .NET application demonstrating ADO.NET for database connectivity and CRUD operations  
-**Status:** ✅ **COMPLETED - February 7, 2026**  
-**Technology Stack:** C#, ADO.NET, SQL Server, .NET Framework
-
-### 🎯 Features Implemented
-
-#### 1. **Database Connection Management**
-- ✅ Establish secure connection to SQL Server database
-- ✅ Handle connection lifecycle (open, close, dispose)
-- ✅ Connection pooling for performance optimization
-- ✅ Exception handling for connection failures
-
-```csharp
-// Example: Database Connection
-public class DatabaseConnection
-{
-    private readonly string _connectionString;
-    
-    public DatabaseConnection(string connectionString)
-    {
-        _connectionString = connectionString;
-    }
-    
-    public SqlConnection GetConnection()
-    {
-        return new SqlConnection(_connectionString);
-    }
-}
-```
-
-#### 2. **CRUD Operations for Employee Management**
-
-**CREATE (Insert):**
-```csharp
-public void AddEmployee(Employee employee)
-{
-    using (SqlConnection conn = new SqlConnection(_connectionString))
-    {
-        string query = @"INSERT INTO Employees (FirstName, LastName, DepartmentID, Salary, HireDate, JobTitle)
-                        VALUES (@FirstName, @LastName, @DepartmentID, @Salary, @HireDate, @JobTitle)";
-        
-        SqlCommand cmd = new SqlCommand(query, conn);
-        cmd.Parameters.AddWithValue("@FirstName", employee.FirstName);
-        cmd.Parameters.AddWithValue("@LastName", employee.LastName);
-        cmd.Parameters.AddWithValue("@DepartmentID", employee.DepartmentID);
-        cmd.Parameters.AddWithValue("@Salary", employee.Salary);
-        cmd.Parameters.AddWithValue("@HireDate", employee.HireDate);
-        cmd.Parameters.AddWithValue("@JobTitle", employee.JobTitle);
-        
-        conn.Open();
-        cmd.ExecuteNonQuery();
-        conn.Close();
-    }
-}
-```
-
-**READ (Select):**
-```csharp
-public List<Employee> GetAllEmployees()
-{
-    List<Employee> employees = new List<Employee>();
-    
-    using (SqlConnection conn = new SqlConnection(_connectionString))
-    {
-        string query = "SELECT EmployeeID, FirstName, LastName, DepartmentID, Salary, HireDate, JobTitle FROM Employees";
-        SqlCommand cmd = new SqlCommand(query, conn);
-        
-        conn.Open();
-        SqlDataReader reader = cmd.ExecuteReader();
-        
-        while (reader.Read())
-        {
-            Employee emp = new Employee
-            {
-                EmployeeID = (int)reader["EmployeeID"],
-                FirstName = (string)reader["FirstName"],
-                LastName = (string)reader["LastName"],
-                DepartmentID = (int)reader["DepartmentID"],
-                Salary = (decimal)reader["Salary"],
-                HireDate = (DateTime)reader["HireDate"],
-                JobTitle = (string)reader["JobTitle"]
-            };
-            employees.Add(emp);
-        }
-        conn.Close();
-    }
-    
-    return employees;
-}
-```
-
-**UPDATE (Modify):**
-```csharp
-public void UpdateEmployee(Employee employee)
-{
-    using (SqlConnection conn = new SqlConnection(_connectionString))
-    {
-        string query = @"UPDATE Employees 
-                        SET FirstName = @FirstName, LastName = @LastName, 
-                            DepartmentID = @DepartmentID, Salary = @Salary, 
-                            HireDate = @HireDate, JobTitle = @JobTitle
-                        WHERE EmployeeID = @EmployeeID";
-        
-        SqlCommand cmd = new SqlCommand(query, conn);
-        cmd.Parameters.AddWithValue("@EmployeeID", employee.EmployeeID);
-        cmd.Parameters.AddWithValue("@FirstName", employee.FirstName);
-        cmd.Parameters.AddWithValue("@LastName", employee.LastName);
-        cmd.Parameters.AddWithValue("@DepartmentID", employee.DepartmentID);
-        cmd.Parameters.AddWithValue("@Salary", employee.Salary);
-        cmd.Parameters.AddWithValue("@HireDate", employee.HireDate);
-        cmd.Parameters.AddWithValue("@JobTitle", employee.JobTitle);
-        
-        conn.Open();
-        cmd.ExecuteNonQuery();
-        conn.Close();
-    }
-}
-```
-
-**DELETE (Remove):**
-```csharp
-public void DeleteEmployee(int employeeID)
-{
-    using (SqlConnection conn = new SqlConnection(_connectionString))
-    {
-        string query = "DELETE FROM Employees WHERE EmployeeID = @EmployeeID";
-        SqlCommand cmd = new SqlCommand(query, conn);
-        cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
-        
-        conn.Open();
-        cmd.ExecuteNonQuery();
-        conn.Close();
-    }
-}
-```
-
-### 📋 Project Structure
-
-```
-tempApp/
-├── DataBaseConnection.slnx              # Solution file
-└── DataBaseConnection/
-    ├── DataBaseConnection.csproj        # Project file
-    ├── Program.cs                       # Main entry point
-    ├── StudentConnection.cs             # ADO.NET implementation
-    └── Employee.cs                      # Employee model class (implicit)
-```
-
-### 🔑 Key Learning Points
-
-| Concept | Description | Implementation |
-|---------|-------------|-----------------|
-| **Connection Management** | Open/close database connections safely | `using` statement for resource cleanup |
-| **Parameterized Queries** | Prevent SQL injection attacks | `SqlParameter` with `@` prefix |
-| **SqlDataReader** | Fast, forward-only data retrieval | Loop through `reader.Read()` |
-| **ExecuteNonQuery()** | Execute INSERT, UPDATE, DELETE commands | Returns number of affected rows |
-| **ExecuteScalar()** | Get single value from query result | Returns first column, first row |
-| **Error Handling** | Graceful handling of exceptions | Try-catch for SqlException |
-
-### ⚡ Best Practices Applied
-
-✅ **SQL Injection Prevention**: Used parameterized queries throughout  
-✅ **Resource Management**: Used `using` statements to ensure connection closure  
-✅ **Separation of Concerns**: Data access logic isolated in separate class  
-✅ **Error Handling**: Proper exception management for database operations  
-✅ **Connection Pooling**: Automatic pooling through SqlConnection  
-
-### 🧪 Testing & Validation
-
-- ✅ Successfully connected to SQL Server database
-- ✅ Verified INSERT operations create new employee records
-- ✅ Verified SELECT queries retrieve all employee data correctly
-- ✅ Verified UPDATE operations modify existing employee records
-- ✅ Verified DELETE operations remove employee records
-- ✅ Tested parameterized query protection against SQL injection
-- ✅ Confirmed proper resource cleanup and connection closure
-
----
-
-## 🏙️ TechVille Smart City Management System
-
-A comprehensive database project for managing smart city operations, citizen services, and urban infrastructure. This project demonstrates real-world database design with multiple interconnected modules.
-
-### 📋 Project Overview
-
-**Database Name:** `TechVille_SmartCity_DB`  
-**Purpose:** Centralized management system for smart city operations  
-**Status:** 🚀 In Development  
-**Start Date:** February 7, 2026
-
-### 🔧 Module 1: Citizen Registration Portal
-
-**Objective:** Implement a comprehensive citizen registration system with eligibility calculations and verification.
-
-#### Features:
-- ✅ **Citizen Registration Module** - Register and manage citizen information
-- ✅ **Eligibility Calculations** - Automated eligibility verification for services
-- ✅ **Details Table** - Comprehensive citizen details with demographics
-
-#### Tables & Schema:
-
-##### 1. **Citizens Table**
-```sql
-CREATE TABLE Citizens (
-    CitizenID INT PRIMARY KEY IDENTITY(1,1),
-    FirstName VARCHAR(50) NOT NULL,
-    LastName VARCHAR(50) NOT NULL,
-    DateOfBirth DATE NOT NULL,
-    Age INT COMPUTED,
-    Email VARCHAR(100) UNIQUE,
-    PhoneNumber VARCHAR(15),
-    ResidentialAddress VARCHAR(255),
-    AdhaarNumber VARCHAR(12) UNIQUE,
-    RegistrationDate DATETIME DEFAULT GETDATE(),
-    Status VARCHAR(20) -- Active, Inactive, Suspended
-);
-```
-
-##### 2. **Eligibility Details Table**
-```sql
-CREATE TABLE EligibilityDetails (
-    EligibilityID INT PRIMARY KEY IDENTITY(1,1),
-    CitizenID INT NOT NULL,
-    ServiceType VARCHAR(50), -- Health, Education, Housing, etc.
-    IsEligible BIT,
-    IncomeLevel DECIMAL(10,2),
-    FamilySize INT,
-    PropertyValue DECIMAL(12,2),
-    EligibilityScore INT,
-    CalculationDate DATETIME DEFAULT GETDATE(),
-    ValidUpto DATE,
-    FOREIGN KEY (CitizenID) REFERENCES Citizens(CitizenID)
-);
-```
-
-##### 3. **Citizen Details Extended Table**
-```sql
-CREATE TABLE CitizenDetailsExtended (
-    DetailID INT PRIMARY KEY IDENTITY(1,1),
-    CitizenID INT NOT NULL,
-    Occupation VARCHAR(100),
-    EducationLevel VARCHAR(50),
-    MaritalStatus VARCHAR(20),
-    Gender VARCHAR(10),
-    BloodGroup VARCHAR(5),
-    DisabilityStatus BIT,
-    NationalityStatus VARCHAR(50),
-    PermanentAddress VARCHAR(255),
-    FOREIGN KEY (CitizenID) REFERENCES Citizens(CitizenID)
-);
-```
-
-#### Key Features Implemented:
-- 🔍 **Automated Age Calculation** - Computed column for age based on DOB
-- 📊 **Eligibility Scoring Algorithm** - Dynamic eligibility assessment
-- 🔐 **Unique Identification** - Adhaar number for unique citizen identification
-- 📅 **Validity Tracking** - Eligibility expiration dates
-- 🏛️ **Service Classification** - Multiple service types (Health, Education, Housing, etc.)
-- 🚨 **Status Management** - Track citizen account status (Active, Inactive, Suspended)
-
-#### Business Rules:
-1. Citizens must be 18+ years old to register
-2. Eligibility is recalculated based on income and family size
-3. Eligibility validity period: 1 year from calculation date
-4. Each citizen can have multiple eligibility records for different services
-5. Adhaar number and Email must be unique
-
-#### SQL Queries for Common Operations:
-```sql
--- Get eligible citizens for health services
-SELECT c.*, e.EligibilityScore, e.IncomeLevel
-FROM Citizens c
-JOIN EligibilityDetails e ON c.CitizenID = e.CitizenID
-WHERE e.ServiceType = 'Health' AND e.IsEligible = 1;
-
--- Find citizens with expired eligibility
-SELECT c.FirstName, c.LastName, e.ServiceType, e.ValidUpto
-FROM Citizens c
-JOIN EligibilityDetails e ON c.CitizenID = e.CitizenID
-WHERE e.ValidUpto < GETDATE();
-
--- Calculate eligibility statistics
-SELECT 
-    e.ServiceType,
-    COUNT(*) as TotalApplications,
-    SUM(CASE WHEN e.IsEligible = 1 THEN 1 ELSE 0 END) as EligibleCount,
-    AVG(e.IncomeLevel) as AverageIncome
-FROM EligibilityDetails e
-GROUP BY e.ServiceType;
-```
-
-### 📈 Module Roadmap
-
-| Module | Status | Description |
-|--------|--------|-------------|
-| **Module 1** | ✅ In Progress | Citizen Registration Portal |
-| **Module 2** | 📅 Planned | Service Request Management |
-| **Module 3** | 📅 Planned | Utility & Infrastructure Management |
-| **Module 4** | 📅 Planned | Complaints & Grievance System |
-| **Module 5** | 📅 Planned | Analytics & Reporting Dashboard |
+</div>
 
 ---
 
 ## 📖 Learning Resources
 
-
-- 📚 [Microsoft SQL Server Documentation](https://docs.microsoft.com/en-us/sql/)
-- 🎥 [SQL Tutorial Videos](https://www.youtube.com/results?search_query=sql+tutorial)
-- 💡 [W3Schools SQL](https://www.w3schools.com/sql/)
-- 🏆 [HackerRank SQL Practice](https://www.hackerrank.com/domains/sql)
-- 📝 [LeetCode Database Problems](https://leetcode.com/problemset/database/)
-
----
-
-## 🎯 Learning Goals & Progress
-
-### Week-by-Week Learning Plan:
-
-**Week 1-2: Foundations** ✅
-- [x] Master SQL fundamentals (DDL, DML, DQL, DCL, TCL)
-- [x] Set up MSSQL with Docker
-- [x] Connect VS Code to database
-- [x] Practice basic CRUD operations
-
-**Week 3-4: Intermediate Concepts** 🔄 (IN PROGRESS)
-- [x] Understand database normalization (1NF to BCNF)
-- [x] Practice all types of JOINs
-- [x] Create Employees & Departments schema with sample data
-- [x] Learn aggregate functions (COUNT, SUM, AVG, MAX, MIN) ✅ **COMPLETED**
-- [x] Master subqueries and complex filtering ✅ **COMPLETED**
-- [x] Create SQL script with all JOIN types (INNER, LEFT, RIGHT, FULL OUTER, SELF, CROSS) ✅ **COMPLETED**
-- [x] Build comprehensive query examples with aggregations and statistics ✅ **COMPLETED**
-- [x] Started TechVille Smart City Management System Project ✅ **NEW - Feb 7, 2026**
-  - [x] Module 1: Citizen Registration Portal ✅
-  - [x] Designed eligibility calculations module
-  - [x] Created citizen details table structure
-- [x] **Learned ADO.NET and implemented database connection with CRUD operations** ✅ **COMPLETED - Feb 7, 2026**
-  - [x] Understood ADO.NET architecture (Connected & Disconnected layers)
-  - [x] Implemented Employee Management System in C#
-  - [x] Created READ (SELECT) operations with SqlDataReader
-  - [x] Created CREATE (INSERT) operations with parameterized queries
-  - [x] Created UPDATE operations for employee data modification
-  - [x] Created DELETE operations for data removal
-  - [x] Applied SQL injection prevention best practices
-  - [x] Implemented proper resource management with using statements
-- [ ] Learn CTEs (Common Table Expressions)
-- [ ] Master window functions
-
-**Week 5-6: Advanced Topics**
-- [ ] Learn query optimization techniques
-- [ ] Implement indexing strategies
-- [ ] Study stored procedures and functions
-- [ ] Work with triggers and views
-
-**Week 7-8: Expert Level**
-- [ ] Master transaction management
-- [ ] Learn database security best practices
-- [ ] Performance tuning and execution plans
-- [ ] Practice with real-world scenarios
-
-**Ongoing:**
-- [ ] Build a complete project database
-- [ ] Document learnings and create notes
-- [ ] Solve SQL challenges on HackerRank/LeetCode
+- 📚 [Microsoft SQL Server Documentation](https://docs.microsoft.com/en-us/sql/) - Official documentation for MSSQL.
+- 🎥 [SQL Tutorial Videos](https://www.youtube.com/results?search_query=sql+tutorial) - Video tutorials for SQL learning.
+- 💡 [W3Schools SQL](https://www.w3schools.com/sql/) - Interactive SQL tutorials and references.
+- 🏆 [HackerRank SQL Practice](https://www.hackerrank.com/domains/sql) - Platform for practicing SQL challenges.
+- 📝 [LeetCode Database Problems](https://leetcode.com/problemset/database/) - LeetCode problems focused on database concepts.
 
 ---
 
@@ -1009,82 +748,9 @@ This repository documents my journey in mastering database management. Feel free
 
 ---
 
-Last Updated: February 9, 2026  
-
-**Project Achievements (February 9, 2026):** ✅
-
-**HealthCare Project Implementation:**
-- Started new HealthCare project
-- Created Patient module with CRUD operations
-- Implemented `AddPatient`, `UpdatePatient`, `search by keyword`, and `GetById`
-- Connected the module to the database
-- Created SQL script for patient schema and setup
-- Added custom exception handling and applied OOP principles
-
-**Project Achievements (February 7, 2026):** ✅
-
-**ADO.NET Learning & Implementation:**
-- Learned ADO.NET (ActiveX Data Objects .NET) architecture and components
-- Understood Connected Layer (Connection, Command, DataReader) 
-- Understood Disconnected Layer (DataSet, DataAdapter)
-- Built Employee Management System using C# and ADO.NET
-
-**CRUD Operations Implementation:**
-- ✅ **CREATE (INSERT)**: Implemented parameterized INSERT queries to add new employee records
-- ✅ **READ (SELECT)**: Implemented SELECT queries with SqlDataReader for efficient data retrieval
-- ✅ **UPDATE**: Implemented UPDATE operations to modify existing employee information
-- ✅ **DELETE**: Implemented DELETE operations to remove employee records
-
-**Best Practices Applied:**
-- Used parameterized queries to prevent SQL injection attacks
-- Implemented proper resource management with `using` statements
-- Applied error handling for database operations
-- Separated data access logic into dedicated classes
-- Tested all CRUD operations for correctness and reliability
-
-**TechVille Project Progress:**
-- Designed Module 1: Citizen Registration Portal
-- Created Citizens table with computed age calculation
-- Created EligibilityDetails table for service eligibility tracking
-- Designed CitizenDetailsExtended table for comprehensive citizen information
-- Defined business rules and eligibility criteria
-- Created sample SQL queries for common operations
-
-**Current Project:** DataBaseConnection (Employee Management with ADO.NET) - **COMPLETED** ✅  
-**Current Module:** TechVille Smart City Management System - Module 1 (Citizen Registration Portal)  
-**Next Phase:** Module 2 - Service Request Management | CTEs & Window Functions Learning
+Last Updated: February 9, 2026
 
 ---
-
-
-## � Tech Stack
-
-<div align="center">
-
-### 💾 Database
-![MSSQL](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white)
-
-### 💻 Development Tools
-![VS Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
-![Visual Studio](https://img.shields.io/badge/Visual%20Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-
-### 💻 Programming Languages & Frameworks
-![CSharp](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=sql&logoColor=white)
-
-</div>
-
-**Technologies I'm Using:**
-- **Microsoft SQL Server (MSSQL)**: Enterprise-grade relational database management system
-- **Visual Studio Code**: Lightweight code editor with SQL extensions for database scripting
-- **Visual Studio**: Full-featured IDE for C# development with ADO.NET integration
-- **C# (.NET)**: Modern programming language for building data-driven applications
-- **ADO.NET**: Framework for database connectivity and data manipulation in .NET
-- **Docker**: Containerization platform for running SQL Server in isolated environments
-
----
-
 
 ### 🤝 Connect & Collaborate
 
