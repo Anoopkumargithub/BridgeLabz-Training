@@ -7,13 +7,13 @@ class Program
     static void Main()
     {
         PatientMenu patientMenu = new PatientMenu();
-        DoctorMenu doctorMenu = new DoctorMenu();
+        AdminMenu adminMenu = new AdminMenu();
 
         while (true)
         {
             Console.WriteLine("\n===== HEALTHCARE SYSTEM =====");
             Console.WriteLine("1. Patient Module");
-            Console.WriteLine("2. Doctor Module");
+            Console.WriteLine("2. Admin Panel");
             Console.WriteLine("0. Exit");
             Console.Write("Choose option: ");
 
@@ -26,7 +26,7 @@ class Program
                     break;
 
                 case "2":
-                    doctorMenu.Show();
+                    adminMenu.Show();
                     break;
 
                 case "0":

@@ -139,11 +139,17 @@ namespace HealthCare.Repository
                 throw new ValidationException("Speciality name cannot be empty.");
 
             string query = @"
-                SELECT d.DoctorID, d.Name,
+                SELECT d.DoctorID,
+                       d.Name,
+                       d.SpecialityID,
                        s.SpecialityName,
-                       d.Email, d.ConsultationFee
+                       d.Contact,
+                       d.Email,
+                       d.ConsultationFee,
+                       d.Is_Active
                 FROM Doctors d
-                INNER JOIN Specialities s ON d.SpecialityID = s.SpecialityID
+                INNER JOIN Specialities s 
+                    ON d.SpecialityID = s.SpecialityID
                 WHERE s.SpecialityName = @SpecialityName
                   AND d.Is_Active = 1;";
 
