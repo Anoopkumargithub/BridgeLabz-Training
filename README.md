@@ -15,9 +15,10 @@ This repository covers fundamental and advanced multithreading concepts through 
 *   **Shared Resource Access:** Learn about the challenges of concurrent access to shared data and the importance of synchronization to prevent race conditions and ensure data integrity. (Note: Examples demonstrate the problem, not necessarily the solution in every case, prompting further exploration).
 *   **Foreground vs. Background Threads:** Discover the distinction between foreground and background threads, their impact on application lifecycle, and when to use each type for critical versus non-critical operations.
 *   **Thread Life Cycle and States (with Implementations):** Delve into the complete life cycle of a thread, from its `Unstarted` state, through `Running`, `WaitSleepJoin`, and ultimately to `Stopped` or `Aborted`. Each state is illustrated with practical C# examples, showing how threads transition and how to observe their current status. This section provides concrete implementations for each state (`UnstartedState.cs`, `RunningState.cs`, `WaitSleepJoinState.cs`, `StoppedState.cs`, `AbortedState.cs`, `BackgroundState.cs`), allowing you to see the theory in action.
-*   **Thread Control Methods:** Understand essential thread management methods like `Start()`, `Join()`, `Sleep()`, and `Interrupt()` to control thread execution flow.
-*   **Thread Priority:** Explore how thread priority influences scheduling and execution order.
-*   **Thread Local Storage:** Learn about managing thread-specific data.
+*   **Thread Methods and Operations (with Implementations):** Gain mastery over essential thread management techniques. This section provides detailed implementations for:
+    *   **Thread Control Methods:** Learn how to explicitly manage thread execution using `Start()`, `Join()`, `Sleep()`, and `Interrupt()` methods, with practical examples demonstrating their usage and impact on thread flow.
+    *   **Thread Priority:** Understand how to influence thread scheduling by setting `ThreadPriority`, and observe its effects on concurrent task execution.
+    *   **Thread Local Storage:** Explore `Thread-LocalStorage.cs` to see how to maintain thread-specific data, preventing conflicts when multiple threads access shared code but need their own data instances.
 
 ## How to Use This Repository:
 
