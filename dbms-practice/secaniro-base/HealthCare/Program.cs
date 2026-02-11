@@ -1,10 +1,14 @@
 ﻿using System;
 using HealthCare.Service;
+using HealthCare.Menu;
 
 class Program
 {
     static void Main()
     {
+        PatientMenu patientMenu = new PatientMenu();
+        DoctorMenu doctorMenu = new DoctorMenu();
+
         while (true)
         {
             Console.WriteLine("\n===== HEALTHCARE SYSTEM =====");
@@ -18,11 +22,11 @@ class Program
             switch (choice)
             {
                 case "1":
-                    PatientMenu.Start();
+                    patientMenu.Show();
                     break;
 
                 case "2":
-                    DoctorMenu.Start();
+                    doctorMenu.Show();
                     break;
 
                 case "0":

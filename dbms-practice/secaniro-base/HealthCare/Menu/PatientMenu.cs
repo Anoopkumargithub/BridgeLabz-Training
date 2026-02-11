@@ -1,11 +1,11 @@
 using System;
 using HealthCare.Service;
 
-namespace HealthCare.Menus
+namespace HealthCare.Menu
 {
-    public static class PatientMenu
+    public class PatientMenu
     {
-        public static void Start()
+        public void Show()
         {
             PatientService service = new PatientService();
 

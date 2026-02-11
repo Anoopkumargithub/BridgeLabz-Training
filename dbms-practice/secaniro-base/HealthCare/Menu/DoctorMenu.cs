@@ -1,17 +1,22 @@
 using System;
 using HealthCare.Service;
 
-namespace HealthCare.Menus
+namespace HealthCare.Menu
 {
-    public static class DoctorMenu
+    public class DoctorMenu
     {
-        public static void Start()
-        {
-            DoctorService service = new DoctorService();
+        private readonly DoctorService _service;
 
+        public DoctorMenu()
+        {
+            _service = new DoctorService();
+        }
+
+        public void Show()
+        {
             while (true)
             {
-                Console.WriteLine("\n===== DOCTOR MODULE =====");
+                Console.WriteLine("\n===== DOCTOR MENU =====");
                 Console.WriteLine("1. Add Doctor");
                 Console.WriteLine("2. Update Doctor");
                 Console.WriteLine("3. Get Doctor By ID");
@@ -25,23 +30,23 @@ namespace HealthCare.Menus
                 switch (choice)
                 {
                     case "1":
-                        service.AddDoctor();
+                        _service.AddDoctor();
                         break;
 
                     case "2":
-                        service.UpdateDoctor();
+                        _service.UpdateDoctor();
                         break;
 
                     case "3":
-                        service.GetDoctorById();
+                        _service.GetDoctorById();
                         break;
 
                     case "4":
-                        service.GetDoctorsBySpeciality();
+                        _service.GetDoctorsBySpeciality();
                         break;
 
                     case "5":
-                        service.DeleteDoctor();
+                        _service.DeleteDoctor();
                         break;
 
                     case "0":
