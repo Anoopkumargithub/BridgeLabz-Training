@@ -10,10 +10,12 @@ namespace HealthCare.Service
     public class DoctorService
     {
         private readonly IDoctorRepository _doctorRepository;
+        private readonly ISpecialityRepository _specialityRepository;
 
         public DoctorService()
         {
             _doctorRepository = new DoctorRepository();
+            _specialityRepository = new SpecialityRepository();
         }
 
         // 1. Add Doctor
@@ -24,8 +26,25 @@ namespace HealthCare.Service
                 Console.Write("Doctor Name: ");
                 string name = Console.ReadLine();
 
-                Console.Write("Speciality ID: ");
-                int specialityId = int.Parse(Console.ReadLine());
+                if (string.IsNullOrWhiteSpace(name))
+                    throw new ValidationException("Doctor name cannot be empty.");
+
+                // Show Specialities
+                var specialities = _specialityRepository.GetAllSpecialities();
+                if (specialities.Count == 0)
+                    throw new Exception("No specialities available. Add speciality first.");
+
+                Console.WriteLine("\nAvailable Specialities:");
+                foreach (var s in specialities)
+                    Console.WriteLine($"{s.SpecialityID} - {s.SpecialityName}");
+
+                Console.Write("Select Speciality ID: ");
+                if (!int.TryParse(Console.ReadLine(), out int specialityId))
+                    throw new ValidationException("Invalid Speciality ID.");
+
+                var speciality = _specialityRepository.GetById(specialityId);
+                if (speciality == null)
+                    throw new NotFoundException("Speciality not found.");
 
                 Console.Write("Contact: ");
                 string contact = Console.ReadLine();
@@ -34,17 +53,13 @@ namespace HealthCare.Service
                 string email = Console.ReadLine();
 
                 Console.Write("Consultation Fee: ");
-                decimal fee = decimal.Parse(Console.ReadLine());
+                if (!decimal.TryParse(Console.ReadLine(), out decimal fee))
+                    throw new ValidationException("Invalid fee amount.");
 
-                Doctor doctor = new Doctor(
-                    name,
-                    specialityId,
-                    contact,
-                    email,
-                    fee
-                );
+                Doctor doctor = new Doctor(name, specialityId, contact, email, fee);
 
                 int id = _doctorRepository.AddDoctor(doctor);
+
                 Console.WriteLine($"Doctor added successfully. ID = {id}");
             }
             catch (Exception ex)
@@ -59,7 +74,12 @@ namespace HealthCare.Service
             try
             {
                 Console.Write("Doctor ID: ");
-                int id = int.Parse(Console.ReadLine());
+                if (!int.TryParse(Console.ReadLine(), out int id))
+                    throw new ValidationException("Invalid Doctor ID.");
+
+                var existingDoctor = _doctorRepository.GetDoctorById(id);
+                if (existingDoctor == null)
+                    throw new NotFoundException("Doctor not found.");
 
                 Console.Write("New Contact: ");
                 string contact = Console.ReadLine();
@@ -68,21 +88,18 @@ namespace HealthCare.Service
                 string email = Console.ReadLine();
 
                 Console.Write("New Consultation Fee: ");
-                decimal fee = decimal.Parse(Console.ReadLine());
+                if (!decimal.TryParse(Console.ReadLine(), out decimal fee))
+                    throw new ValidationException("Invalid fee.");
 
-                Doctor doctor = new Doctor
-                {
-                    DoctorId = id,
-                    Contact = contact,
-                    Email = email,
-                    ConsultationFee = fee
-                };
+                existingDoctor.Contact = contact;
+                existingDoctor.Email = email;
+                existingDoctor.ConsultationFee = fee;
 
-                bool updated = _doctorRepository.UpdateDoctor(doctor);
+                bool updated = _doctorRepository.UpdateDoctor(existingDoctor);
 
                 Console.WriteLine(updated
-                    ? "Doctor updated successfully"
-                    : "Doctor not updated");
+                    ? "Doctor updated successfully."
+                    : "Doctor update failed.");
             }
             catch (Exception ex)
             {
@@ -90,23 +107,28 @@ namespace HealthCare.Service
             }
         }
 
+
         // 3. Get Doctor By ID
         public void GetDoctorById()
         {
             try
             {
                 Console.Write("Doctor ID: ");
-                int id = int.Parse(Console.ReadLine());
+                if (!int.TryParse(Console.ReadLine(), out int id))
+                    throw new ValidationException("Invalid Doctor ID.");
 
-                Doctor doctor = _doctorRepository.GetDoctorById(id);
+                var doctor = _doctorRepository.GetDoctorById(id);
 
-                Console.WriteLine("\nDoctor Details");
+                if (doctor == null)
+                    throw new NotFoundException("Doctor not found.");
+
+                Console.WriteLine("\nDoctor Details:");
                 Console.WriteLine($"ID: {doctor.DoctorId}");
                 Console.WriteLine($"Name: {doctor.Name}");
-                Console.WriteLine($"Speciality ID: {doctor.SpecialityID}");
+                Console.WriteLine($"Speciality: {doctor.SpecialityName}");
                 Console.WriteLine($"Contact: {doctor.Contact}");
                 Console.WriteLine($"Email: {doctor.Email}");
-                Console.WriteLine($"Consultation Fee: {doctor.ConsultationFee}");
+                Console.WriteLine($"Fee: {doctor.ConsultationFee}");
                 Console.WriteLine($"Active: {doctor.IsActive}");
             }
             catch (Exception ex)
@@ -115,28 +137,27 @@ namespace HealthCare.Service
             }
         }
 
+
         // 4. Get Doctors By Speciality
         public void GetDoctorsBySpeciality()
         {
             try
             {
                 Console.Write("Speciality Name: ");
-                string speciality = Console.ReadLine();
+                string specialityName = Console.ReadLine();
 
-                List<Doctor> doctors = _doctorRepository.GetDoctorsBySpeciality(speciality);
+                var doctors = _doctorRepository.GetDoctorsBySpeciality(specialityName);
 
                 if (doctors.Count == 0)
                 {
-                    Console.WriteLine("No doctors found");
+                    Console.WriteLine("No doctors found.");
                     return;
                 }
 
                 Console.WriteLine("\nDoctors List:");
                 foreach (var d in doctors)
                 {
-                    Console.WriteLine(
-                        $"{d.DoctorId} | {d.Name} | {d.Email} | Fee: {d.ConsultationFee}"
-                    );
+                    Console.WriteLine($"{d.DoctorId} | {d.Name} | {d.SpecialityName} | {d.Email} | Fee: {d.ConsultationFee}");
                 }
             }
             catch (Exception ex)
@@ -150,14 +171,15 @@ namespace HealthCare.Service
         {
             try
             {
-                Console.Write("Doctor ID to delete: ");
-                int id = int.Parse(Console.ReadLine());
+                Console.Write("Doctor ID: ");
+                if (!int.TryParse(Console.ReadLine(), out int id))
+                    throw new ValidationException("Invalid Doctor ID.");
 
                 bool deleted = _doctorRepository.DeleteDoctor(id);
 
                 Console.WriteLine(deleted
-                    ? "Doctor deactivated successfully"
-                    : "Doctor not found");
+                    ? "Doctor deactivated successfully."
+                    : "Doctor not found.");
             }
             catch (Exception ex)
             {

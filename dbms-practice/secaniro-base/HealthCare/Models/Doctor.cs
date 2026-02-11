@@ -7,6 +7,7 @@ namespace HealthCare.Models
         public int DoctorId { get; set; }
         public string Name { get; set; }
         public int SpecialityID { get; set; }
+        public string SpecialityName { get; set; }   // for join
         public string Contact { get; set; }
         public string Email { get; set; }
         public decimal ConsultationFee { get; set; }
@@ -14,19 +15,27 @@ namespace HealthCare.Models
 
         public Doctor() { }
 
-        public Doctor( int doctorId, string name, int specialityId, string contact, string email, decimal consultationFee, bool isActive)
+        public Doctor(
+            int doctorId,
+            string name,
+            int specialityId,
+            string specialityName,
+            string contact,
+            string email,
+            decimal consultationFee,
+            bool isActive)
         {
             DoctorId = doctorId;
             Name = name;
             SpecialityID = specialityId;
+            SpecialityName = specialityName;
             Contact = contact;
             Email = email;
             ConsultationFee = consultationFee;
             IsActive = isActive;
         }
-        
-        
-        public Doctor( string name, int specialityId, string contact, string email, decimal consultationFee)
+
+        public Doctor(string name, int specialityId, string contact, string email, decimal consultationFee)
         {
             Name = name;
             SpecialityID = specialityId;
@@ -35,6 +44,5 @@ namespace HealthCare.Models
             ConsultationFee = consultationFee;
             IsActive = true;
         }
-
     }
 }

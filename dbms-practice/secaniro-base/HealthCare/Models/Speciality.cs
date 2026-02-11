@@ -6,6 +6,7 @@ namespace HealthCare.Models
     {
         public int SpecialityID { get; set; }
         public string SpecialityName { get; set; }
+        // public bool IsActive { get; set; } // future use
 
         public Speciality() { }
 
