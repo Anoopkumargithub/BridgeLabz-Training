@@ -1,19 +1,39 @@
 ﻿using System;
-using HealthCare.Service;
 using HealthCare.Menu;
+using HealthCare.Service;
+using HealthCare.Repository;
+using HealthCare.Interfaces;
 
 class Program
 {
     static void Main()
     {
+        IAppointmentRepository appointmentRepo = new AppointmentRepository();
+        IPatientRepository patientRepo = new PatientRepository();
+        IDoctorRepository doctorRepo = new DoctorRepository();
+        ISpecialityRepository specialityRepo = new SpecialityRepository();
+
+
+        AppointmentService appointmentService =
+            new AppointmentService(appointmentRepo, patientRepo, doctorRepo);
+        PatientService patientService = new PatientService();
+
+        ReceptionistMenu receptionistMenu =
+            new ReceptionistMenu(appointmentService, patientService);
+
         PatientMenu patientMenu = new PatientMenu();
         AdminMenu adminMenu = new AdminMenu();
+        
 
+        // =========================
+        // Main Menu
+        // =========================
         while (true)
         {
-            Console.WriteLine("\n===== HEALTHCARE SYSTEM =====");
-            Console.WriteLine("1. Patient Module");
-            Console.WriteLine("2. Admin Panel");
+            Console.WriteLine("\n===== HEALTHCARE MANAGEMENT SYSTEM =====");
+            Console.WriteLine("1. Admin Panel");
+            Console.WriteLine("2. Receptionist Panel");
+            Console.WriteLine("3. Patient Module");
             Console.WriteLine("0. Exit");
             Console.Write("Choose option: ");
 
@@ -22,19 +42,23 @@ class Program
             switch (choice)
             {
                 case "1":
-                    patientMenu.Show();
-                    break;
-
-                case "2":
                     adminMenu.Show();
                     break;
 
+                case "2":
+                    receptionistMenu.Show();
+                    break;
+
+                case "3":
+                    patientMenu.Show();
+                    break;
+
                 case "0":
-                    Console.WriteLine("Exiting...");
+                    Console.WriteLine("Exiting system...");
                     return;
 
                 default:
-                    Console.WriteLine("Invalid choice");
+                    Console.WriteLine("Invalid choice.");
                     break;
             }
         }
