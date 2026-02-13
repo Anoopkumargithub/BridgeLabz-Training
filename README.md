@@ -6,6 +6,39 @@
 
 ## 📅 Progress Log
 
+### **13-Feb-2026** | Email Validator - College Admission Portal
+
+#### 📚 Topic Covered
+**Email Validation with Regex, Exception Handling & Modular Design**
+
+---
+
+#### ✅ Tasks Completed
+
+| # | Task | Description | Implementation | Status |
+|---|------|-------------|----------------|--------|
+| 1 | **Accept User Emails** | Module to accept user emails at registration | [AdmissionService.cs](io-csharp-practice/scenario-base/EmailValidatorCollegeAdmissionPortal/Services/AdmissionService.cs) | ✅ Done |
+| 2 | **Validate Email Address** | Validate email using regex (alphanumeric username, dots, underscores; alphabetic domain; specific extensions) | [AdmissionService.cs](io-csharp-practice/scenario-base/EmailValidatorCollegeAdmissionPortal/Services/AdmissionService.cs) | ✅ Done |
+
+**Total Completed:** 2/2 Tasks ✅
+
+---
+
+#### 🎯 Key Learnings
+- Regex for email validation (Pattern, Matcher concepts)
+- Exception Handling for invalid email formats
+- Modular method design for `IsValidEmail` in `AdmissionService`
+- Integration of validation logic within `AddStudent` workflow
+
+---
+
+#### 🛠️ Technologies Used
+- **Language**: C# (.NET)
+- **Concepts**: Pattern, Matcher, Regex, Exception Handling, Modular Design
+- **Tools**: Visual Studio Code, .NET SDK
+
+---
+
 ### **02-Feb-2026** | IPL Censorship Analyzer - Project Configuration & Sample Data Setup
 
 #### 📚 Topic Covered
@@ -257,6 +290,7 @@ AddressBook/
 
 | Category | Date | Skills Acquired | Tasks Completed |
 |----------|------|-----------------|-----------------|
+| **Email Validator - College Admission Portal** | 13-Feb-2026 | Regex, Exception Handling, Modular Design | 2/2 ✅ |
 | **Address Book System** | 30-Jan-2026 | CSV/JSON File I/O, data persistence, serialization, role-based access, LINQ | 13/13 ✅ |
 | **IPL Censorship Analyzer** | 02-Feb-2026 | NuGet management, project configuration, data integration | 4/4 ✅ |
 | **JSON Handling** | 01-Feb-2026 | Object conversion, reading, merging, validation | 5/5 ✅ |
@@ -266,4 +300,4 @@ AddressBook/
 
 ---
 
-*Last Updated: 30-Jan-2026*
+*Last Updated: 13-Feb-2026*
