@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using EmailValidatorCollegeAdmissionPortal.Models;
 using EmailValidatorCollegeAdmissionPortal.Interfaces;
@@ -18,7 +19,7 @@ namespace EmailValidatorCollegeAdmissionPortal.Services
         }
 
         // Add Student
-        public void AddStudent()
+        public async Task AddStudentAsync()
         {
             try
             {
@@ -30,9 +31,26 @@ namespace EmailValidatorCollegeAdmissionPortal.Services
 
                 ValidateStudent(student);
 
-                _repository.AddStudent(student);
+                // create thread
+                // Thread thread = new Thread(() => 
+                // {
+                //     Console.WriteLine("Saving Student data using backgroud thread...");
+                //     _repository.AddStudent(student);
+                //     Console.WriteLine("Student Added Successfully.");
 
+                // })
+
+                // thread.Start();
+
+                // thread.Join();
+
+
+                await Task.Run(() => 
+                {
+                    _repository.AddStudent(student);
+                });
                 Console.WriteLine("Student Added Successfully.");
+
             }
             catch (DataValidationException ex)
             {

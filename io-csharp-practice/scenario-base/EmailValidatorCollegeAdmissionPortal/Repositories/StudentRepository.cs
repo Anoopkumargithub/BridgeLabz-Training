@@ -13,6 +13,9 @@ namespace EmailValidatorCollegeAdmissionPortal.Repositories
         // File Path 
         private readonly string _filePath = "student.json";
 
+        // create a lock object
+        private static readonly object _lock = new object();
+
         // Ensure FIle Exists
         private void EnsureFileExists()
         {
@@ -48,25 +51,30 @@ namespace EmailValidatorCollegeAdmissionPortal.Repositories
         // Add Student
         public void AddStudent(Student student)
         {
-            var students = ReadAll();
-            students.Add(student);
-            WriteAll(students);
+            lock(_lock){
+                var students = ReadAll();
+                students.Add(student);
+                WriteAll(students);
+            }
         }
 
         // Delete student by ID
         public void Delete(int id)
         {
-            var students = ReadAll();
+            lock (_lock)
+            {
+                var students = ReadAll();
 
-            var studentToRemove = students.FirstOrDefault(e => e.Id == id);
+                var studentToRemove = students.FirstOrDefault(e => e.Id == id);
 
-            if(studentToRemove != null){
-                students.Remove(studentToRemove);
-                WriteAll(students);
-                Console.WriteLine("Student Deleted SucessFully.");
-            }
-            else{
-                Console.WriteLine("Student Not Found");
+                if(studentToRemove != null){
+                    students.Remove(studentToRemove);
+                    WriteAll(students);
+                    Console.WriteLine("Student Deleted SucessFully.");
+                }
+                else{
+                    Console.WriteLine("Student Not Found");
+                }
             }
         }
         

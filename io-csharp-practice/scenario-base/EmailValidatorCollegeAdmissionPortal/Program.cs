@@ -6,7 +6,7 @@ using EmailValidatorCollegeAdmissionPortal.Utilities;
 
 public class Program
 {
-    public static void Main()
+    static async Task  Main()
     {
         IStudentRepository repository = new StudentRepository();
         AdmissionService service = new AdmissionService(repository);
@@ -25,7 +25,7 @@ public class Program
             switch(choice)
             {
                 case 1:
-                    service.AddStudent();
+                    await service.AddStudentAsync();
                     break;
                 case 2:
                     service.DeleteStudent();
