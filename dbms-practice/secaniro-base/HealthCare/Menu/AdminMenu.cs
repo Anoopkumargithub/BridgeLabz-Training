@@ -9,9 +9,9 @@ namespace HealthCare.Menu
         private readonly DoctorMenu _doctorMenu;
         private readonly SpecialityMenu _specialityMenu;
 
-        public AdminMenu(VisitService visitService)
+        public AdminMenu(DoctorService doctorService)
         {
-            _doctorMenu = new DoctorMenu(visitService);
+            _doctorMenu = new DoctorMenu(doctorService);
             _specialityMenu = new SpecialityMenu();
         }
 
@@ -26,23 +26,12 @@ namespace HealthCare.Menu
                 Console.Write("Choose option: ");
 
                 string choice = Console.ReadLine();
-
                 switch (choice)
                 {
-                    case "1":
-                        _doctorMenu.Show();
-                        break;
-
-                    case "2":
-                        _specialityMenu.Show();
-                        break;
-
-                    case "0":
-                        return;
-
-                    default:
-                        Console.WriteLine("Invalid choice");
-                        break;
+                    case "1": _doctorMenu.Show(); break;
+                    case "2": _specialityMenu.Show(); break;
+                    case "0": return;
+                    default: Console.WriteLine("Invalid choice"); break;
                 }
             }
         }

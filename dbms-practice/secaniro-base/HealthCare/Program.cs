@@ -8,59 +8,51 @@ class Program
 {
     static void Main()
     {
+        // Repositories
+        IPrescriptionRepository prescriptionRepo = new PrescriptionRepository();
         IVisitRepository visitRepo = new VisitRepository();
         IAppointmentRepository appointmentRepo = new AppointmentRepository();
         IPatientRepository patientRepo = new PatientRepository();
         IDoctorRepository doctorRepo = new DoctorRepository();
         ISpecialityRepository specialityRepo = new SpecialityRepository();
 
+        // Services
+        PrescriptionService prescriptionService = new PrescriptionService(prescriptionRepo, visitRepo);
         VisitService visitService = new VisitService(visitRepo, appointmentRepo);
-        AppointmentService appointmentService =
-            new AppointmentService(appointmentRepo, patientRepo, doctorRepo);
+        DoctorService doctorService = new DoctorService();
+        SpecialityService specialityService = new SpecialityService();
+        AppointmentService appointmentService = new AppointmentService(appointmentRepo, patientRepo, doctorRepo);
         PatientService patientService = new PatientService();
 
-        ReceptionistMenu receptionistMenu =
-            new ReceptionistMenu(appointmentService, patientService);
-
+        // Menus
+        AdminMenu adminMenu = new AdminMenu(doctorService);
+        ReceptionistMenu receptionistMenu = new ReceptionistMenu(appointmentService, patientService);
         PatientMenu patientMenu = new PatientMenu();
-        AdminMenu adminMenu = new AdminMenu(visitService);
-        
+        DoctorPanelMenu doctorPanelMenu = new DoctorPanelMenu(visitService, prescriptionService);
 
-        // =========================
-        // Main Menu
-        // =========================
         while (true)
         {
             Console.WriteLine("\n===== HEALTHCARE MANAGEMENT SYSTEM =====");
             Console.WriteLine("1. Admin Panel");
             Console.WriteLine("2. Receptionist Panel");
-            Console.WriteLine("3. Patient Module");
+            Console.WriteLine("3. Patient Panel");
+            Console.WriteLine("4. Doctor Panel");
             Console.WriteLine("0. Exit");
             Console.Write("Choose option: ");
 
             string choice = Console.ReadLine();
-
             switch (choice)
             {
-                case "1":
-                    adminMenu.Show();
+                case "1": adminMenu.Show(); break;
+                case "2": receptionistMenu.Show(); break;
+                case "3": patientMenu.Show(); break;
+                case "4":
+                    Console.Write("Enter your Doctor ID: ");
+                    int doctorId = int.Parse(Console.ReadLine());
+                    doctorPanelMenu.Show(doctorId);
                     break;
-
-                case "2":
-                    receptionistMenu.Show();
-                    break;
-
-                case "3":
-                    patientMenu.Show();
-                    break;
-
-                case "0":
-                    Console.WriteLine("Exiting system...");
-                    return;
-
-                default:
-                    Console.WriteLine("Invalid choice.");
-                    break;
+                case "0": return;
+                default: Console.WriteLine("Invalid choice."); break;
             }
         }
     }
