@@ -150,6 +150,17 @@ CREATE TABLE Visits (
 CREATE UNIQUE INDEX UX_Visit_Appointment ON Visits(AppointmentID);
 CREATE INDEX IDX_Visit_Patient ON Visits(PatientID);
 
+
+--  Alter Visit Table
+ALTER TABLE Visits
+ADD Status VARCHAR(20) DEFAULT 'IN_PROGRESS'
+CHECK (Status IN ('IN_PROGRESS','COMPLETED'));
+
+ALTER TABLE Visits
+ADD Updated_At DATETIME DEFAULT CURRENT_TIMESTAMP;
+
+
+
 /* ===============================
    PRESCRIPTIONS
 ================================ */
