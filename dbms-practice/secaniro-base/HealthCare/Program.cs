@@ -15,6 +15,7 @@ class Program
         IPatientRepository patientRepo = new PatientRepository();
         IDoctorRepository doctorRepo = new DoctorRepository();
         ISpecialityRepository specialityRepo = new SpecialityRepository();
+        IBillingRepository billingRepo = new BillingRepository();
 
         // Services
         PrescriptionService prescriptionService = new PrescriptionService(prescriptionRepo, visitRepo);
@@ -23,11 +24,12 @@ class Program
         SpecialityService specialityService = new SpecialityService();
         AppointmentService appointmentService = new AppointmentService(appointmentRepo, patientRepo, doctorRepo);
         PatientService patientService = new PatientService();
+        BillingService billingService = new BillingService(billingRepo);
 
         // Menus
         AdminMenu adminMenu = new AdminMenu(doctorService);
         ReceptionistMenu receptionistMenu = new ReceptionistMenu(appointmentService, patientService);
-        PatientMenu patientMenu = new PatientMenu();
+        PatientMenu patientMenu = new PatientMenu(patientService, billingService);
         DoctorPanelMenu doctorPanelMenu = new DoctorPanelMenu(visitService, prescriptionService);
 
         while (true)
