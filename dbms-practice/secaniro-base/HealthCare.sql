@@ -249,6 +249,15 @@ CREATE TABLE Users (
         CHECK (Role IN ('ADMIN','DOCTOR','RECEPTIONIST'))
 );
 
+--  Alter Users table for DoctorId
+ALTER TABLE Users
+ADD DoctorID INT NULL;
+
+ALTER TABLE Users
+ADD CONSTRAINT FK_Users_Doctor
+FOREIGN KEY (DoctorID) REFERENCES Doctors(DoctorID);
+
+
 /* ===============================
    SYSTEM AUDIT LOG
 ================================ */
