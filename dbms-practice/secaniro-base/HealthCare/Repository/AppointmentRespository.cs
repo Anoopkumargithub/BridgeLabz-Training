@@ -120,7 +120,7 @@ namespace HealthCare.Repository
         }
 
 
-        public void UpdateAppointmentStatus(int appointmentId, string status)
+        public void UpdateStatus(int appointmentId, string status)
         {
             string query = @"
                 UPDATE Appointments
@@ -141,9 +141,48 @@ namespace HealthCare.Repository
                 throw new NotFoundException("Appointment not found.");
         }
 
+        public Appointment GetAppointmentById(int appointmentId)
+        {
+            string query = @"
+                SELECT a.*, 
+                       p.Name AS PatientName, 
+                       d.Name AS DoctorName
+                FROM Appointments a
+                INNER JOIN Patients p ON a.PatientID = p.PatientID
+                INNER JOIN Doctors d ON a.DoctorID = d.DoctorID
+                WHERE a.AppointmentID = @AppointmentID;";
+
+            using SqlConnection conn = DbConnection.GetConnection();
+            using SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@AppointmentID", appointmentId);
+
+            conn.Open();
+            using SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                return new Appointment
+                {
+                    AppointmentID = (int)reader["AppointmentID"],
+                    PatientID = (int)reader["PatientID"],
+                    DoctorID = (int)reader["DoctorID"],
+                    AppointmentDate = (DateTime)reader["AppointmentDate"],
+                    AppointmentTime = (TimeSpan)reader["AppointmentTime"],
+                    Status = reader["Status"].ToString(),
+                    PatientName = reader["PatientName"].ToString(),
+                    DoctorName = reader["DoctorName"].ToString(),
+                    CreatedAt = (DateTime)reader["CreatedAt"],
+                    UpdatedAt = (DateTime)reader["UpdatedAt"]
+                };
+            }
+
+            throw new NotFoundException("Appointment not found.");
+        }
+
         public void CancelAppointment(int appointmentId)
         {
-            UpdateAppointmentStatus(appointmentId, "CANCELLED");
+            UpdateStatus(appointmentId, "CANCELLED");
         }
 
     }

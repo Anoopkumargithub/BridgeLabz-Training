@@ -1,5 +1,6 @@
 using System;
 using HealthCare.Menu;
+using HealthCare.Service;
 
 namespace HealthCare.Menu
 {
@@ -8,9 +9,9 @@ namespace HealthCare.Menu
         private readonly DoctorMenu _doctorMenu;
         private readonly SpecialityMenu _specialityMenu;
 
-        public AdminMenu()
+        public AdminMenu(VisitService visitService)
         {
-            _doctorMenu = new DoctorMenu();
+            _doctorMenu = new DoctorMenu(visitService);
             _specialityMenu = new SpecialityMenu();
         }
 

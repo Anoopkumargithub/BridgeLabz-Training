@@ -9,6 +9,7 @@ namespace HealthCare.Menu
     {
         private readonly AppointmentService _appointmentService;
         private readonly PatientService _patientService;
+        private readonly VisitService _visitService;
 
         public ReceptionistMenu(
             AppointmentService appointmentService,
@@ -27,7 +28,8 @@ namespace HealthCare.Menu
                 Console.WriteLine("2. Update Patient");
                 Console.WriteLine("3. Create Appointment");
                 Console.WriteLine("4. View Patient Appointments");
-                Console.WriteLine("5. Cancel Appointment");
+                Console.WriteLine("5. StartVisit");
+                Console.WriteLine("6. Cancel Appointment");
                 Console.WriteLine("0. Back");
 
                 Console.Write("Choose option: ");
@@ -52,6 +54,10 @@ namespace HealthCare.Menu
                         break;
 
                     case "5":
+                        StartVisit();
+                        break;
+
+                    case "6":
                         CancelAppointment();
                         break;
 
@@ -123,6 +129,23 @@ namespace HealthCare.Menu
         
             Console.WriteLine("Appointment cancelled.");
         }
+
+        private void StartVisit()
+        {
+            Console.Write("Enter Appointment ID: ");
+            int appointmentId = int.Parse(Console.ReadLine());
+
+            try
+            {
+                int visitId = _visitService.StartVisit(appointmentId);
+                Console.WriteLine($"Visit started successfully. Visit ID: {visitId}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
+
         
 
 

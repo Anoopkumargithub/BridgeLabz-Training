@@ -15,7 +15,10 @@ namespace HealthCare.Interfaces
         List<Appointment> GetAppointmentsByPatient(int patientId);
 
         // update appointment
-        void UpdateAppointmentStatus(int appointmentId, string status);
+        void UpdateStatus(int appointmentId, string status);
+
+        //get Appointment By Id
+        Appointment GetAppointmentById(int appointmentId);
 
         // cancel appointment
         void CancelAppointment(int appointmentId);
