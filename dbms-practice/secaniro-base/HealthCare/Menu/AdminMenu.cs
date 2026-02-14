@@ -8,21 +8,24 @@ namespace HealthCare.Menu
     {
         private readonly DoctorMenu _doctorMenu;
         private readonly SpecialityMenu _specialityMenu;
+        private readonly UserService _userService;
 
-        public AdminMenu(DoctorService doctorService)
+        public AdminMenu(DoctorService doctorService, UserService userService)
         {
             _doctorMenu = new DoctorMenu(doctorService);
             _specialityMenu = new SpecialityMenu();
+            _userService = userService;
         }
 
-        public void Show()
+        public bool Show()
         {
             while (true)
             {
                 Console.WriteLine("\n===== ADMIN PANEL =====");
                 Console.WriteLine("1. Manage Doctors");
                 Console.WriteLine("2. Manage Specialities");
-                Console.WriteLine("0. Back");
+                Console.WriteLine("3. Create User");
+                Console.WriteLine("0. Logout");
                 Console.Write("Choose option: ");
 
                 string choice = Console.ReadLine();
@@ -30,7 +33,8 @@ namespace HealthCare.Menu
                 {
                     case "1": _doctorMenu.Show(); break;
                     case "2": _specialityMenu.Show(); break;
-                    case "0": return;
+                    case "3": _userService.CreateUser(); break;
+                    case "0": return true;
                     default: Console.WriteLine("Invalid choice"); break;
                 }
             }

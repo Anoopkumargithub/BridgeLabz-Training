@@ -14,7 +14,7 @@ namespace HealthCare.Menu
             _prescriptionService = prescriptionService;
         }
 
-        public void Show(int doctorId)
+        public bool Show(int doctorId)
         {
             while (true)
             {
@@ -23,7 +23,7 @@ namespace HealthCare.Menu
                 Console.WriteLine("2. Complete Visit");
                 Console.WriteLine("3. Add Prescription");
                 Console.WriteLine("4. View Prescriptions by Visit");
-                Console.WriteLine("0. Back");
+                Console.WriteLine("0. Logout");
                 Console.Write("Choose option: ");
 
                 string choice = Console.ReadLine();
@@ -33,7 +33,7 @@ namespace HealthCare.Menu
                     case "2": CompleteVisit(doctorId); break;
                     case "3": AddPrescription(doctorId); break;
                     case "4": ViewPrescriptionsByVisit(doctorId); break;
-                    case "0": return;
+                    case "0": return true;
                     default: Console.WriteLine("Invalid choice"); break;
                 }
             }

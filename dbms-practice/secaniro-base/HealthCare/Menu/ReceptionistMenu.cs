@@ -19,7 +19,7 @@ namespace HealthCare.Menu
             _patientService = PatientService;
         }
 
-        public void Show()
+        public bool Show()
         {
             while (true)
             {
@@ -30,7 +30,7 @@ namespace HealthCare.Menu
                 Console.WriteLine("4. View Patient Appointments");
                 Console.WriteLine("5. StartVisit");
                 Console.WriteLine("6. Cancel Appointment");
-                Console.WriteLine("0. Back");
+                Console.WriteLine("0. Logout");
 
                 Console.Write("Choose option: ");
                 string choice = Console.ReadLine();
@@ -62,7 +62,7 @@ namespace HealthCare.Menu
                         break;
 
                     case "0":
-                        return;
+                        return true;
 
                     default:
                         Console.WriteLine("Invalid choice.");

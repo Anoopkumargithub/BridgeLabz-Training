@@ -16,7 +16,7 @@ namespace HealthCare.Menu
             _billingService = billingService;
         }
 
-        public void Show()
+        public bool Show()
         {
             while (true)
             {
@@ -26,7 +26,7 @@ namespace HealthCare.Menu
                 Console.WriteLine("3. Search Patient");
                 Console.WriteLine("4. Get Patient By ID");
                 Console.WriteLine("5. View My Bills");
-                Console.WriteLine("0. Back");
+                Console.WriteLine("0. Logout");
                 Console.Write("Choose option: ");
 
                 string choice = Console.ReadLine();
@@ -54,7 +54,7 @@ namespace HealthCare.Menu
                         break;
 
                     case "0":
-                        return;
+                        return true;
 
                     default:
                         Console.WriteLine("Invalid choice");
