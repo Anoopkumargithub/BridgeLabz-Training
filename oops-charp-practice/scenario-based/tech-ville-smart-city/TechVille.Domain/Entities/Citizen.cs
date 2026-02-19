@@ -34,6 +34,10 @@ namespace TechVille.Domain.Entities
         /// </summary>
         public double EligibilityScore { get; private set; }
 
+        public string Email { get; private set; }
+        public string Address { get; private set; }
+
+
         /// <summary>
         /// Assigned service package.
         /// </summary>
@@ -42,12 +46,14 @@ namespace TechVille.Domain.Entities
         /// <summary>
         /// Constructor to initialize citizen.
         /// </summary>
-        public Citizen(string name, int age, double income, int residencyYears)
+        public Citizen(string name, int age, double income, int residencyYears, string email, string address)
         {
             Name = name;
             Age = age;
             Income = income;
             ResidencyYears = residencyYears;
+            Email = email;
+            Address = address;
         }
 
         /// <summary>
@@ -75,6 +81,16 @@ namespace TechVille.Domain.Entities
            else
                Package = ServicePackage.Platinum;
         }
+
+        /// <summary>
+        /// Updates citizen email and address.
+        /// </summary>
+        public void UpdateProfile(string email, string address)
+        {
+            Email = email;
+            Address = address;
+        }
+        
 
 
         /// <summary>

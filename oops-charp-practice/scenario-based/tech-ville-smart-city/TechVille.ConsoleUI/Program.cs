@@ -14,5 +14,15 @@ namespace TechVille.ConsoleUI
             Console.WriteLine("\nSession Completed.");
             Console.ReadLine();
         }
+        
+        static void ModifyValue(int number)
+        {
+           number = 100;
+        }
+        
+        tatic void ModifyReference(Citizen citizen)
+        {
+           citizen.UpdateProfile("updated@email.com", "New Address 123456");
+        }
     }
 }
