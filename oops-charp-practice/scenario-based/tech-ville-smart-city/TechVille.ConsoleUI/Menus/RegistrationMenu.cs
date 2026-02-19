@@ -62,7 +62,7 @@ namespace TechVille.ConsoleUI.Menus
                     string seniorStatus = age >= 60 ? "Senior Citizen" : "Non-Senior";
                     Console.WriteLine($"Status: {seniorStatus}");
 
-                    ShowPackageBenefits(citizen.Package.ToString());
+                    ShowPackageBenefits(citizen.Package);
                 }
                 catch (Exception ex)
                 {
@@ -81,27 +81,24 @@ namespace TechVille.ConsoleUI.Menus
         {
             switch (package)
             {
-                case "Basic":
+                case ServicePackage.Basic:
                     Console.WriteLine("Access to essential city services.");
                     break;
 
-                case "Silver":
+                case ServicePackage.Silver:
                     Console.WriteLine("Priority service support.");
                     break;
 
-                case "Gold":
+                case ServicePackage.Gold:
                     Console.WriteLine("Premium healthcare and education benefits.");
                     break;
 
-                case "Platinum":
+                case ServicePackage.Platinum:
                     Console.WriteLine("All-inclusive VIP access.");
-                    break;
-
-                default:
-                    Console.WriteLine("Invalid package.");
                     break;
             }
         }
+
 
     }
 }
