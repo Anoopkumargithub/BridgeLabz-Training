@@ -1,4 +1,6 @@
 using System;
+using TechVille.Domain.Enums;
+
 
 namespace TechVille.Domain.Entities
 {
@@ -33,6 +35,11 @@ namespace TechVille.Domain.Entities
         public double EligibilityScore { get; private set; }
 
         /// <summary>
+        /// Assigned service package.
+        /// </summary>
+        public ServicePackage Package { get; private set; }
+
+        /// <summary>
         /// Constructor to initialize citizen.
         /// </summary>
         public Citizen(string name, int age, double income, int residencyYears)
@@ -55,11 +62,27 @@ namespace TechVille.Domain.Entities
         }
 
         /// <summary>
+        /// Assigns service package based on eligibility score.
+        /// </summary>
+        public void AssignServicePackage()
+        {
+           if (EligibilityScore < 20)
+               Package = ServicePackage.Basic;
+           else if (EligibilityScore < 40)
+               Package = ServicePackage.Silver;
+           else if (EligibilityScore < 60)
+               Package = ServicePackage.Gold;
+           else
+               Package = ServicePackage.Platinum;
+        }
+
+
+        /// <summary>
         /// Returns formatted citizen information.
         /// </summary>
         public override string ToString()
         {
-            return $"Name: {Name}, Age: {Age}, Income: {Income}, Residency: {ResidencyYears} years, Score: {EligibilityScore:F2}";
+           return $"Name: {Name}, Age: {Age}, Income: {Income}, Residency: {ResidencyYears} years, Score: {EligibilityScore:F2}, Package: {Package}";
         }
     }
 }

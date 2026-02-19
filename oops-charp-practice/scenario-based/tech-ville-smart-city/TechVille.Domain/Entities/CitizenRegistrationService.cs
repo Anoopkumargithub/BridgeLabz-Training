@@ -24,6 +24,7 @@ namespace TechVille.Application.Services
 
             Citizen citizen = new Citizen(name, age, income, residencyYears);
             citizen.CalculateEligibility();
+            citizen.AssignServicePackage();
 
             return citizen;
         }
