@@ -54,6 +54,24 @@ namespace TechVille.ConsoleUI.Menus
                     Console.Write("Enter Residency Years: ");
                     int residency = int.Parse(Console.ReadLine());
 
+                     Console.Write("Enter Email: ");
+                    string email = Console.ReadLine();
+
+                    if (string.IsNullOrWhiteSpace(email))
+                    {
+                        Console.WriteLine("Invalid email. Skipping...");
+                        continue; // continue example
+                    }
+
+                     Console.Write("Enter Address: ");
+                    string address = Console.ReadLine();
+
+                    if (string.IsNullOrWhiteSpace(address))
+                    {
+                        Console.WriteLine("Invalid address. Skipping...");
+                        continue; // continue example
+                    }
+
                     try
                     {
                         Citizen citizen = _service.Register(name, age, income,
@@ -61,6 +79,18 @@ namespace TechVille.ConsoleUI.Menus
 
                         Console.WriteLine("Registration Successful!");
                         Console.WriteLine(citizen);
+
+                        // Ternary operator example
+                        string seniorStatus = age >= 60 ? "Senior Citizen" : "Non-Senior";
+                        Console.WriteLine($"Status: {seniorStatus}");
+
+                        ShowPackageBenefits(citizen.Package);
+
+                        using (StreamWriter writer = new StreamWriter("audit.txt", true))
+                        {
+                            writer.WriteLine($"Citizen registered:  {citizen.ToString()}");
+                        }
+
                     }
                     catch (InvalidAgeException ex)
                     {
@@ -77,28 +107,12 @@ namespace TechVille.ConsoleUI.Menus
                         Console.WriteLine("Unexpected system error.");
                         ExceptionLogger.Log(ex);
                     }
-                    catch (InvalidAgeException or InvalidEmailException ex)
-                    {
-                        Console.WriteLine("Validation error occurred.");
-                        ExceptionLogger.Log(ex);
-                    }
                     finally
                     {
                         Console.WriteLine("Processing completed.\n");
                     }
 
-                    using (StreamWriter writer = new StreamWriter("audit.txt", true))
-                    {
-                        writer.WriteLine("Citizen registered.");
-                    }
-
                     
-
-                    // Ternary operator example
-                    string seniorStatus = age >= 60 ? "Senior Citizen" : "Non-Senior";
-                    Console.WriteLine($"Status: {seniorStatus}");
-
-                    ShowPackageBenefits(citizen.Package);
                 }
                 catch (Exception ex)
                 {
