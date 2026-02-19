@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="TechVille.Application/TechVille.Application.csproj" />
+  <Project Path="TechVille.ConsoleUI/TechVille.ConsoleUI.csproj" />
+  <Project Path="TechVille.Domain/TechVille.Domain.csproj" />
+  <Project Path="TechVille.Infrastructure/TechVille.Infrastructure.csproj" />
+</Solution>

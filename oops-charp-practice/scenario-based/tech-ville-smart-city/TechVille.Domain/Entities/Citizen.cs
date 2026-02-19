@@ -1,0 +1,65 @@
+using System;
+
+namespace TechVille.Domain.Entities
+{
+    /// <summary>
+    /// Represents a citizen in TechVille Smart City.
+    /// </summary>
+    public class Citizen
+    {
+        /// <summary>
+        /// Full name of citizen.
+        /// </summary>
+        public string Name { get; private set; }
+
+        /// <summary>
+        /// Age of citizen.
+        /// </summary>
+        public int Age { get; private set; }
+
+        /// <summary>
+        /// Annual income.
+        /// </summary>
+        public double Income { get; private set; }
+
+        /// <summary>
+        /// Number of years living in TechVille.
+        /// </summary>
+        public int ResidencyYears { get; private set; }
+
+        /// <summary>
+        /// Eligibility score calculated based on business rules.
+        /// </summary>
+        public double EligibilityScore { get; private set; }
+
+        /// <summary>
+        /// Constructor to initialize citizen.
+        /// </summary>
+        public Citizen(string name, int age, double income, int residencyYears)
+        {
+            Name = name;
+            Age = age;
+            Income = income;
+            ResidencyYears = residencyYears;
+        }
+
+        /// <summary>
+        /// Calculates eligibility score based on defined formula.
+        /// </summary>
+        public void CalculateEligibility()
+        {
+            // Simple formula (can evolve later)
+            EligibilityScore = (Age * 0.3) +
+                               (ResidencyYears * 2) +
+                               (Income / 10000);
+        }
+
+        /// <summary>
+        /// Returns formatted citizen information.
+        /// </summary>
+        public override string ToString()
+        {
+            return $"Name: {Name}, Age: {Age}, Income: {Income}, Residency: {ResidencyYears} years, Score: {EligibilityScore:F2}";
+        }
+    }
+}
