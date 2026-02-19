@@ -1,5 +1,7 @@
 using TechVille.Domain.Entities;
 using TechVille.Application.Utilities;
+using TechVille.Domain.Exceptions;
+
 
 
 namespace TechVille.Application.Services
@@ -16,7 +18,7 @@ namespace TechVille.Application.Services
         {
             // Basic validation using comparison operators
             if (age <= 0)
-                throw new ArgumentException("Age must be greater than 0.");
+                throw new InvalidAgeException("Citizen must be 18 or older.");
 
             if (income < 0)
                 throw new ArgumentException("Income cannot be negative.");
@@ -25,7 +27,7 @@ namespace TechVille.Application.Services
                 throw new ArgumentException("Residency years cannot be negative.");
 
             if (!ProfileUtilities.IsValidEmail(email))
-                throw new ArgumentException("Invalid email format.");
+                throw new InvalidEmailException("Invalid email format.");
 
             name = ProfileUtilities.FormatName(name);
 

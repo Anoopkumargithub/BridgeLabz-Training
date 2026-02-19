@@ -1,6 +1,8 @@
 using TechVille.Application.Services;
 using TechVille.Domain.Entities;
 using TechVille.Domain.Enums;
+using TechVille.Infrastructure.Logging;
+using TechVille.Domain.Exceptions;
 
 
 namespace TechVille.ConsoleUI.Menus
@@ -52,10 +54,44 @@ namespace TechVille.ConsoleUI.Menus
                     Console.Write("Enter Residency Years: ");
                     int residency = int.Parse(Console.ReadLine());
 
-                    Citizen citizen = _service.Register(name, age, income, residency);
+                    try
+                    {
+                        Citizen citizen = _service.Register(name, age, income,
+                                                            residency, email, address);
 
-                    Console.WriteLine("Registration Successful!");
-                    Console.WriteLine(citizen);
+                        Console.WriteLine("Registration Successful!");
+                        Console.WriteLine(citizen);
+                    }
+                    catch (InvalidAgeException ex)
+                    {
+                        Console.WriteLine("Age validation failed.");
+                        ExceptionLogger.Log(ex);
+                    }
+                    catch (InvalidEmailException ex)
+                    {
+                        Console.WriteLine("Email validation failed.");
+                        ExceptionLogger.Log(ex);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Unexpected system error.");
+                        ExceptionLogger.Log(ex);
+                    }
+                    catch (InvalidAgeException or InvalidEmailException ex)
+                    {
+                        Console.WriteLine("Validation error occurred.");
+                        ExceptionLogger.Log(ex);
+                    }
+                    finally
+                    {
+                        Console.WriteLine("Processing completed.\n");
+                    }
+
+                    using (StreamWriter writer = new StreamWriter("audit.txt", true))
+                    {
+                        writer.WriteLine("Citizen registered.");
+                    }
+
                     
 
                     // Ternary operator example
